@@ -75,9 +75,9 @@
 			// 
 			this.groupControl1.Controls.Add(this.simpleButton2);
 			this.groupControl1.Controls.Add(this.simpleButton1);
-			this.groupControl1.Location = new System.Drawing.Point(12, 164);
+			this.groupControl1.Location = new System.Drawing.Point(12, 194);
 			this.groupControl1.Name = "groupControl1";
-			this.groupControl1.Size = new System.Drawing.Size(734, 184);
+			this.groupControl1.Size = new System.Drawing.Size(734, 154);
 			this.groupControl1.TabIndex = 3;
 			this.groupControl1.Text = "Test Buttons";
 			// 
