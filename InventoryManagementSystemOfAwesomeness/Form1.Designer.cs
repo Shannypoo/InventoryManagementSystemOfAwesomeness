@@ -38,7 +38,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,23 +103,20 @@
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
-            // label1
+            // labelControl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(198, 218);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(558, 116);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "SHAN Bayot";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelControl1.Location = new System.Drawing.Point(442, 231);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(18, 13);
+            this.labelControl1.TabIndex = 11;
+            this.labelControl1.Text = "gae";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 360);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "Form1";
@@ -142,7 +139,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private System.Windows.Forms.Label label1;
-	}
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+    }
 }
 
