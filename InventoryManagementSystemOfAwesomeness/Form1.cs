@@ -25,5 +25,10 @@ namespace InventoryManagementSystemOfAwesomeness
 		{
 
 		}
-	}
+
+        private void btnSuit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+    }
 }
