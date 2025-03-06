@@ -38,9 +38,8 @@
 			this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ribbonControl1
@@ -104,20 +103,21 @@
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
 			this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
 			// 
-			// textEdit1
+			// label1
 			// 
-			this.textEdit1.Location = new System.Drawing.Point(187, 208);
-			this.textEdit1.MenuManager = this.ribbonControl1;
-			this.textEdit1.Name = "textEdit1";
-			this.textEdit1.Size = new System.Drawing.Size(100, 20);
-			this.textEdit1.TabIndex = 8;
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(362, 213);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(60, 13);
+			this.label1.TabIndex = 9;
+			this.label1.Text = "Klein Bayot";
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(758, 360);
-			this.Controls.Add(this.textEdit1);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.simpleButton1);
 			this.Controls.Add(this.ribbonControl1);
 			this.Name = "Form1";
@@ -125,7 +125,6 @@
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load_1);
 			((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -141,7 +140,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private DevExpress.XtraEditors.TextEdit textEdit1;
+		private System.Windows.Forms.Label label1;
 	}
 }
 
