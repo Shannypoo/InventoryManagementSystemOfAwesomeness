@@ -39,7 +39,9 @@
 			this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.label1 = new System.Windows.Forms.Label();
+			this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
 			((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ribbonControl1
@@ -112,11 +114,21 @@
 			this.label1.TabIndex = 9;
 			this.label1.Text = "Klein Bayot";
 			// 
+			// pictureEdit1
+			// 
+			this.pictureEdit1.Location = new System.Drawing.Point(176, 164);
+			this.pictureEdit1.MenuManager = this.ribbonControl1;
+			this.pictureEdit1.Name = "pictureEdit1";
+			this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+			this.pictureEdit1.Size = new System.Drawing.Size(180, 184);
+			this.pictureEdit1.TabIndex = 10;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(758, 360);
+			this.Controls.Add(this.pictureEdit1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.simpleButton1);
 			this.Controls.Add(this.ribbonControl1);
@@ -125,6 +137,7 @@
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load_1);
 			((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -141,6 +154,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.Label label1;
+		private DevExpress.XtraEditors.PictureEdit pictureEdit1;
 	}
 }
 
