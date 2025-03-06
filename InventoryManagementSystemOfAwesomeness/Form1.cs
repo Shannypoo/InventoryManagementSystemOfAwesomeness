@@ -23,7 +23,8 @@ namespace InventoryManagementSystemOfAwesomeness
 
 		private void simpleButton1_Click(object sender, EventArgs e)
 		{
-
+			//sHSna
+			//FOr loop
 		}
 
         private void btnSuit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
