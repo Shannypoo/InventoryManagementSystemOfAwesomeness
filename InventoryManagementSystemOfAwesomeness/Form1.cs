@@ -29,6 +29,11 @@ namespace InventoryManagementSystemOfAwesomeness
 
         private void btnSuit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+			//conflict 1
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
 
         }
     }
