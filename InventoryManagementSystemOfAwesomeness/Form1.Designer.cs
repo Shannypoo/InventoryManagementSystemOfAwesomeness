@@ -116,12 +116,12 @@
             // pictureEdit2
             // 
             this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
-            this.pictureEdit2.Location = new System.Drawing.Point(0, -63);
+            this.pictureEdit2.Location = new System.Drawing.Point(494, -43);
             this.pictureEdit2.MenuManager = this.ribbonControl1;
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.pictureEdit2.Size = new System.Drawing.Size(821, 953);
+            this.pictureEdit2.Size = new System.Drawing.Size(237, 543);
             this.pictureEdit2.TabIndex = 14;
             // 
             // Form1
