@@ -106,12 +106,13 @@
 			// 
 			// pictureEdit2
 			// 
+			this.pictureEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
-			this.pictureEdit2.Location = new System.Drawing.Point(176, 157);
+			this.pictureEdit2.Location = new System.Drawing.Point(0, 158);
 			this.pictureEdit2.MenuManager = this.ribbonControl1;
 			this.pictureEdit2.Name = "pictureEdit2";
 			this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-			this.pictureEdit2.Size = new System.Drawing.Size(502, 356);
+			this.pictureEdit2.Size = new System.Drawing.Size(758, 367);
 			this.pictureEdit2.TabIndex = 11;
 			// 
 			// Form1
