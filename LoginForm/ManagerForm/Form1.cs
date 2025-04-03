@@ -35,10 +35,10 @@ namespace EmployeeManagementSystem
             SplashScreenManager.CloseForm();
             CloseAllChildForm();
 
-            AddNewEmployeeForm addNewEmployeeForm = new AddNewEmployeeForm();
+            AddNewEmployeeRF addNewEmployeeRF = new AddNewEmployeeRF();
             this.IsMdiContainer = true;
-            addNewEmployeeForm.MdiParent = this;
-            addNewEmployeeForm.Show();
+            addNewEmployeeRF.MdiParent = this;
+            addNewEmployeeRF.Show();
 
         }
 
