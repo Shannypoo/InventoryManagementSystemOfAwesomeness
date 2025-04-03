@@ -1,6 +1,6 @@
 ﻿namespace LoginForm.Forms
 {
-    partial class SignUp
+    partial class SignUpForm
     {
         /// <summary>
         /// Required designer variable.

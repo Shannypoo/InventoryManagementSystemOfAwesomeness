@@ -44,6 +44,11 @@
             barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             barSubItem2 = new DevExpress.XtraBars.BarSubItem();
@@ -62,16 +67,11 @@
             rptAllRecord = new DevExpress.XtraBars.BarButtonItem();
             rptFaculty = new DevExpress.XtraBars.BarButtonItem();
             rptStaff = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tabbedControlGroup1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).BeginInit();
@@ -137,7 +137,7 @@
             // 
             // addEmployeeBtn
             // 
-            addEmployeeBtn.Caption = "Admin";
+            addEmployeeBtn.Caption = "Add Employee";
             addEmployeeBtn.Id = 2;
             addEmployeeBtn.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("addEmployeeBtn.ImageOptions.SvgImage");
             addEmployeeBtn.Name = "addEmployeeBtn";
@@ -172,13 +172,46 @@
             ribbonPageGroup4.Name = "ribbonPageGroup4";
             ribbonPageGroup4.Text = " ";
             // 
+            // barButtonItem5
+            // 
+            barButtonItem5.Caption = "System User";
+            barButtonItem5.Id = 25;
+            barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
+            barButtonItem5.Name = "barButtonItem5";
+            // 
+            // ribbonPageGroup5
+            // 
+            ribbonPageGroup5.ItemLinks.Add(barButtonItem6);
+            ribbonPageGroup5.Name = "ribbonPageGroup5";
+            ribbonPageGroup5.Text = " ";
+            // 
+            // barButtonItem6
+            // 
+            barButtonItem6.Caption = "Category";
+            barButtonItem6.Id = 26;
+            barButtonItem6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem6.ImageOptions.SvgImage");
+            barButtonItem6.Name = "barButtonItem6";
+            // 
+            // ribbonPageGroup6
+            // 
+            ribbonPageGroup6.ItemLinks.Add(barButtonItem7);
+            ribbonPageGroup6.Name = "ribbonPageGroup6";
+            ribbonPageGroup6.Text = " ";
+            // 
+            // barButtonItem7
+            // 
+            barButtonItem7.Caption = "Product ";
+            barButtonItem7.Id = 27;
+            barButtonItem7.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem7.ImageOptions.SvgImage");
+            barButtonItem7.Name = "barButtonItem7";
+            // 
             // ribbonControl1
             // 
             ribbonControl1.AllowMinimizeRibbon = false;
             ribbonControl1.ExpandCollapseItem.Id = 0;
             ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, addEmployeeBtn, barSubItem1, barSubItem2, barLinkContainerItem1, barListItem1, barLinkContainerItem2, barWorkspaceMenuItem1, barDockingMenuItem1, barButtonItem2, barMdiChildrenListItem1, barStaticItem1, barStaticItem2, a, barSubItem3, barButtonItem3, barStaticItem3, barStaticItem4, barButtonItem1, barButtonItem4, rptEmployeeReportSalary, rptAllRecord, rptFaculty, rptStaff, barButtonItem5, barButtonItem6, barButtonItem7, barButtonItem8 });
             ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            ribbonControl1.MaxItemId = 30;
+            ribbonControl1.MaxItemId = 31;
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage2 });
             ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -297,6 +330,13 @@
             rptStaff.Id = 24;
             rptStaff.Name = "rptStaff";
             // 
+            // barButtonItem8
+            // 
+            barButtonItem8.Caption = "Customer";
+            barButtonItem8.Id = 28;
+            barButtonItem8.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem8.ImageOptions.SvgImage");
+            barButtonItem8.Name = "barButtonItem8";
+            // 
             // tabbedControlGroup1
             // 
             tabbedControlGroup1.CustomizationFormText = "tabbedControlGroup1";
@@ -333,46 +373,6 @@
             layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 9, 9);
             layoutControlGroup4.Size = new System.Drawing.Size(345, 202);
             layoutControlGroup4.Text = "Tab2";
-            // 
-            // barButtonItem5
-            // 
-            barButtonItem5.Caption = "System User";
-            barButtonItem5.Id = 25;
-            barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
-            barButtonItem5.Name = "barButtonItem5";
-            // 
-            // ribbonPageGroup5
-            // 
-            ribbonPageGroup5.ItemLinks.Add(barButtonItem6);
-            ribbonPageGroup5.Name = "ribbonPageGroup5";
-            ribbonPageGroup5.Text = " ";
-            // 
-            // barButtonItem6
-            // 
-            barButtonItem6.Caption = "Catergory";
-            barButtonItem6.Id = 26;
-            barButtonItem6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem6.ImageOptions.SvgImage");
-            barButtonItem6.Name = "barButtonItem6";
-            // 
-            // ribbonPageGroup6
-            // 
-            ribbonPageGroup6.ItemLinks.Add(barButtonItem7);
-            ribbonPageGroup6.Name = "ribbonPageGroup6";
-            ribbonPageGroup6.Text = " ";
-            // 
-            // barButtonItem7
-            // 
-            barButtonItem7.Caption = "Product ";
-            barButtonItem7.Id = 27;
-            barButtonItem7.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem7.ImageOptions.SvgImage");
-            barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem8
-            // 
-            barButtonItem8.Caption = "Customer";
-            barButtonItem8.Id = 28;
-            barButtonItem8.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem8.ImageOptions.SvgImage");
-            barButtonItem8.Name = "barButtonItem8";
             // 
             // managerForm
             // 
