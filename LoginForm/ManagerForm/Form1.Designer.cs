@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(managerForm));
-            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             barSubItem3 = new DevExpress.XtraBars.BarSubItem();
@@ -56,7 +55,6 @@
             barListItem1 = new DevExpress.XtraBars.BarListItem();
             barLinkContainerItem2 = new DevExpress.XtraBars.BarLinkContainerItem();
             barWorkspaceMenuItem1 = new DevExpress.XtraBars.BarWorkspaceMenuItem();
-            workspaceManager1 = new DevExpress.Utils.WorkspaceManager(components);
             barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
@@ -218,7 +216,7 @@
             ribbonControl1.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             ribbonControl1.ShowQatLocationSelector = false;
             ribbonControl1.ShowToolbarCustomizeItem = false;
-            ribbonControl1.Size = new System.Drawing.Size(1049, 201);
+            ribbonControl1.Size = new System.Drawing.Size(1049, 158);
             ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // barSubItem1
@@ -261,12 +259,6 @@
             barWorkspaceMenuItem1.Id = 8;
             barWorkspaceMenuItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barWorkspaceMenuItem1.ImageOptions.SvgImage");
             barWorkspaceMenuItem1.Name = "barWorkspaceMenuItem1";
-            barWorkspaceMenuItem1.WorkspaceManager = workspaceManager1;
-            // 
-            // workspaceManager1
-            // 
-            workspaceManager1.TargetControl = this;
-            workspaceManager1.TransitionType = pushTransition1;
             // 
             // barDockingMenuItem1
             // 
@@ -430,7 +422,6 @@
         private DevExpress.XtraBars.BarButtonItem rptAllRecord;
         private DevExpress.XtraBars.BarButtonItem rptFaculty;
         private DevExpress.XtraBars.BarButtonItem rptStaff;
-        private DevExpress.Utils.WorkspaceManager workspaceManager1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
