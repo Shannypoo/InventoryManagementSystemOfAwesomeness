@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraBars.Docking2010;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +31,14 @@ namespace LoginForm.Forms
             }
             return id;
         }
-        private void AddNewEmployeeRF_Load(object sender, EventArgs e)
+
+        private void windowsuiButtonPanel1_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
-            EmployeeIDTe.Text = GenerateID();
+            WindowsUIButton btn = e.Button as WindowsUIButton;
+            if (btn.Tag != null && btn.Tag.Equals("Cancel"))
+            {
+                this.Close();
+            }
         }
     }
 }

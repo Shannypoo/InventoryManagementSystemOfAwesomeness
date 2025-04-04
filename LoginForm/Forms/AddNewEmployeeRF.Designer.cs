@@ -54,8 +54,8 @@
             windowsuiButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             groupControl2 = new DevExpress.XtraEditors.GroupControl();
             groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
@@ -71,8 +71,8 @@
             groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
             groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             SuspendLayout();
             // 
             // ribbon
@@ -245,12 +245,13 @@
             // 
             windowsuiButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions1.SvgImage");
             windowsuiButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions2.SvgImage");
-            windowsuiButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false) });
-            windowsuiButtonPanel1.Location = new System.Drawing.Point(434, 382);
+            windowsuiButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
+            windowsuiButtonPanel1.Location = new System.Drawing.Point(429, 382);
             windowsuiButtonPanel1.Name = "windowsuiButtonPanel1";
             windowsuiButtonPanel1.Size = new System.Drawing.Size(124, 62);
             windowsuiButtonPanel1.TabIndex = 21;
             windowsuiButtonPanel1.Text = "windowsuiButtonPanel1";
+            windowsuiButtonPanel1.ButtonClick += windowsuiButtonPanel1_ButtonClick;
             // 
             // groupControl2
             // 
@@ -280,16 +281,6 @@
             groupControl3.TabIndex = 23;
             groupControl3.Text = "groupControl3";
             // 
-            // lookUpEdit1
-            // 
-            lookUpEdit1.Location = new System.Drawing.Point(13, 36);
-            lookUpEdit1.MenuManager = ribbon;
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentID", "Department ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentName", "Department Name") });
-            lookUpEdit1.Size = new System.Drawing.Size(367, 28);
-            lookUpEdit1.TabIndex = 21;
-            // 
             // lookUpEdit2
             // 
             lookUpEdit2.Location = new System.Drawing.Point(13, 117);
@@ -299,6 +290,16 @@
             lookUpEdit2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionID", "Position ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionTitle", "Position Title") });
             lookUpEdit2.Size = new System.Drawing.Size(367, 28);
             lookUpEdit2.TabIndex = 22;
+            // 
+            // lookUpEdit1
+            // 
+            lookUpEdit1.Location = new System.Drawing.Point(13, 36);
+            lookUpEdit1.MenuManager = ribbon;
+            lookUpEdit1.Name = "lookUpEdit1";
+            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentID", "Department ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentName", "Department Name") });
+            lookUpEdit1.Size = new System.Drawing.Size(367, 28);
+            lookUpEdit1.TabIndex = 21;
             // 
             // AddNewEmployeeRF
             // 
@@ -314,8 +315,8 @@
             Name = "AddNewEmployeeRF";
             Ribbon = ribbon;
             RibbonVisibility = DevExpress.XtraBars.Ribbon.RibbonVisibility.Hidden;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "AddNewEmployeeRF";
-            Load += AddNewEmployeeRF_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
@@ -334,8 +335,8 @@
             ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
             groupControl3.ResumeLayout(false);
             groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

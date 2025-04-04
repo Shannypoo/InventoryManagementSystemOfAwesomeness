@@ -192,7 +192,7 @@
             labelControl2.Size = new System.Drawing.Size(261, 18);
             labelControl2.TabIndex = 2;
             labelControl2.Text = "Please Login to your account !";
-            labelControl2.Click += labelControl2_Click;
+
             // 
             // pictureEdit1
             // 

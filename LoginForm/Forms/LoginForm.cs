@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using EmployeeManagementSystem;
+using LoginForm.ManagerForm;
 
 namespace LoginForm {
     public partial class LoginForm : DevExpress.XtraEditors.XtraForm
@@ -29,9 +29,10 @@ namespace LoginForm {
 
                 if (inputEmail == email && inputPassword == pass)
                 {
+                    
                     XtraMessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
-                    managerForm mainForm = new managerForm();
+                    EmployeeManagementForm mainForm = new EmployeeManagementForm();
                     mainForm.Show();
                 }
                 else
@@ -41,9 +42,6 @@ namespace LoginForm {
             }
         }
 
-        private void labelControl2_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
