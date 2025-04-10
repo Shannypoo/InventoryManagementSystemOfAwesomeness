@@ -17,7 +17,7 @@ namespace LoginForm.Forms
 {
     public partial class AddNewEmployeeRF : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=IT3232SQLAdventures; User ID=sa; Password=123456";
+        private string connectionString = @"DATA Source=DESKTOP-PF1RR13\SQLEXPRESS; Initial Catalog=WareHouse; Integrated Security = True";
 
         public AddNewEmployeeRF()
         {
@@ -38,9 +38,17 @@ namespace LoginForm.Forms
             return id;
         }
 
-
-        private void windowsuiButtonPanel1_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
         {
+            string EmployeeID = EmployeeIDTe.Text.Trim();
+            string FirstName = FirstNameTe.Text.Trim();
+            string MiddleName = MiddleNameTe.Text.Trim();
+            string LastName = LastNameTe.Text.Trim();
+            string NameExtension = NameExtensionTe.Text.Trim();
+            DateTime DateOfBirth = Convert.ToDateTime(DateOfBirthDe.EditValue);
+            string Address = AddressMe.Text.Trim();
+            string ContactNo = ContactNoTe.Text.Trim();
+
             WindowsUIButton btn = e.Button as WindowsUIButton;
             if (btn.Tag != null && btn.Tag.Equals("Save"))
             {
@@ -48,11 +56,18 @@ namespace LoginForm.Forms
                 {
                     try
                     {
-                        string InsertEmployees = @"";
+                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address)
+                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address)";
 
                         connection.Execute(InsertEmployees, new
                         {
-
+                            EmployeeID = EmployeeID,
+                            FirstName = FirstName,
+                            MiddleName = MiddleName,
+                            LastName = LastName,
+                            NameExtension = NameExtension,
+                            DateOfBirth = DateOfBirth,
+                            Address = Address
                         });
                         MessageBox.Show("Contact Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();

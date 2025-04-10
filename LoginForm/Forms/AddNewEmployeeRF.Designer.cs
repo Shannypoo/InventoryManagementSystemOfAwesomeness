@@ -28,41 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewEmployeeRF));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions10 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions11 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions12 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            NameExtensionTe = new DevExpress.XtraEditors.TextEdit();
+            LastNameTe = new DevExpress.XtraEditors.TextEdit();
+            MiddleNameTe = new DevExpress.XtraEditors.TextEdit();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            FirstNameTe = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            AddressMe = new DevExpress.XtraEditors.MemoEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            DateOfBirthDe = new DevExpress.XtraEditors.DateEdit();
             labelControl8 = new DevExpress.XtraEditors.LabelControl();
             labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            windowsuiButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            ContactNoTe = new DevExpress.XtraEditors.TextEdit();
             groupControl3 = new DevExpress.XtraEditors.GroupControl();
             lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            windowsuiButtonPanel2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            SaveNCancel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            windowsuiButtonPanel3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             labelControl11 = new DevExpress.XtraEditors.LabelControl();
             labelControl10 = new DevExpress.XtraEditors.LabelControl();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -74,15 +70,16 @@
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NameExtensionTe.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)LastNameTe.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MiddleNameTe.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FirstNameTe.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddressMe.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DateOfBirthDe.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DateOfBirthDe.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl2).BeginInit();
             groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ContactNoTe.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
             groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).BeginInit();
@@ -122,13 +119,13 @@
             // groupControl1
             // 
             groupControl1.Controls.Add(labelControl4);
-            groupControl1.Controls.Add(textEdit4);
-            groupControl1.Controls.Add(textEdit3);
-            groupControl1.Controls.Add(textEdit2);
+            groupControl1.Controls.Add(NameExtensionTe);
+            groupControl1.Controls.Add(LastNameTe);
+            groupControl1.Controls.Add(MiddleNameTe);
             groupControl1.Controls.Add(labelControl3);
             groupControl1.Controls.Add(labelControl2);
             groupControl1.Controls.Add(labelControl1);
-            groupControl1.Controls.Add(textEdit1);
+            groupControl1.Controls.Add(FirstNameTe);
             groupControl1.Location = new System.Drawing.Point(25, 35);
             groupControl1.Name = "groupControl1";
             groupControl1.Size = new System.Drawing.Size(829, 103);
@@ -143,26 +140,26 @@
             labelControl4.TabIndex = 9;
             labelControl4.Text = "NAME EXTENSION";
             // 
-            // textEdit4
+            // NameExtensionTe
             // 
-            textEdit4.Location = new System.Drawing.Point(704, 58);
-            textEdit4.Name = "textEdit4";
-            textEdit4.Size = new System.Drawing.Size(104, 28);
-            textEdit4.TabIndex = 8;
+            NameExtensionTe.Location = new System.Drawing.Point(704, 58);
+            NameExtensionTe.Name = "NameExtensionTe";
+            NameExtensionTe.Size = new System.Drawing.Size(104, 28);
+            NameExtensionTe.TabIndex = 8;
             // 
-            // textEdit3
+            // LastNameTe
             // 
-            textEdit3.Location = new System.Drawing.Point(446, 58);
-            textEdit3.Name = "textEdit3";
-            textEdit3.Size = new System.Drawing.Size(234, 28);
-            textEdit3.TabIndex = 7;
+            LastNameTe.Location = new System.Drawing.Point(446, 58);
+            LastNameTe.Name = "LastNameTe";
+            LastNameTe.Size = new System.Drawing.Size(234, 28);
+            LastNameTe.TabIndex = 7;
             // 
-            // textEdit2
+            // MiddleNameTe
             // 
-            textEdit2.Location = new System.Drawing.Point(237, 58);
-            textEdit2.Name = "textEdit2";
-            textEdit2.Size = new System.Drawing.Size(182, 28);
-            textEdit2.TabIndex = 6;
+            MiddleNameTe.Location = new System.Drawing.Point(237, 58);
+            MiddleNameTe.Name = "MiddleNameTe";
+            MiddleNameTe.Size = new System.Drawing.Size(182, 28);
+            MiddleNameTe.TabIndex = 6;
             // 
             // labelControl3
             // 
@@ -188,48 +185,48 @@
             labelControl1.TabIndex = 1;
             labelControl1.Text = "FIRST NAME";
             // 
-            // textEdit1
+            // FirstNameTe
             // 
-            textEdit1.Location = new System.Drawing.Point(20, 58);
-            textEdit1.Name = "textEdit1";
-            textEdit1.Size = new System.Drawing.Size(193, 28);
-            textEdit1.TabIndex = 0;
+            FirstNameTe.Location = new System.Drawing.Point(20, 58);
+            FirstNameTe.Name = "FirstNameTe";
+            FirstNameTe.Size = new System.Drawing.Size(193, 28);
+            FirstNameTe.TabIndex = 0;
             // 
             // labelControl5
             // 
-            labelControl5.Location = new System.Drawing.Point(15, 5);
+            labelControl5.Location = new System.Drawing.Point(15, 15);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new System.Drawing.Size(56, 13);
             labelControl5.TabIndex = 10;
             labelControl5.Text = "BIRTHDATE";
             // 
-            // memoEdit1
+            // AddressMe
             // 
-            memoEdit1.Location = new System.Drawing.Point(15, 77);
-            memoEdit1.MenuManager = ribbon;
-            memoEdit1.Name = "memoEdit1";
-            memoEdit1.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            memoEdit1.Size = new System.Drawing.Size(367, 112);
-            memoEdit1.TabIndex = 13;
+            AddressMe.Location = new System.Drawing.Point(15, 87);
+            AddressMe.MenuManager = ribbon;
+            AddressMe.Name = "AddressMe";
+            AddressMe.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            AddressMe.Size = new System.Drawing.Size(367, 112);
+            AddressMe.TabIndex = 13;
             // 
             // labelControl6
             // 
-            labelControl6.Location = new System.Drawing.Point(15, 58);
+            labelControl6.Location = new System.Drawing.Point(15, 68);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new System.Drawing.Size(46, 13);
             labelControl6.TabIndex = 14;
             labelControl6.Text = "ADDRESS";
             // 
-            // dateEdit1
+            // DateOfBirthDe
             // 
-            dateEdit1.EditValue = null;
-            dateEdit1.Location = new System.Drawing.Point(15, 24);
-            dateEdit1.MenuManager = ribbon;
-            dateEdit1.Name = "dateEdit1";
-            dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Size = new System.Drawing.Size(153, 28);
-            dateEdit1.TabIndex = 15;
+            DateOfBirthDe.EditValue = null;
+            DateOfBirthDe.Location = new System.Drawing.Point(15, 34);
+            DateOfBirthDe.MenuManager = ribbon;
+            DateOfBirthDe.Name = "DateOfBirthDe";
+            DateOfBirthDe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            DateOfBirthDe.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            DateOfBirthDe.Size = new System.Drawing.Size(153, 28);
+            DateOfBirthDe.TabIndex = 15;
             // 
             // labelControl8
             // 
@@ -247,31 +244,35 @@
             labelControl9.TabIndex = 20;
             labelControl9.Text = "POSITION";
             // 
-            // windowsuiButtonPanel1
-            // 
-            windowsuiButtonImageOptions7.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions7.SvgImage");
-            windowsuiButtonImageOptions8.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions8.SvgImage");
-            windowsuiButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
-            windowsuiButtonPanel1.Location = new System.Drawing.Point(399, 211);
-            windowsuiButtonPanel1.Name = "windowsuiButtonPanel1";
-            windowsuiButtonPanel1.Size = new System.Drawing.Size(124, 62);
-            windowsuiButtonPanel1.TabIndex = 21;
-            windowsuiButtonPanel1.Text = "windowsuiButtonPanel1";
-            windowsuiButtonPanel1.ButtonClick += windowsuiButtonPanel1_ButtonClick;
-            // 
             // groupControl2
             // 
+            groupControl2.Controls.Add(labelControl12);
+            groupControl2.Controls.Add(ContactNoTe);
             groupControl2.Controls.Add(labelControl5);
-            groupControl2.Controls.Add(windowsuiButtonPanel1);
-            groupControl2.Controls.Add(memoEdit1);
+            groupControl2.Controls.Add(AddressMe);
             groupControl2.Controls.Add(labelControl6);
-            groupControl2.Controls.Add(dateEdit1);
+            groupControl2.Controls.Add(DateOfBirthDe);
             groupControl2.Location = new System.Drawing.Point(25, 161);
             groupControl2.Name = "groupControl2";
             groupControl2.ShowCaption = false;
             groupControl2.Size = new System.Drawing.Size(400, 212);
             groupControl2.TabIndex = 22;
             groupControl2.Text = "Details";
+            // 
+            // labelControl12
+            // 
+            labelControl12.Location = new System.Drawing.Point(200, 16);
+            labelControl12.Name = "labelControl12";
+            labelControl12.Size = new System.Drawing.Size(92, 13);
+            labelControl12.TabIndex = 22;
+            labelControl12.Text = "CONTACT NUMBER";
+            // 
+            // ContactNoTe
+            // 
+            ContactNoTe.Location = new System.Drawing.Point(200, 35);
+            ContactNoTe.Name = "ContactNoTe";
+            ContactNoTe.Size = new System.Drawing.Size(182, 28);
+            ContactNoTe.TabIndex = 10;
             // 
             // groupControl3
             // 
@@ -317,7 +318,7 @@
             // 
             // xtraTabPage1
             // 
-            xtraTabPage1.Controls.Add(windowsuiButtonPanel2);
+            xtraTabPage1.Controls.Add(SaveNCancel);
             xtraTabPage1.Controls.Add(groupControl1);
             xtraTabPage1.Controls.Add(groupControl3);
             xtraTabPage1.Controls.Add(groupControl2);
@@ -325,20 +326,20 @@
             xtraTabPage1.Size = new System.Drawing.Size(876, 443);
             xtraTabPage1.Text = "Employee Details";
             // 
-            // windowsuiButtonPanel2
+            // SaveNCancel
             // 
-            windowsuiButtonImageOptions9.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions9.SvgImage");
-            windowsuiButtonImageOptions10.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions10.SvgImage");
-            windowsuiButtonPanel2.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "SAVE", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions10, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "CANCEL", -1, false) });
-            windowsuiButtonPanel2.Location = new System.Drawing.Point(368, 378);
-            windowsuiButtonPanel2.Name = "windowsuiButtonPanel2";
-            windowsuiButtonPanel2.Size = new System.Drawing.Size(135, 62);
-            windowsuiButtonPanel2.TabIndex = 24;
-            windowsuiButtonPanel2.Text = "windowsuiButtonPanel2";
+            windowsuiButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions1.SvgImage");
+            windowsuiButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions2.SvgImage");
+            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "SAVE", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "CANCEL", -1, false) });
+            SaveNCancel.Location = new System.Drawing.Point(368, 378);
+            SaveNCancel.Name = "SaveNCancel";
+            SaveNCancel.Size = new System.Drawing.Size(135, 62);
+            SaveNCancel.TabIndex = 24;
+            SaveNCancel.Text = "windowsuiButtonPanel2";
+            SaveNCancel.ButtonClick += SaveNCancel_ButtonClick;
             // 
             // xtraTabPage2
             // 
-            xtraTabPage2.Controls.Add(windowsuiButtonPanel3);
             xtraTabPage2.Controls.Add(labelControl11);
             xtraTabPage2.Controls.Add(labelControl10);
             xtraTabPage2.Controls.Add(labelControl7);
@@ -350,17 +351,6 @@
             xtraTabPage2.Name = "xtraTabPage2";
             xtraTabPage2.Size = new System.Drawing.Size(876, 443);
             xtraTabPage2.Text = "Employee Account";
-            // 
-            // windowsuiButtonPanel3
-            // 
-            windowsuiButtonImageOptions11.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions11.SvgImage");
-            windowsuiButtonImageOptions12.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions12.SvgImage");
-            windowsuiButtonPanel3.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions11, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "SAVE", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions12, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "CANCEL", -1, false) });
-            windowsuiButtonPanel3.Location = new System.Drawing.Point(368, 378);
-            windowsuiButtonPanel3.Name = "windowsuiButtonPanel3";
-            windowsuiButtonPanel3.Size = new System.Drawing.Size(135, 62);
-            windowsuiButtonPanel3.TabIndex = 25;
-            windowsuiButtonPanel3.Text = "windowsuiButtonPanel3";
             // 
             // labelControl11
             // 
@@ -444,16 +434,17 @@
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NameExtensionTe.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)LastNameTe.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MiddleNameTe.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FirstNameTe.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddressMe.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DateOfBirthDe.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DateOfBirthDe.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl2).EndInit();
             groupControl2.ResumeLayout(false);
             groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ContactNoTe.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
             groupControl3.ResumeLayout(false);
             groupControl3.PerformLayout();
@@ -479,20 +470,19 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit NameExtensionTe;
+        private DevExpress.XtraEditors.TextEdit LastNameTe;
+        private DevExpress.XtraEditors.TextEdit MiddleNameTe;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit FirstNameTe;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.MemoEdit AddressMe;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit DateOfBirthDe;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsuiButtonPanel1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
@@ -500,7 +490,7 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsuiButtonPanel2;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel SaveNCancel;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl7;
@@ -509,6 +499,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit EmployeeIDTe;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsuiButtonPanel3;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.TextEdit ContactNoTe;
     }
 }
