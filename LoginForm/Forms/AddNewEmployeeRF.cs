@@ -17,7 +17,7 @@ namespace LoginForm.Forms
 {
     public partial class AddNewEmployeeRF : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private string connectionString = @"DATA Source=DESKTOP-PF1RR13\SQLEXPRESS; Initial Catalog=WareHouse; Integrated Security = True";
+        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
 
         public AddNewEmployeeRF()
         {
@@ -67,7 +67,8 @@ namespace LoginForm.Forms
                             LastName = LastName,
                             NameExtension = NameExtension,
                             DateOfBirth = DateOfBirth,
-                            Address = Address
+                            Address = Address,
+                            ContactNo = ContactNo
                         });
                         MessageBox.Show("Contact Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
