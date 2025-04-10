@@ -34,12 +34,9 @@
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             emailTxt = new DevExpress.XtraEditors.TextEdit();
             passTxt = new DevExpress.XtraEditors.TextEdit();
-            hyperlinkLabelControl2 = new DevExpress.XtraEditors.HyperlinkLabelControl();
             signinBtn = new DevExpress.XtraEditors.SimpleButton();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            checkBox1 = new System.Windows.Forms.CheckBox();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
             pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
@@ -98,22 +95,6 @@
             passTxt.Size = new System.Drawing.Size(289, 44);
             passTxt.TabIndex = 5;
             // 
-            // hyperlinkLabelControl2
-            // 
-            hyperlinkLabelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
-            hyperlinkLabelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            hyperlinkLabelControl2.Appearance.ForeColor = System.Drawing.Color.Teal;
-            hyperlinkLabelControl2.Appearance.Options.UseBackColor = true;
-            hyperlinkLabelControl2.Appearance.Options.UseFont = true;
-            hyperlinkLabelControl2.Appearance.Options.UseForeColor = true;
-            hyperlinkLabelControl2.Appearance.Options.UseLinkColor = true;
-            hyperlinkLabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            hyperlinkLabelControl2.Location = new System.Drawing.Point(248, 324);
-            hyperlinkLabelControl2.Name = "hyperlinkLabelControl2";
-            hyperlinkLabelControl2.Size = new System.Drawing.Size(93, 23);
-            hyperlinkLabelControl2.TabIndex = 6;
-            hyperlinkLabelControl2.Text = "Forget Password";
-            // 
             // signinBtn
             // 
             signinBtn.Appearance.BackColor = System.Drawing.Color.Teal;
@@ -122,7 +103,7 @@
             signinBtn.Appearance.Options.UseBackColor = true;
             signinBtn.Appearance.Options.UseBorderColor = true;
             signinBtn.Appearance.Options.UseFont = true;
-            signinBtn.Location = new System.Drawing.Point(54, 373);
+            signinBtn.Location = new System.Drawing.Point(126, 358);
             signinBtn.Name = "signinBtn";
             signinBtn.Size = new System.Drawing.Size(119, 37);
             signinBtn.TabIndex = 7;
@@ -159,29 +140,6 @@
             labelControl5.TabIndex = 12;
             labelControl5.Text = "Password";
             // 
-            // checkBox1
-            // 
-            checkBox1.Location = new System.Drawing.Point(52, 330);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(89, 17);
-            checkBox1.TabIndex = 15;
-            checkBox1.Text = "Remember me";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // simpleButton1
-            // 
-            simpleButton1.Appearance.BackColor = System.Drawing.Color.White;
-            simpleButton1.Appearance.BorderColor = System.Drawing.Color.Black;
-            simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseBorderColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Location = new System.Drawing.Point(192, 373);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new System.Drawing.Size(121, 37);
-            simpleButton1.TabIndex = 16;
-            simpleButton1.Text = "Sign up";
-            // 
             // labelControl2
             // 
             labelControl2.Appearance.Font = new System.Drawing.Font("Arial", 10F);
@@ -192,7 +150,6 @@
             labelControl2.Size = new System.Drawing.Size(261, 18);
             labelControl2.TabIndex = 2;
             labelControl2.Text = "Please Login to your account !";
-
             // 
             // pictureEdit1
             // 
@@ -214,12 +171,9 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(854, 503);
             Controls.Add(pictureEdit1);
-            Controls.Add(simpleButton1);
             Controls.Add(labelControl5);
-            Controls.Add(checkBox1);
             Controls.Add(labelControl4);
             Controls.Add(signinBtn);
-            Controls.Add(hyperlinkLabelControl2);
             Controls.Add(passTxt);
             Controls.Add(emailTxt);
             Controls.Add(labelControl2);
@@ -235,7 +189,6 @@
             ((System.ComponentModel.ISupportInitialize)passTxt.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).EndInit();
             ResumeLayout(false);
-
         }
 
         #endregion
@@ -244,12 +197,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit emailTxt;
         private DevExpress.XtraEditors.TextEdit passTxt;
-        private DevExpress.XtraEditors.HyperlinkLabelControl hyperlinkLabelControl2;
         private DevExpress.XtraEditors.SimpleButton signinBtn;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;

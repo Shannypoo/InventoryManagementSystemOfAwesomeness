@@ -22,6 +22,7 @@ namespace LoginForm.Forms
         public AddNewEmployeeRF()
         {
             InitializeComponent();
+            EmployeeIDTe.Text = GenerateID();
         }
         private static string GenerateID()
         {
@@ -36,6 +37,7 @@ namespace LoginForm.Forms
             }
             return id;
         }
+
 
         private void windowsuiButtonPanel1_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
@@ -60,7 +62,8 @@ namespace LoginForm.Forms
                         MessageBox.Show($"An error occurred during Adding Employee: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                } else if (btn.Tag != null && btn.Tag.Equals("Cancel"))
+            }
+            else if (btn.Tag != null && btn.Tag.Equals("Cancel"))
             {
                 this.Close();
             }
