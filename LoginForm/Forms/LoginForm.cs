@@ -21,15 +21,23 @@ namespace LoginForm {
         private void signinBtn_Click(object sender, EventArgs e)
         {
             {
-                string email = "admin@example.com";
-                string pass = "admin123";
+                string adminemail = "admin@example.com";
+                string adminpass = "admin123";;
 
                 string inputEmail = emailTxt.Text.Trim();
                 string inputPassword = passTxt.Text.Trim();
 
-                if (inputEmail == email && inputPassword == pass)
+                if (inputEmail == adminemail && inputPassword == adminpass)
                 {
                     
+                    XtraMessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    EmployeeManagementForm mainForm = new EmployeeManagementForm();
+                    mainForm.Show();
+                }
+                else if (inputEmail == email && inputPassword == pass)
+                {
+
                     XtraMessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     EmployeeManagementForm mainForm = new EmployeeManagementForm();

@@ -49,6 +49,9 @@ namespace LoginForm.Forms
             string Address = AddressMe.Text.Trim();
             string ContactNo = ContactNoTe.Text.Trim();
 
+            string Username = UsernameTe.Text.Trim();
+            string Password = PasswordTe.Text.Trim();
+            
             WindowsUIButton btn = e.Button as WindowsUIButton;
             if (btn.Tag != null && btn.Tag.Equals("Save"))
             {
@@ -56,8 +59,8 @@ namespace LoginForm.Forms
                 {
                     try
                     {
-                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address)
-                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address)";
+                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address, ContactNo)
+                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address, @ContactNo)";
 
                         connection.Execute(InsertEmployees, new
                         {
@@ -69,6 +72,16 @@ namespace LoginForm.Forms
                             DateOfBirth = DateOfBirth,
                             Address = Address,
                             ContactNo = ContactNo
+                        });
+
+                        string InsertAccount = @"INSERT INTO EmployeeAccounts (EmployeeID, AccountUsername, AccountPassword)
+                                                    VALUES (@EmployeeID, @AccountUsername, @AccountPassword)";
+
+                        connection.Execute(InsertAccount, new
+                        {
+                            EmployeeID = EmployeeID,
+                            AccountUsername = Username,
+                            AccountPassword = Password,
                         });
                         MessageBox.Show("Contact Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
