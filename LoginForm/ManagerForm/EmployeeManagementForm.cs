@@ -41,5 +41,19 @@ namespace LoginForm.ManagerForm
             employeeRF.MdiParent = this;
             employeeRF.Show();
         }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+            SplashScreenManager.Default.SetWaitFormCaption("Please Wait...");
+            SplashScreenManager.Default.SetWaitFormDescription("Loading Inventory...");
+            Thread.Sleep(1000);
+            SplashScreenManager.CloseForm();
+            CloseAllChildForm();
+
+            InventoryForm employeeRF = new InventoryForm();
+           
+            employeeRF.Show();
+        }
     }
 }

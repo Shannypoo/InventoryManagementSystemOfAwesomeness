@@ -33,14 +33,14 @@
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             SuspendLayout();
             // 
@@ -76,6 +76,7 @@
             barButtonItem2.Id = 2;
             barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
             barButtonItem2.Name = "barButtonItem2";
+            barButtonItem2.ItemClick += barButtonItem2_ItemClick;
             // 
             // barButtonItem3
             // 
@@ -83,6 +84,13 @@
             barButtonItem3.Id = 3;
             barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
             barButtonItem3.Name = "barButtonItem3";
+            // 
+            // barButtonItem4
+            // 
+            barButtonItem4.Caption = "Employee List";
+            barButtonItem4.Id = 4;
+            barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
+            barButtonItem4.Name = "barButtonItem4";
             // 
             // ribbonPage1
             // 
@@ -109,13 +117,6 @@
             ribbonPageGroup3.Name = "ribbonPageGroup3";
             ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
-            // ribbonStatusBar
-            // 
-            ribbonStatusBar.Location = new System.Drawing.Point(0, 412);
-            ribbonStatusBar.Name = "ribbonStatusBar";
-            ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new System.Drawing.Size(861, 37);
-            // 
             // ribbonPage2
             // 
             ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4 });
@@ -128,12 +129,12 @@
             ribbonPageGroup4.Name = "ribbonPageGroup4";
             ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
-            // barButtonItem4
+            // ribbonStatusBar
             // 
-            barButtonItem4.Caption = "Employee List";
-            barButtonItem4.Id = 4;
-            barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
-            barButtonItem4.Name = "barButtonItem4";
+            ribbonStatusBar.Location = new System.Drawing.Point(0, 412);
+            ribbonStatusBar.Name = "ribbonStatusBar";
+            ribbonStatusBar.Ribbon = ribbon;
+            ribbonStatusBar.Size = new System.Drawing.Size(861, 37);
             // 
             // EmployeeManagementForm
             // 
