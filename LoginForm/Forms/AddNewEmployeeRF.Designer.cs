@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewEmployeeRF));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -328,9 +328,9 @@
             // 
             // SaveNCancel
             // 
-            windowsuiButtonImageOptions3.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions3.SvgImage");
-            windowsuiButtonImageOptions4.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions4.SvgImage");
-            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
+            windowsuiButtonImageOptions7.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions7.SvgImage");
+            windowsuiButtonImageOptions8.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions8.SvgImage");
+            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
             SaveNCancel.Location = new System.Drawing.Point(368, 378);
             SaveNCancel.Name = "SaveNCancel";
             SaveNCancel.Size = new System.Drawing.Size(135, 62);

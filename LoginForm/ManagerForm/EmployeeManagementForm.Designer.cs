@@ -40,7 +40,6 @@
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             SuspendLayout();
             // 
@@ -59,7 +58,6 @@
             ribbon.ShowMoreCommandsButton = DevExpress.Utils.DefaultBoolean.False;
             ribbon.ShowToolbarCustomizeItem = false;
             ribbon.Size = new System.Drawing.Size(861, 181);
-            ribbon.StatusBar = ribbonStatusBar;
             ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // barButtonItem1
@@ -129,23 +127,14 @@
             ribbonPageGroup4.Name = "ribbonPageGroup4";
             ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
-            // ribbonStatusBar
-            // 
-            ribbonStatusBar.Location = new System.Drawing.Point(0, 412);
-            ribbonStatusBar.Name = "ribbonStatusBar";
-            ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new System.Drawing.Size(861, 37);
-            // 
             // EmployeeManagementForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(861, 449);
-            Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
             Name = "EmployeeManagementForm";
             Ribbon = ribbon;
-            StatusBar = ribbonStatusBar;
             Text = "EmployeeManagementForm";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
@@ -158,7 +147,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
