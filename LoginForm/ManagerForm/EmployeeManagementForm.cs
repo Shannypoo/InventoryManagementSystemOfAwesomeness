@@ -55,5 +55,18 @@ namespace LoginForm.ManagerForm
 
             ManagerInventory.Show();
         }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+            SplashScreenManager.Default.SetWaitFormCaption("Please Wait...");
+            SplashScreenManager.Default.SetWaitFormDescription("Loading List of Employees...");
+            Thread.Sleep(1000);
+            SplashScreenManager.CloseForm();
+            CloseAllChildForm();
+
+            ListofEmployee employee_List = new ListofEmployee();
+            employee_List.Show();
+        }
     }
 }

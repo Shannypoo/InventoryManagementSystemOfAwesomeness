@@ -54,7 +54,7 @@
             panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
             panelControl1.Location = new System.Drawing.Point(367, 0);
             panelControl1.Name = "panelControl1";
-            panelControl1.Size = new System.Drawing.Size(487, 503);
+            panelControl1.Size = new System.Drawing.Size(487, 499);
             panelControl1.TabIndex = 0;
             // 
             // labelControl3
@@ -81,6 +81,7 @@
             // 
             // emailTxt
             // 
+            emailTxt.EditValue = "";
             emailTxt.Location = new System.Drawing.Point(52, 208);
             emailTxt.Name = "emailTxt";
             emailTxt.Properties.AutoHeight = false;
@@ -92,6 +93,8 @@
             passTxt.Location = new System.Drawing.Point(52, 250);
             passTxt.Name = "passTxt";
             passTxt.Properties.AutoHeight = false;
+            passTxt.Properties.PasswordChar = '*';
+            passTxt.Properties.UseSystemPasswordChar = true;
             passTxt.Size = new System.Drawing.Size(289, 44);
             passTxt.TabIndex = 5;
             // 
@@ -169,7 +172,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(854, 503);
+            ClientSize = new System.Drawing.Size(854, 499);
             Controls.Add(pictureEdit1);
             Controls.Add(labelControl5);
             Controls.Add(labelControl4);

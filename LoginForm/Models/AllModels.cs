@@ -8,7 +8,22 @@ namespace LoginForm.Models
 {
     public class AllModels
     {
+        //Accounts
         public string AccountUsername { get; set; }
         public string AccountPassword { get; set; }
+
+
+        //Categories
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
+
+        //Inventory
+        public int Quantity { get; set; }
+        public double UnitPrice { get; set; }
+        public string StockName { get; set; }
+        public string Description { get; set; }
+        public string StockStatus { get; set; }
+        public DateTime LastUpdated { get; set; }
+        public DateTime DateAdded { get; set; }
     }
 }

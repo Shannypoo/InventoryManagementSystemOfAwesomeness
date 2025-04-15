@@ -34,10 +34,11 @@
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
@@ -47,9 +48,9 @@
             // 
             ribbon.DrawGroupCaptions = DevExpress.Utils.DefaultBoolean.False;
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, barButtonItem1, barButtonItem2, barButtonItem3, barButtonItem4 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, barButtonItem1, barButtonItem2, barButtonItem3, barButtonItem4, barButtonItem5 });
             ribbon.Location = new System.Drawing.Point(0, 0);
-            ribbon.MaxItemId = 5;
+            ribbon.MaxItemId = 6;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage2 });
             ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -90,30 +91,39 @@
             barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
             barButtonItem4.Name = "barButtonItem4";
             // 
+            // barButtonItem5
+            // 
+            barButtonItem5.Caption = "List of Employee";
+            barButtonItem5.Id = 5;
+            barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
+            barButtonItem5.Name = "barButtonItem5";
+            barButtonItem5.ItemClick += barButtonItem5_ItemClick;
+            // 
             // ribbonPage1
             // 
-            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2, ribbonPageGroup3 });
+            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup5, ribbonPageGroup1, ribbonPageGroup2 });
             ribbonPage1.Name = "ribbonPage1";
             ribbonPage1.Text = "Main Menu";
+            // 
+            // ribbonPageGroup5
+            // 
+            ribbonPageGroup5.ItemLinks.Add(barButtonItem5);
+            ribbonPageGroup5.ItemLinks.Add(barButtonItem1);
+            ribbonPageGroup5.Name = "ribbonPageGroup5";
+            ribbonPageGroup5.Text = "ribbonPageGroup5";
             // 
             // ribbonPageGroup1
             // 
             ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
+            ribbonPageGroup1.ItemLinks.Add(barButtonItem2);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // ribbonPageGroup2
             // 
-            ribbonPageGroup2.ItemLinks.Add(barButtonItem2);
+            ribbonPageGroup2.ItemLinks.Add(barButtonItem3);
             ribbonPageGroup2.Name = "ribbonPageGroup2";
             ribbonPageGroup2.Text = "ribbonPageGroup2";
-            // 
-            // ribbonPageGroup3
-            // 
-            ribbonPageGroup3.ItemLinks.Add(barButtonItem3);
-            ribbonPageGroup3.Name = "ribbonPageGroup3";
-            ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
             // ribbonPage2
             // 
@@ -149,11 +159,12 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
