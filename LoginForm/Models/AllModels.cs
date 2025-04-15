@@ -18,6 +18,7 @@ namespace LoginForm.Models
         public string CategoryName { get; set; }
 
         //Inventory
+        public int InventoryID { get; set; }
         public int Quantity { get; set; }
         public double UnitPrice { get; set; }
         public string StockName { get; set; }

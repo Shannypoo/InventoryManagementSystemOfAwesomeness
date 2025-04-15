@@ -24,13 +24,10 @@ namespace LoginForm.Forms
         public ManagerInventoryForm()
         {
             InitializeComponent();
-            
-        }
-        private void ManagerInventoryForm_Load(object sender, EventArgs e)
-        {
             LoadCategories();
             LoadInventory();
         }
+
         private void LoadCategories()
         {
             string query = "SELECT CategoryID, CategoryName FROM dbo.Categories";
@@ -38,95 +35,86 @@ namespace LoginForm.Forms
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
                 var categories = connection.Query<AllModels>(query).ToList();
                 lpeCategory.Properties.DataSource = categories;
-
+                lpeCategory.Properties.DisplayMember = "CategoryName";
+                lpeCategory.Properties.ValueMember = "CategoryID";
             }
-
         }
+
         private void LoadInventory()
         {
-            string query = "SELECT [InventoryID],[Quantity],c.CategoryName,[UnitPrice],[LastUpdated],[StockName],[Description],[StockStatus],[DateAdded] FROM [Warehouse].[dbo].[Inventory] e LEFT JOIN Categories c ON c.CategoryID = e.CategoryID";
+            string query = @"SELECT [InventoryID],[Quantity],c.CategoryName,[UnitPrice],[LastUpdated],
+                            [StockName],[Description],[StockStatus],[DateAdded] 
+                            FROM [Warehouse].[dbo].[Inventory] e 
+                            LEFT JOIN Categories c ON c.CategoryID = e.CategoryID";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                var categories = connection.Query<AllModels>(query).ToList();
-                lpeCategory.Properties.DataSource = categories;
-
+                var inventory = connection.Query<AllModels>(query).ToList();
+                gcInventory.DataSource = inventory;
             }
-
         }
+
         private int GetCategoryID()
         {
-            int categoryID = 0;
-            if (lpeCategory != null)
+            if (lpeCategory.EditValue != null)
             {
-                categoryID = (int)lpeCategory.EditValue;
+                return Convert.ToInt32(lpeCategory.EditValue);
             }
-            else
-            {
-                categoryID = 0;
-            }
-            return categoryID;
+            return 0;
         }
+
         private void InsertIntoInventory(AllModels inventory)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
-                    string InsertEmployees = @"INSERT INTO Inventory ([InventoryID]
-      ,[Quantity]
-      ,[CategoryID]
-      ,[UnitPrice]
-      ,[LastUpdated]
-      ,[StockName]
-      ,[Description]
-      ,[StockStatus]
-      ,[DateAdded] VALUES (@InventoryID
-      ,@Quantity
-      ,@CategoryID
-      ,@UnitPrice
-      ,@LastUpdated
-      ,@StockName
-      ,@Description
-      ,@StockStatus
-      ,@DateAdded )";
+                    string insertQuery = @"INSERT INTO Inventory (
+                        Quantity, CategoryID, UnitPrice, LastUpdated, StockName, 
+                        Description, StockStatus, DateAdded) 
+                        VALUES (
+                        @Quantity, @CategoryID, @UnitPrice, @LastUpdated, @StockName, 
+                        @Description, @StockStatus, @DateAdded)";
 
-                    connection.Execute(InsertEmployees, new
+                    connection.Execute(insertQuery, new
                     {
-
+                        inventory.Quantity,
+                        inventory.CategoryID,
+                        inventory.UnitPrice,
+                        LastUpdated = DateTime.Now,
+                        inventory.StockName,
+                        inventory.Description,
+                        inventory.StockStatus,
+                        inventory.DateAdded
                     });
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred during Adding Employee: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"An error occurred during Adding Item: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-    
-        
+
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             DateTime DateAdded = DateTime.Now.Date;
-          
 
-            AllModels items = new AllModels();
-
-            items.StockName = teStockName.Text;
-            items.CategoryID = Convert.ToInt32(GetCategoryID());
-            items.UnitPrice = Convert.ToDouble(teUnitPrice.Text);
-            items.StockStatus = cbStockStatus.Text;
-            items.Quantity = Convert.ToInt32(teQuantity.Text);
-            items.Description = meDescription.Text;
-            items.DateAdded = DateAdded;
+            AllModels items = new AllModels
+            {
+                StockName = teStockName.Text,
+                CategoryID = GetCategoryID(),
+                UnitPrice = Convert.ToDouble(teUnitPrice.Text.Trim()),
+                StockStatus = cbStockStatus.Text,
+                Quantity = Convert.ToInt32(teQuantity.Text.Trim()),
+                Description = meDescription.Text,
+                DateAdded = DateAdded
+            };
 
             InsertIntoInventory(items);
             LoadInventory();
         }
-
     }
 }

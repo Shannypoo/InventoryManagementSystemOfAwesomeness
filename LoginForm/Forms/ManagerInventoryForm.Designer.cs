@@ -78,7 +78,7 @@
             gcInventory.Location = new System.Drawing.Point(297, 0);
             gcInventory.MainView = gvInventory;
             gcInventory.Name = "gcInventory";
-            gcInventory.Size = new System.Drawing.Size(1067, 688);
+            gcInventory.Size = new System.Drawing.Size(1067, 686);
             gcInventory.TabIndex = 0;
             gcInventory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvInventory });
             // 
@@ -190,7 +190,7 @@
             groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             groupControl1.Location = new System.Drawing.Point(0, 0);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new System.Drawing.Size(291, 688);
+            groupControl1.Size = new System.Drawing.Size(291, 686);
             groupControl1.TabIndex = 2;
             groupControl1.Text = "Item Details";
             // 
@@ -352,7 +352,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1364, 688);
+            ClientSize = new System.Drawing.Size(1364, 686);
             Controls.Add(btnSearch);
             Controls.Add(labelControl7);
             Controls.Add(groupControl1);
@@ -361,7 +361,6 @@
             Name = "ManagerInventoryForm";
             Text = "Inventory";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            Load += ManagerInventoryForm_Load;
             ((System.ComponentModel.ISupportInitialize)gcInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
@@ -409,6 +408,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit teQuantity;
-        private DevExpress.XtraEditors.LookUpEdit lpeCategory;
+        public DevExpress.XtraEditors.LookUpEdit lpeCategory;
     }
 }
