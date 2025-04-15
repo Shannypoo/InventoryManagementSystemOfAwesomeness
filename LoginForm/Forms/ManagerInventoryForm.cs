@@ -116,5 +116,10 @@ namespace LoginForm.Forms
             InsertIntoInventory(items);
             LoadInventory();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

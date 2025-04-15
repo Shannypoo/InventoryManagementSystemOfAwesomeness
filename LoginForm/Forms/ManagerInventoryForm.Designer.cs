@@ -78,7 +78,7 @@
             gcInventory.Location = new System.Drawing.Point(297, 0);
             gcInventory.MainView = gvInventory;
             gcInventory.Name = "gcInventory";
-            gcInventory.Size = new System.Drawing.Size(1067, 686);
+            gcInventory.Size = new System.Drawing.Size(1067, 684);
             gcInventory.TabIndex = 0;
             gcInventory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvInventory });
             // 
@@ -190,7 +190,7 @@
             groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             groupControl1.Location = new System.Drawing.Point(0, 0);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new System.Drawing.Size(291, 686);
+            groupControl1.Size = new System.Drawing.Size(291, 684);
             groupControl1.TabIndex = 2;
             groupControl1.Text = "Item Details";
             // 
@@ -229,6 +229,7 @@
             simpleButton1.Size = new System.Drawing.Size(75, 23);
             simpleButton1.TabIndex = 20;
             simpleButton1.Text = "Update";
+            simpleButton1.Click += simpleButton1_Click;
             // 
             // teQuantity
             // 
@@ -352,7 +353,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1364, 686);
+            ClientSize = new System.Drawing.Size(1364, 684);
             Controls.Add(btnSearch);
             Controls.Add(labelControl7);
             Controls.Add(groupControl1);
