@@ -29,7 +29,11 @@ namespace LoginForm.Models
 
         //Position
         public int PositionID { get; set; }
-        public string PositionName {  get; set; }
+        public string PositionName { get; set; }
 
+        //Departments
+
+        public int DepartmentID { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

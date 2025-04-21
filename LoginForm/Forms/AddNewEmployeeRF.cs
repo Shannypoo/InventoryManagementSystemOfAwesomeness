@@ -24,7 +24,7 @@ namespace LoginForm.Forms
         {
             InitializeComponent();
             EmployeeIDTe.Text = GenerateID();
-            LoadPositions();
+            LoadPositionsandDepartments();
         }
         private static string GenerateID()
         {
@@ -40,7 +40,7 @@ namespace LoginForm.Forms
             return id;
         }
 
-        private void LoadPositions()
+        private void LoadPositionsandDepartments()
         {
             string query = "SELECT PositionName, PositionID FROM dbo.Positions";
 
@@ -50,6 +50,17 @@ namespace LoginForm.Forms
 
                 var positions = connection.Query<AllModels>(query).ToList();
                 lpPositions.Properties.DataSource = positions;
+            }
+
+            string aquery = "SELECT DepartmentName, DepartmentID FROM dbo.Departments";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var departments = connection.Query<AllModels>(aquery).ToList();
+                lpDepartments.Properties.DataSource = departments;
+
             }
         }
 
