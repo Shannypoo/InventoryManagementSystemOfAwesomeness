@@ -26,5 +26,10 @@ namespace LoginForm.Models
         public string StockStatus { get; set; }
         public DateTime LastUpdated { get; set; }
         public DateTime DateAdded { get; set; }
+
+        //Position
+        public int PositionID { get; set; }
+        public string PositionName {  get; set; }
+
     }
 }

@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerInventoryForm));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             gcInventory = new DevExpress.XtraGrid.GridControl();
             gvInventory = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,11 +50,12 @@
             gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             textEdit1 = new DevExpress.XtraEditors.TextEdit();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
             lpeCategory = new DevExpress.XtraEditors.LookUpEdit();
-            simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             teQuantity = new DevExpress.XtraEditors.TextEdit();
             btnAddItem = new DevExpress.XtraEditors.SimpleButton();
             meDescription = new DevExpress.XtraEditors.MemoEdit();
@@ -59,8 +70,11 @@
             teStockName = new DevExpress.XtraEditors.TextEdit();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
             btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)gcInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
@@ -78,13 +92,14 @@
             gcInventory.Location = new System.Drawing.Point(297, 0);
             gcInventory.MainView = gvInventory;
             gcInventory.Name = "gcInventory";
-            gcInventory.Size = new System.Drawing.Size(1067, 684);
+            gcInventory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemButtonEdit1, repositoryItemButtonEdit2 });
+            gcInventory.Size = new System.Drawing.Size(1067, 672);
             gcInventory.TabIndex = 0;
             gcInventory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvInventory });
             // 
             // gvInventory
             // 
-            gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9 });
+            gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11 });
             gvInventory.GridControl = gcInventory;
             gvInventory.GroupPanelText = " ";
             gvInventory.Name = "gvInventory";
@@ -161,6 +176,32 @@
             gridColumn9.Visible = true;
             gridColumn9.VisibleIndex = 8;
             // 
+            // gridColumn10
+            // 
+            gridColumn10.Caption = "Edit";
+            gridColumn10.ColumnEdit = repositoryItemButtonEdit1;
+            gridColumn10.Name = "gridColumn10";
+            gridColumn10.Visible = true;
+            gridColumn10.VisibleIndex = 9;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            repositoryItemButtonEdit1.AutoHeight = false;
+            editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
+            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            repositoryItemButtonEdit1.HideSelection = false;
+            repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // repositoryItemButtonEdit2
+            // 
+            repositoryItemButtonEdit2.AutoHeight = false;
+            editorButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions2.SvgImage");
+            repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            repositoryItemButtonEdit2.HideSelection = false;
+            repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // textEdit1
             // 
             textEdit1.Location = new System.Drawing.Point(402, 9);
@@ -172,8 +213,6 @@
             // 
             groupControl1.CaptionImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("groupControl1.CaptionImageOptions.SvgImage");
             groupControl1.Controls.Add(lpeCategory);
-            groupControl1.Controls.Add(simpleButton2);
-            groupControl1.Controls.Add(simpleButton1);
             groupControl1.Controls.Add(teQuantity);
             groupControl1.Controls.Add(btnAddItem);
             groupControl1.Controls.Add(meDescription);
@@ -190,7 +229,7 @@
             groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             groupControl1.Location = new System.Drawing.Point(0, 0);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new System.Drawing.Size(291, 684);
+            groupControl1.Size = new System.Drawing.Size(291, 672);
             groupControl1.TabIndex = 2;
             groupControl1.Text = "Item Details";
             // 
@@ -206,31 +245,6 @@
             lpeCategory.Size = new System.Drawing.Size(125, 28);
             lpeCategory.TabIndex = 22;
             // 
-            // simpleButton2
-            // 
-            simpleButton2.Appearance.BackColor = System.Drawing.Color.Crimson;
-            simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            simpleButton2.Appearance.Options.UseBackColor = true;
-            simpleButton2.Appearance.Options.UseFont = true;
-            simpleButton2.Location = new System.Drawing.Point(186, 323);
-            simpleButton2.Name = "simpleButton2";
-            simpleButton2.Size = new System.Drawing.Size(75, 23);
-            simpleButton2.TabIndex = 21;
-            simpleButton2.Text = "Delete";
-            // 
-            // simpleButton1
-            // 
-            simpleButton1.Appearance.BackColor = System.Drawing.Color.MediumSeaGreen;
-            simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Location = new System.Drawing.Point(103, 323);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new System.Drawing.Size(75, 23);
-            simpleButton1.TabIndex = 20;
-            simpleButton1.Text = "Update";
-            simpleButton1.Click += simpleButton1_Click;
-            // 
             // teQuantity
             // 
             teQuantity.Location = new System.Drawing.Point(12, 187);
@@ -244,7 +258,7 @@
             btnAddItem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             btnAddItem.Appearance.Options.UseBackColor = true;
             btnAddItem.Appearance.Options.UseFont = true;
-            btnAddItem.Location = new System.Drawing.Point(20, 323);
+            btnAddItem.Location = new System.Drawing.Point(104, 323);
             btnAddItem.Name = "btnAddItem";
             btnAddItem.Size = new System.Drawing.Size(75, 23);
             btnAddItem.TabIndex = 17;
@@ -349,11 +363,19 @@
             btnSearch.TabIndex = 16;
             btnSearch.Text = "Search";
             // 
+            // gridColumn11
+            // 
+            gridColumn11.Caption = "Delete";
+            gridColumn11.ColumnEdit = repositoryItemButtonEdit2;
+            gridColumn11.Name = "gridColumn11";
+            gridColumn11.Visible = true;
+            gridColumn11.VisibleIndex = 10;
+            // 
             // ManagerInventoryForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1364, 684);
+            ClientSize = new System.Drawing.Size(1364, 672);
             Controls.Add(btnSearch);
             Controls.Add(labelControl7);
             Controls.Add(groupControl1);
@@ -364,6 +386,8 @@
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)gcInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
@@ -406,9 +430,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit teQuantity;
         public DevExpress.XtraEditors.LookUpEdit lpeCategory;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewEmployeeRF));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -53,8 +53,8 @@
             labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ContactNoTe = new DevExpress.XtraEditors.TextEdit();
             groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            lpPositions = new DevExpress.XtraEditors.LookUpEdit();
+            lpDepartments = new DevExpress.XtraEditors.LookUpEdit();
             xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             SaveNCancel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
@@ -82,8 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)ContactNoTe.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
             groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lpPositions.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lpDepartments.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)xtraTabControl1).BeginInit();
             xtraTabControl1.SuspendLayout();
             xtraTabPage1.SuspendLayout();
@@ -276,8 +276,8 @@
             // 
             // groupControl3
             // 
-            groupControl3.Controls.Add(lookUpEdit2);
-            groupControl3.Controls.Add(lookUpEdit1);
+            groupControl3.Controls.Add(lpPositions);
+            groupControl3.Controls.Add(lpDepartments);
             groupControl3.Controls.Add(labelControl8);
             groupControl3.Controls.Add(labelControl9);
             groupControl3.Location = new System.Drawing.Point(450, 161);
@@ -287,25 +287,31 @@
             groupControl3.TabIndex = 23;
             groupControl3.Text = "groupControl3";
             // 
-            // lookUpEdit2
+            // lpPositions
             // 
-            lookUpEdit2.Location = new System.Drawing.Point(13, 132);
-            lookUpEdit2.MenuManager = ribbon;
-            lookUpEdit2.Name = "lookUpEdit2";
-            lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionID", "Position ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionTitle", "Position Title") });
-            lookUpEdit2.Size = new System.Drawing.Size(370, 28);
-            lookUpEdit2.TabIndex = 22;
+            lpPositions.Location = new System.Drawing.Point(13, 132);
+            lpPositions.MenuManager = ribbon;
+            lpPositions.Name = "lpPositions";
+            lpPositions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lpPositions.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionID", "Position ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionName", "Position Name") });
+            lpPositions.Properties.DisplayMember = "PositionName";
+            lpPositions.Properties.NullText = "";
+            lpPositions.Properties.ValueMember = "PositionID";
+            lpPositions.Size = new System.Drawing.Size(370, 28);
+            lpPositions.TabIndex = 22;
             // 
-            // lookUpEdit1
+            // lpDepartments
             // 
-            lookUpEdit1.Location = new System.Drawing.Point(13, 51);
-            lookUpEdit1.MenuManager = ribbon;
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentID", "Department ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentName", "Department Name") });
-            lookUpEdit1.Size = new System.Drawing.Size(370, 28);
-            lookUpEdit1.TabIndex = 21;
+            lpDepartments.Location = new System.Drawing.Point(13, 51);
+            lpDepartments.MenuManager = ribbon;
+            lpDepartments.Name = "lpDepartments";
+            lpDepartments.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lpDepartments.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentID", "Department ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentName", "Department Name") });
+            lpDepartments.Properties.DisplayMember = "DepartmentName";
+            lpDepartments.Properties.NullText = "";
+            lpDepartments.Properties.ValueMember = "DepartmentID";
+            lpDepartments.Size = new System.Drawing.Size(370, 28);
+            lpDepartments.TabIndex = 21;
             // 
             // xtraTabControl1
             // 
@@ -328,9 +334,9 @@
             // 
             // SaveNCancel
             // 
-            windowsuiButtonImageOptions7.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions7.SvgImage");
-            windowsuiButtonImageOptions8.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions8.SvgImage");
-            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
+            windowsuiButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions1.SvgImage");
+            windowsuiButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions2.SvgImage");
+            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
             SaveNCancel.Location = new System.Drawing.Point(368, 378);
             SaveNCancel.Name = "SaveNCancel";
             SaveNCancel.Size = new System.Drawing.Size(135, 62);
@@ -349,7 +355,7 @@
             xtraTabPage2.Controls.Add(EmployeeIDTe);
             xtraTabPage2.Controls.Add(pictureEdit1);
             xtraTabPage2.Name = "xtraTabPage2";
-            xtraTabPage2.Size = new System.Drawing.Size(876, 443);
+            xtraTabPage2.Size = new System.Drawing.Size(876, 449);
             xtraTabPage2.Text = "Employee Account";
             // 
             // labelControl11
@@ -448,8 +454,8 @@
             ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
             groupControl3.ResumeLayout(false);
             groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lpPositions.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lpDepartments.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)xtraTabControl1).EndInit();
             xtraTabControl1.ResumeLayout(false);
             xtraTabPage1.ResumeLayout(false);
@@ -485,8 +491,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit lpPositions;
+        private DevExpress.XtraEditors.LookUpEdit lpDepartments;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;

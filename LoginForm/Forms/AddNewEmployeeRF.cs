@@ -12,6 +12,7 @@ using Dapper;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LoginForm.Models;
 
 namespace LoginForm.Forms
 {
@@ -23,6 +24,7 @@ namespace LoginForm.Forms
         {
             InitializeComponent();
             EmployeeIDTe.Text = GenerateID();
+            LoadPositions();
         }
         private static string GenerateID()
         {
@@ -36,6 +38,19 @@ namespace LoginForm.Forms
                 id += letters[rand.Next(letters.Length)];
             }
             return id;
+        }
+
+        private void LoadPositions()
+        {
+            string query = "SELECT PositionName, PositionID FROM dbo.Positions";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var positions = connection.Query<AllModels>(query).ToList();
+                lpPositions.Properties.DataSource = positions;
+            }
         }
 
         private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
