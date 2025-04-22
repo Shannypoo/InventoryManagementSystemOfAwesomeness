@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting.Native;
 using DevExpress.XtraRichEdit.Import.OpenXml;
 using LoginForm.Models;
@@ -121,5 +122,32 @@ namespace LoginForm.Forms
         {
 
         }
+
+        private void teSearch_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            gvInventory.ApplyFindFilter(e.NewValue as string);
+        }
+
+        private void gvInventory_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            //gvInventory.RowCellStyle += gvInventory_RowCellStyle;
+            //GridView view = sender as GridView;
+
+            //// Safeguard: ensure row handle is valid
+            //if (e.RowHandle < 0)
+            //    return;
+
+            //if (e.Column.FieldName == "StockStatus")
+            //{
+            //    string cellValue = view.GetRowCellDisplayText(e.RowHandle, e.Column);
+
+            //    if (!string.IsNullOrEmpty(cellValue) && cellValue.Contains("Expired"))
+            //    {
+            //        e.Appearance.BackColor = Color.Red;
+            //        e.Appearance.ForeColor = Color.Black;
+            //    }
+            //}
+        }
+
     }
 }

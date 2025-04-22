@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerInventoryForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -46,14 +48,15 @@
             gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            StockStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            teSearch = new DevExpress.XtraEditors.TextEdit();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
             lpeCategory = new DevExpress.XtraEditors.LookUpEdit();
             teQuantity = new DevExpress.XtraEditors.TextEdit();
@@ -70,12 +73,11 @@
             teStockName = new DevExpress.XtraEditors.TextEdit();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
             btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)gcInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)teSearch.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lpeCategory.Properties).BeginInit();
@@ -99,10 +101,16 @@
             // 
             // gvInventory
             // 
-            gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11 });
+            gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, StockStatus, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11 });
+            gridFormatRule1.Column = StockStatus;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            gvInventory.FormatRules.Add(gridFormatRule1);
             gvInventory.GridControl = gcInventory;
             gvInventory.GroupPanelText = " ";
             gvInventory.Name = "gvInventory";
+            gvInventory.RowCellStyle += gvInventory_RowCellStyle;
             // 
             // gridColumn1
             // 
@@ -144,13 +152,13 @@
             gridColumn5.Visible = true;
             gridColumn5.VisibleIndex = 4;
             // 
-            // gridColumn6
+            // StockStatus
             // 
-            gridColumn6.Caption = "Stock Status";
-            gridColumn6.FieldName = "StockStatus";
-            gridColumn6.Name = "gridColumn6";
-            gridColumn6.Visible = true;
-            gridColumn6.VisibleIndex = 5;
+            StockStatus.Caption = "Stock Status";
+            StockStatus.FieldName = "StockStatus";
+            StockStatus.Name = "StockStatus";
+            StockStatus.Visible = true;
+            StockStatus.VisibleIndex = 5;
             // 
             // gridColumn7
             // 
@@ -193,6 +201,14 @@
             repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
+            // gridColumn11
+            // 
+            gridColumn11.Caption = "Delete";
+            gridColumn11.ColumnEdit = repositoryItemButtonEdit2;
+            gridColumn11.Name = "gridColumn11";
+            gridColumn11.Visible = true;
+            gridColumn11.VisibleIndex = 10;
+            // 
             // repositoryItemButtonEdit2
             // 
             repositoryItemButtonEdit2.AutoHeight = false;
@@ -202,12 +218,13 @@
             repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
-            // textEdit1
+            // teSearch
             // 
-            textEdit1.Location = new System.Drawing.Point(402, 9);
-            textEdit1.Name = "textEdit1";
-            textEdit1.Size = new System.Drawing.Size(239, 28);
-            textEdit1.TabIndex = 1;
+            teSearch.Location = new System.Drawing.Point(402, 9);
+            teSearch.Name = "teSearch";
+            teSearch.Size = new System.Drawing.Size(239, 28);
+            teSearch.TabIndex = 1;
+            teSearch.EditValueChanging += teSearch_EditValueChanging;
             // 
             // groupControl1
             // 
@@ -238,7 +255,7 @@
             lpeCategory.Location = new System.Drawing.Point(147, 70);
             lpeCategory.Name = "lpeCategory";
             lpeCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lpeCategory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CategoryID", "Category ID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CategoryName", "Category Name") });
+            lpeCategory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CategoryID", "Category ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CategoryName", "Category Name") });
             lpeCategory.Properties.DisplayMember = "CategoryName";
             lpeCategory.Properties.NullText = "";
             lpeCategory.Properties.ValueMember = "CategoryID";
@@ -277,7 +294,7 @@
             cbStockStatus.Location = new System.Drawing.Point(147, 134);
             cbStockStatus.Name = "cbStockStatus";
             cbStockStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cbStockStatus.Properties.Items.AddRange(new object[] { "Perishable Goods", "Non-Perishable Goods" });
+            cbStockStatus.Properties.Items.AddRange(new object[] { "Expired", "Close to Expiration", "Good Condition", "Non-Perishable" });
             cbStockStatus.Size = new System.Drawing.Size(127, 28);
             cbStockStatus.TabIndex = 12;
             // 
@@ -363,14 +380,6 @@
             btnSearch.TabIndex = 16;
             btnSearch.Text = "Search";
             // 
-            // gridColumn11
-            // 
-            gridColumn11.Caption = "Delete";
-            gridColumn11.ColumnEdit = repositoryItemButtonEdit2;
-            gridColumn11.Name = "gridColumn11";
-            gridColumn11.Visible = true;
-            gridColumn11.VisibleIndex = 10;
-            // 
             // ManagerInventoryForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,7 +388,7 @@
             Controls.Add(btnSearch);
             Controls.Add(labelControl7);
             Controls.Add(groupControl1);
-            Controls.Add(textEdit1);
+            Controls.Add(teSearch);
             Controls.Add(gcInventory);
             Name = "ManagerInventoryForm";
             Text = "Inventory";
@@ -388,7 +397,7 @@
             ((System.ComponentModel.ISupportInitialize)gvInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)teSearch.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
@@ -406,7 +415,7 @@
 
         private DevExpress.XtraGrid.GridControl gcInventory;
         private DevExpress.XtraGrid.Views.Grid.GridView gvInventory;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit teSearch;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit teUnitPrice;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -426,7 +435,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn StockStatus;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;

@@ -35,5 +35,14 @@ namespace LoginForm.Models
 
         public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
+
+        // Employees
+        public string EmployeeID { get; set; }
+        public string FullName { get; set; }
+        public string NameExtension { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Address { get; set; }
+        public string ContactNo { get; set; }
+        
     }
 }
