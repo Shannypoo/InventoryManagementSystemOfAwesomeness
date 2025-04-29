@@ -18,9 +18,11 @@ namespace LoginForm.Forms
 {
     public partial class AddNewEmployeeRF : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
-
-        public AddNewEmployeeRF()
+		//private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
+		
+        //The real string is up there this one is for me.
+        private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security: True;";
+		public AddNewEmployeeRF()
         {
             InitializeComponent();
             EmployeeIDTe.Text = GenerateID();
@@ -63,9 +65,35 @@ namespace LoginForm.Forms
 
             }
         }
-
-        private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
+		private int GetDepartmentID()
+		{
+			int intDepartmentID = 0;
+			if (lpDepartments != null)
+			{
+				intDepartmentID = (int)lpDepartments.EditValue;
+			}
+			else
+			{
+				intDepartmentID = 0;
+			}
+			return intDepartmentID;
+		}
+		private int GetPositionID()
+		{
+			int intPositionID = 0;
+			if (lpDepartments != null)
+			{
+				intPositionID = (int)lpPositions.EditValue;
+			}
+			else
+			{
+				intPositionID = 0;
+			}
+			return intPositionID;
+		}
+		private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
         {
+            //Employee Table
             string EmployeeID = EmployeeIDTe.Text.Trim();
             string FirstName = FirstNameTe.Text.Trim();
             string MiddleName = MiddleNameTe.Text.Trim();
@@ -74,19 +102,23 @@ namespace LoginForm.Forms
             DateTime DateOfBirth = Convert.ToDateTime(DateOfBirthDe.EditValue);
             string Address = AddressMe.Text.Trim();
             string ContactNo = ContactNoTe.Text.Trim();
-
+            //Employee Account
             string Username = UsernameTe.Text.Trim();
             string Password = PasswordTe.Text.Trim();
-            
-            WindowsUIButton btn = e.Button as WindowsUIButton;
+			//Employee Position
+            int PositionID = GetPositionID();
+			//Employee Department
+			int DepartmentID = GetDepartmentID();
+
+			WindowsUIButton btn = e.Button as WindowsUIButton;
             if (btn.Tag != null && btn.Tag.Equals("Save"))
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     try
                     {
-                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address, ContactNo)
-                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address, @ContactNo)";
+                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address, ContactNo, DepartmentID, PositionID)
+                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address, @ContactNo, @DepartmentID, @PositionID)";
 
                         connection.Execute(InsertEmployees, new
                         {
@@ -97,7 +129,9 @@ namespace LoginForm.Forms
                             NameExtension = NameExtension,
                             DateOfBirth = DateOfBirth,
                             Address = Address,
-                            ContactNo = ContactNo
+                            ContactNo = ContactNo,
+                            DepartmentID = DepartmentID,
+                            PositionID = PositionID,
                         });
 
                         string InsertAccount = @"INSERT INTO EmployeeAccounts (EmployeeID, AccountUsername, AccountPassword)
@@ -109,7 +143,8 @@ namespace LoginForm.Forms
                             AccountUsername = Username,
                             AccountPassword = Password,
                         });
-                        MessageBox.Show("Contact Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+						MessageBox.Show("Employee Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     catch (Exception ex)
