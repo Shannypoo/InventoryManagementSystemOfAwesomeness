@@ -21,7 +21,7 @@ namespace LoginForm.Forms
 		//private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
 		
         //The real string is up there this one is for me.
-        private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security: True;";
+        private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security=True;";
 		public AddNewEmployeeRF()
         {
             InitializeComponent();
@@ -67,30 +67,95 @@ namespace LoginForm.Forms
         }
 		private int GetDepartmentID()
 		{
-			int intDepartmentID = 0;
-			if (lpDepartments != null)
+			if (lpDepartments == null || lpDepartments.EditValue == null)
 			{
-				intDepartmentID = (int)lpDepartments.EditValue;
+				return -1; // or throw an exception, or handle in validation
 			}
-			else
-			{
-				intDepartmentID = 0;
-			}
-			return intDepartmentID;
+			return Convert.ToInt32(lpDepartments.EditValue);
 		}
+
 		private int GetPositionID()
 		{
-			int intPositionID = 0;
-			if (lpDepartments != null)
+			if (lpPositions == null || lpPositions.EditValue == null)
 			{
-				intPositionID = (int)lpPositions.EditValue;
+				return -1; // or handle it similarly
 			}
-			else
-			{
-				intPositionID = 0;
-			}
-			return intPositionID;
+			return Convert.ToInt32(lpPositions.EditValue);
 		}
+		private bool ValidateInputs()
+		{
+			if (string.IsNullOrWhiteSpace(EmployeeIDTe.Text))
+			{
+				MessageBox.Show("Employee ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				EmployeeIDTe.Focus();
+				return false;
+			}
+
+			if (string.IsNullOrWhiteSpace(FirstNameTe.Text))
+			{
+				MessageBox.Show("First Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				FirstNameTe.Focus();
+				return false;
+			}
+
+			if (string.IsNullOrWhiteSpace(LastNameTe.Text))
+			{
+				MessageBox.Show("Last Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				LastNameTe.Focus();
+				return false;
+			}
+
+			if (DateOfBirthDe.EditValue == null)
+			{
+				MessageBox.Show("Birthdate is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				DateOfBirthDe.Focus();
+				return false;
+			}
+
+			if (string.IsNullOrWhiteSpace(AddressMe.Text))
+			{
+				MessageBox.Show("Address is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				AddressMe.Focus();
+				return false;
+			}
+
+			if (string.IsNullOrWhiteSpace(ContactNoTe.Text))
+			{
+				MessageBox.Show("Contact Number is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				ContactNoTe.Focus();
+				return false;
+			}
+
+			if (string.IsNullOrWhiteSpace(UsernameTe.Text))
+			{
+				MessageBox.Show("Account Username is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				UsernameTe.Focus();
+				return false;
+			}
+
+			if (string.IsNullOrWhiteSpace(PasswordTe.Text))
+			{
+				MessageBox.Show("Account Password is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				PasswordTe.Focus();
+				return false;
+			}
+
+			if (string.IsNullOrWhiteSpace(lpDepartments.Text))
+			{
+				MessageBox.Show("Please Choose a Department.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				PasswordTe.Focus();
+				return false;
+			}
+			if (string.IsNullOrWhiteSpace(lpPositions.Text))
+			{
+				MessageBox.Show("Please Choose a Position.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				PasswordTe.Focus();
+				return false;
+			}
+
+			return true;
+		}
+
 		private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
         {
             //Employee Table
@@ -113,7 +178,9 @@ namespace LoginForm.Forms
 			WindowsUIButton btn = e.Button as WindowsUIButton;
             if (btn.Tag != null && btn.Tag.Equals("Save"))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+				if (!ValidateInputs()) return;
+
+				using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     try
                     {
