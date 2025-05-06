@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSpreadsheet.Model;
+using EmployeeManagementSystem.Repositories;
 using LoginForm.Models;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,7 @@ namespace LoginForm.ManagerForm
 {
     public partial class ListofEmployee : DevExpress.XtraEditors.XtraForm
     {
-		//private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
-		private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security=True";
-
+        public string connectionString = GlobalSettings.GetConnectionString();
 		public ListofEmployee()
         {
             InitializeComponent();

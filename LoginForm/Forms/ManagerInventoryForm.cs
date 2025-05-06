@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting.Native;
 using DevExpress.XtraRichEdit.Import.OpenXml;
+using EmployeeManagementSystem.Repositories;
 using LoginForm.Models;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace LoginForm.Forms
 {
     public partial class ManagerInventoryForm : DevExpress.XtraEditors.XtraForm
     {
-        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
+        private string connectionString = GlobalSettings.GetConnectionString();
 
         public ManagerInventoryForm()
         {

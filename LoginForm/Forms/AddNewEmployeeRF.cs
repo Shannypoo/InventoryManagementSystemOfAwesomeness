@@ -13,15 +13,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoginForm.Models;
+using System.Printing;
+using EmployeeManagementSystem.Repositories;
 
 namespace LoginForm.Forms
 {
     public partial class AddNewEmployeeRF : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
 
-        //The real string is up there this one is for me.
-        //private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security=True;";
+        private static string connectionString = GlobalSettings.GetConnectionString();
         public AddNewEmployeeRF()
         {
             InitializeComponent();
