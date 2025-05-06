@@ -235,17 +235,17 @@ namespace LoginForm.Forms
                 int age = today.Year - selectedDate.Year;
                 if (selectedDate > today)
                 {
-                    MessageBox.Show("Date of birth cannot be in the future.", "Error");
+                    MessageBox.Show("Date of Birth cannot be in the future.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DateOfBirthDe.EditValue = null;
                 }
-                else if (selectedDate > today.AddYears(-age)) // Adjust age if birthday hasn't occurred yet this year
+                else if (selectedDate > today.AddYears(-age))
                 {
                     age--;
                 }
 
                 if (age < 16)
                 {
-                    MessageBox.Show("User must be at least 16 years old.", "Error");
+                    MessageBox.Show("User must be at least 16 years old.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DateOfBirthDe.EditValue = null;
                 }
             }
