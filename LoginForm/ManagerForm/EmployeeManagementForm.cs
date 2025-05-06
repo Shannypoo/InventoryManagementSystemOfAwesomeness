@@ -52,7 +52,8 @@ namespace LoginForm.ManagerForm
 			CloseAllChildForm();
 
 			ManagerInventoryForm ManagerInventory = new ManagerInventoryForm();
-
+			this.IsMdiContainer = true;
+			ManagerInventory.MdiParent = this;
 			ManagerInventory.Show();
 		}
 
@@ -66,6 +67,8 @@ namespace LoginForm.ManagerForm
 			CloseAllChildForm();
 
 			ListofEmployee employee_List = new ListofEmployee();
+			this.IsMdiContainer = true;
+			employee_List.MdiParent = this;
 			employee_List.Show();
 		}
 

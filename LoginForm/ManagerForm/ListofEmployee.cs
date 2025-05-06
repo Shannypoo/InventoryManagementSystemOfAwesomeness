@@ -17,9 +17,10 @@ namespace LoginForm.ManagerForm
 {
     public partial class ListofEmployee : DevExpress.XtraEditors.XtraForm
     {
-        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
+		//private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
+		private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security=True";
 
-        public ListofEmployee()
+		public ListofEmployee()
         {
             InitializeComponent();
             LoadEmployees();
