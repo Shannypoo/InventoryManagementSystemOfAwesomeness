@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
+using LoginForm.ManagerForm;
 
 namespace LoginForm {
     static class Program {
@@ -15,7 +16,7 @@ namespace LoginForm {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new EmployeeManagementForm());
         }
     }
 }
