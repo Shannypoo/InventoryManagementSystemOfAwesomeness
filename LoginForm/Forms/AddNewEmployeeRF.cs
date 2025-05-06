@@ -18,11 +18,11 @@ namespace LoginForm.Forms
 {
     public partial class AddNewEmployeeRF : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-		//private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
-		
+        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
+
         //The real string is up there this one is for me.
-        private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security=True;";
-		public AddNewEmployeeRF()
+        //private string connectionString = @"DATA Source=MYLITTLEWARMACH\SQLEXPRESS; Initial Catalog=Warehouse; Integrated Security=True;";
+        public AddNewEmployeeRF()
         {
             InitializeComponent();
             EmployeeIDTe.Text = GenerateID();
@@ -65,98 +65,98 @@ namespace LoginForm.Forms
 
             }
         }
-		private int GetDepartmentID()
-		{
-			if (lpDepartments == null || lpDepartments.EditValue == null)
-			{
-				return -1; // or throw an exception, or handle in validation
-			}
-			return Convert.ToInt32(lpDepartments.EditValue);
-		}
+        private int GetDepartmentID()
+        {
+            if (lpDepartments == null || lpDepartments.EditValue == null)
+            {
+                return -1; // or throw an exception, or handle in validation
+            }
+            return Convert.ToInt32(lpDepartments.EditValue);
+        }
 
-		private int GetPositionID()
-		{
-			if (lpPositions == null || lpPositions.EditValue == null)
-			{
-				return -1; // or handle it similarly
-			}
-			return Convert.ToInt32(lpPositions.EditValue);
-		}
-		private bool ValidateInputs()
-		{
-			if (string.IsNullOrWhiteSpace(EmployeeIDTe.Text))
-			{
-				MessageBox.Show("Employee ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				EmployeeIDTe.Focus();
-				return false;
-			}
+        private int GetPositionID()
+        {
+            if (lpPositions == null || lpPositions.EditValue == null)
+            {
+                return -1; // or handle it similarly
+            }
+            return Convert.ToInt32(lpPositions.EditValue);
+        }
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrWhiteSpace(EmployeeIDTe.Text))
+            {
+                MessageBox.Show("Employee ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                EmployeeIDTe.Focus();
+                return false;
+            }
 
-			if (string.IsNullOrWhiteSpace(FirstNameTe.Text))
-			{
-				MessageBox.Show("First Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				FirstNameTe.Focus();
-				return false;
-			}
+            if (string.IsNullOrWhiteSpace(FirstNameTe.Text))
+            {
+                MessageBox.Show("First Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                FirstNameTe.Focus();
+                return false;
+            }
 
-			if (string.IsNullOrWhiteSpace(LastNameTe.Text))
-			{
-				MessageBox.Show("Last Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				LastNameTe.Focus();
-				return false;
-			}
+            if (string.IsNullOrWhiteSpace(LastNameTe.Text))
+            {
+                MessageBox.Show("Last Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LastNameTe.Focus();
+                return false;
+            }
 
-			if (DateOfBirthDe.EditValue == null)
-			{
-				MessageBox.Show("Birthdate is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				DateOfBirthDe.Focus();
-				return false;
-			}
+            if (DateOfBirthDe.EditValue == null)
+            {
+                MessageBox.Show("Birthdate is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DateOfBirthDe.Focus();
+                return false;
+            }
 
-			if (string.IsNullOrWhiteSpace(AddressMe.Text))
-			{
-				MessageBox.Show("Address is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				AddressMe.Focus();
-				return false;
-			}
+            if (string.IsNullOrWhiteSpace(AddressMe.Text))
+            {
+                MessageBox.Show("Address is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                AddressMe.Focus();
+                return false;
+            }
 
-			if (string.IsNullOrWhiteSpace(ContactNoTe.Text))
-			{
-				MessageBox.Show("Contact Number is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				ContactNoTe.Focus();
-				return false;
-			}
+            if (string.IsNullOrWhiteSpace(ContactNoTe.Text))
+            {
+                MessageBox.Show("Contact Number is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ContactNoTe.Focus();
+                return false;
+            }
 
-			if (string.IsNullOrWhiteSpace(UsernameTe.Text))
-			{
-				MessageBox.Show("Account Username is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				UsernameTe.Focus();
-				return false;
-			}
+            if (string.IsNullOrWhiteSpace(UsernameTe.Text))
+            {
+                MessageBox.Show("Account Username is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                UsernameTe.Focus();
+                return false;
+            }
 
-			if (string.IsNullOrWhiteSpace(PasswordTe.Text))
-			{
-				MessageBox.Show("Account Password is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				PasswordTe.Focus();
-				return false;
-			}
+            if (string.IsNullOrWhiteSpace(PasswordTe.Text))
+            {
+                MessageBox.Show("Account Password is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PasswordTe.Focus();
+                return false;
+            }
 
-			if (string.IsNullOrWhiteSpace(lpDepartments.Text))
-			{
-				MessageBox.Show("Please Choose a Department.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				PasswordTe.Focus();
-				return false;
-			}
-			if (string.IsNullOrWhiteSpace(lpPositions.Text))
-			{
-				MessageBox.Show("Please Choose a Position.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				PasswordTe.Focus();
-				return false;
-			}
+            if (string.IsNullOrWhiteSpace(lpDepartments.Text))
+            {
+                MessageBox.Show("Please Choose a Department.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PasswordTe.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(lpPositions.Text))
+            {
+                MessageBox.Show("Please Choose a Position.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PasswordTe.Focus();
+                return false;
+            }
 
-			return true;
-		}
+            return true;
+        }
 
-		private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
+        private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
         {
             //Employee Table
             string EmployeeID = EmployeeIDTe.Text.Trim();
@@ -170,17 +170,17 @@ namespace LoginForm.Forms
             //Employee Account
             string Username = UsernameTe.Text.Trim();
             string Password = PasswordTe.Text.Trim();
-			//Employee Position
+            //Employee Position
             int PositionID = GetPositionID();
-			//Employee Department
-			int DepartmentID = GetDepartmentID();
+            //Employee Department
+            int DepartmentID = GetDepartmentID();
 
-			WindowsUIButton btn = e.Button as WindowsUIButton;
+            WindowsUIButton btn = e.Button as WindowsUIButton;
             if (btn.Tag != null && btn.Tag.Equals("Save"))
             {
-				if (!ValidateInputs()) return;
+                if (!ValidateInputs()) return;
 
-				using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     try
                     {
@@ -211,7 +211,7 @@ namespace LoginForm.Forms
                             AccountPassword = Password,
                         });
 
-						MessageBox.Show("Employee Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Employee Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     catch (Exception ex)
@@ -223,6 +223,31 @@ namespace LoginForm.Forms
             else if (btn.Tag != null && btn.Tag.Equals("Cancel"))
             {
                 this.Close();
+            }
+        }
+
+        private void DateOfBirthDe_EditValueChanged(object sender, EventArgs e)
+        {
+            if (DateOfBirthDe.EditValue != null)
+            {
+                DateTime selectedDate = Convert.ToDateTime(DateOfBirthDe.EditValue);
+                DateTime today = DateTime.Today;
+                int age = today.Year - selectedDate.Year;
+                if (selectedDate > today)
+                {
+                    MessageBox.Show("Date of Birth cannot be in the future.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DateOfBirthDe.EditValue = null;
+                }
+                else if (selectedDate > today.AddYears(-age))
+                {
+                    age--;
+                }
+
+                if (age < 16)
+                {
+                    MessageBox.Show("User must be at least 16 years old.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DateOfBirthDe.EditValue = null;
+                }
             }
         }
     }
