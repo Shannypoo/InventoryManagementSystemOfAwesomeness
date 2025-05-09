@@ -84,7 +84,8 @@ namespace LoginForm.ManagerForm
 			LoginForm loginForm = new LoginForm();
 			this.Close();
 			loginForm.Show();
-			
+
 		}
+
 	}
 }

@@ -35,14 +35,14 @@
 			barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
 			barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
 			barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+			barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
 			ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-			ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-			barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
 			((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
 			SuspendLayout();
 			// 
@@ -101,6 +101,14 @@
 			barButtonItem5.Name = "barButtonItem5";
 			barButtonItem5.ItemClick += barButtonItem5_ItemClick;
 			// 
+			// barButtonItem6
+			// 
+			barButtonItem6.Caption = "Log Out";
+			barButtonItem6.Id = 6;
+			barButtonItem6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem6.ImageOptions.SvgImage");
+			barButtonItem6.Name = "barButtonItem6";
+			barButtonItem6.ItemClick += barButtonItem6_ItemClick;
+			// 
 			// ribbonPage1
 			// 
 			ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup5, ribbonPageGroup1, ribbonPageGroup2, ribbonPageGroup3 });
@@ -127,6 +135,12 @@
 			ribbonPageGroup2.Name = "ribbonPageGroup2";
 			ribbonPageGroup2.Text = "ribbonPageGroup2";
 			// 
+			// ribbonPageGroup3
+			// 
+			ribbonPageGroup3.ItemLinks.Add(barButtonItem6);
+			ribbonPageGroup3.Name = "ribbonPageGroup3";
+			ribbonPageGroup3.Text = "ribbonPageGroup3";
+			// 
 			// ribbonPage2
 			// 
 			ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4 });
@@ -135,23 +149,9 @@
 			// 
 			// ribbonPageGroup4
 			// 
-			ribbonPageGroup4.ItemLinks.Add(barButtonItem4);
+			ribbonPageGroup4.ItemLinks.Add(barButtonItem4, true);
 			ribbonPageGroup4.Name = "ribbonPageGroup4";
 			ribbonPageGroup4.Text = "ribbonPageGroup4";
-			// 
-			// ribbonPageGroup3
-			// 
-			ribbonPageGroup3.ItemLinks.Add(barButtonItem6);
-			ribbonPageGroup3.Name = "ribbonPageGroup3";
-			ribbonPageGroup3.Text = "ribbonPageGroup3";
-			// 
-			// barButtonItem6
-			// 
-			barButtonItem6.Caption = "Log Out";
-			barButtonItem6.Id = 6;
-			barButtonItem6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem6.ImageOptions.SvgImage");
-			barButtonItem6.Name = "barButtonItem6";
-			barButtonItem6.ItemClick += barButtonItem6_ItemClick;
 			// 
 			// EmployeeManagementForm
 			// 
