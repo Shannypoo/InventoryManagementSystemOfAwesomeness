@@ -272,6 +272,7 @@
             // 
             ContactNoTe.Location = new System.Drawing.Point(200, 35);
             ContactNoTe.Name = "ContactNoTe";
+            ContactNoTe.Properties.KeyPress += ContactNoTe_Properties_KeyPress;
             ContactNoTe.Size = new System.Drawing.Size(182, 28);
             ContactNoTe.TabIndex = 10;
             // 
@@ -343,7 +344,7 @@
             xtraTabPage2.Controls.Add(EmployeeIDTe);
             xtraTabPage2.Controls.Add(pictureEdit1);
             xtraTabPage2.Name = "xtraTabPage2";
-            xtraTabPage2.Size = new System.Drawing.Size(876, 389);
+            xtraTabPage2.Size = new System.Drawing.Size(876, 383);
             xtraTabPage2.Text = "Employee Account";
             // 
             // labelControl11

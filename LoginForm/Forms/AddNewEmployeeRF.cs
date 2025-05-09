@@ -25,23 +25,46 @@ namespace LoginForm.Forms
         public AddNewEmployeeRF()
         {
             InitializeComponent();
-            EmployeeIDTe.Text = GenerateID();
             LoadPositionsandDepartments();
+
+            lpDepartments.EditValueChanged += LpDepartments_EditValueChanged;
         }
-        private static string GenerateID()
+        private static string GenerateID(int deptID)
         {
-            //Generates random strings for student ID
-            Random rand = new Random();
-            string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-            string id = string.Empty;
-
-            for (int i = 0; i < 10; i++)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                id += letters[rand.Next(letters.Length)];
-            }
-            return id;
-        }
+                string getDeptSql = @"SELECT DepartmentName FROM dbo.Departments WHERE DepartmentID = @DepartmentID";
+                string deptName = connection.QueryFirstOrDefault<string>(getDeptSql, new { DepartmentID = deptID })?.Trim();
 
+                if (string.IsNullOrEmpty(deptName))
+                    return null;
+
+                string year = DateTime.Now.Year.ToString();
+                string prefix = $"ID-{deptName}-{year}-";
+
+                string getMaxIdSql = @"
+        SELECT TOP 1 EmployeeID
+        FROM dbo.Employees
+        WHERE EmployeeID LIKE @Prefix + '%'
+        ORDER BY EmployeeID DESC";
+
+                string lastId = connection.QueryFirstOrDefault<string>(getMaxIdSql, new { Prefix = prefix });
+
+                int nextNumber = 1;
+
+                if (!string.IsNullOrEmpty(lastId))
+                {
+                    string[] parts = lastId.Split('-');
+                    if (parts.Length == 4 && int.TryParse(parts[3], out int lastNumber))
+                    {
+                        nextNumber = lastNumber + 1;
+                    }
+                }
+
+                string formattedNumber = nextNumber.ToString("D4");
+                return $"{prefix}{formattedNumber}";
+            }
+        }
         private void LoadPositionsandDepartments()
         {
             string query = "SELECT PositionName, PositionID FROM dbo.Positions";
@@ -63,6 +86,14 @@ namespace LoginForm.Forms
                 var departments = connection.Query<AllModels>(aquery).ToList();
                 lpDepartments.Properties.DataSource = departments;
 
+            }
+        }
+        private void LpDepartments_EditValueChanged(object sender, EventArgs e)
+        {
+            if (lpDepartments.EditValue != null)
+            {
+                int deptID = Convert.ToInt32(lpDepartments.EditValue);
+                EmployeeIDTe.Text = GenerateID(deptID);
             }
         }
         private int GetDepartmentID()
@@ -248,6 +279,14 @@ namespace LoginForm.Forms
                     MessageBox.Show("User must be at least 16 years old.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DateOfBirthDe.EditValue = null;
                 }
+            }
+        }
+
+        private void ContactNoTe_Properties_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
