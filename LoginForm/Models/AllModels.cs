@@ -43,6 +43,7 @@ namespace LoginForm.Models
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
         public string ContactNo { get; set; }
-        
+        public string EmployeeInCharge { get; set; }
+
     }
 }

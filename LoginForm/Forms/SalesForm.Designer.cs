@@ -41,22 +41,23 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            StockStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            lpeCategory = new DevExpress.XtraEditors.LookUpEdit();
             teQuantity = new DevExpress.XtraEditors.TextEdit();
             btnAddItem = new DevExpress.XtraEditors.SimpleButton();
-            meDescription = new DevExpress.XtraEditors.MemoEdit();
-            cbStockStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            labelControl5 = new DevExpress.XtraEditors.LabelControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            teUnitPrice = new DevExpress.XtraEditors.TextEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             teStockName = new DevExpress.XtraEditors.TextEdit();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            textEdit1 = new DevExpress.XtraEditors.TextEdit();
             teSearch = new DevExpress.XtraEditors.TextEdit();
             gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -66,25 +67,33 @@
             gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gvInventory = new DevExpress.XtraGrid.Views.Grid.GridView();
-            StockStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             gcInventory = new DevExpress.XtraGrid.GridControl();
-            ((System.ComponentModel.ISupportInitialize)lpeCategory.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)teQuantity.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)meDescription.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cbStockStatus.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)teUnitPrice.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)teStockName.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)teSearch.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gcInventory).BeginInit();
             SuspendLayout();
+            // 
+            // StockStatus
+            // 
+            StockStatus.Caption = "Date Ordered";
+            StockStatus.FieldName = "DateOrdered";
+            StockStatus.Name = "StockStatus";
+            StockStatus.Visible = true;
+            StockStatus.VisibleIndex = 4;
             // 
             // btnSearch
             // 
@@ -98,21 +107,9 @@
             btnSearch.TabIndex = 21;
             btnSearch.Text = "Search";
             // 
-            // lpeCategory
-            // 
-            lpeCategory.Location = new System.Drawing.Point(147, 70);
-            lpeCategory.Name = "lpeCategory";
-            lpeCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lpeCategory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CategoryID", "Category ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CategoryName", "Category Name") });
-            lpeCategory.Properties.DisplayMember = "CategoryName";
-            lpeCategory.Properties.NullText = "";
-            lpeCategory.Properties.ValueMember = "CategoryID";
-            lpeCategory.Size = new System.Drawing.Size(125, 28);
-            lpeCategory.TabIndex = 22;
-            // 
             // teQuantity
             // 
-            teQuantity.Location = new System.Drawing.Point(12, 187);
+            teQuantity.Location = new System.Drawing.Point(147, 70);
             teQuantity.Name = "teQuantity";
             teQuantity.Size = new System.Drawing.Size(125, 28);
             teQuantity.TabIndex = 19;
@@ -129,68 +126,37 @@
             btnAddItem.TabIndex = 17;
             btnAddItem.Text = "Add";
             // 
-            // meDescription
-            // 
-            meDescription.Location = new System.Drawing.Point(12, 240);
-            meDescription.Name = "meDescription";
-            meDescription.Size = new System.Drawing.Size(260, 77);
-            meDescription.TabIndex = 13;
-            // 
-            // cbStockStatus
-            // 
-            cbStockStatus.Location = new System.Drawing.Point(147, 134);
-            cbStockStatus.Name = "cbStockStatus";
-            cbStockStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cbStockStatus.Properties.Items.AddRange(new object[] { "Expired", "Close to Expiration", "Good Condition", "Non-Perishable" });
-            cbStockStatus.Size = new System.Drawing.Size(127, 28);
-            cbStockStatus.TabIndex = 12;
-            // 
             // labelControl6
             // 
-            labelControl6.Location = new System.Drawing.Point(14, 164);
+            labelControl6.Location = new System.Drawing.Point(149, 47);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new System.Drawing.Size(42, 13);
             labelControl6.TabIndex = 11;
             labelControl6.Text = "Quantity";
             // 
-            // labelControl5
-            // 
-            labelControl5.Location = new System.Drawing.Point(14, 217);
-            labelControl5.Name = "labelControl5";
-            labelControl5.Size = new System.Drawing.Size(53, 13);
-            labelControl5.TabIndex = 10;
-            labelControl5.Text = "Description";
-            // 
             // labelControl4
             // 
             labelControl4.Location = new System.Drawing.Point(147, 111);
             labelControl4.Name = "labelControl4";
-            labelControl4.Size = new System.Drawing.Size(60, 13);
+            labelControl4.Size = new System.Drawing.Size(66, 13);
             labelControl4.TabIndex = 9;
-            labelControl4.Text = "Stock Status";
+            labelControl4.Text = "Date Ordered";
             // 
             // labelControl3
             // 
-            labelControl3.Location = new System.Drawing.Point(147, 47);
+            labelControl3.Location = new System.Drawing.Point(16, 111);
             labelControl3.Name = "labelControl3";
-            labelControl3.Size = new System.Drawing.Size(45, 13);
+            labelControl3.Size = new System.Drawing.Size(46, 13);
             labelControl3.TabIndex = 8;
-            labelControl3.Text = "Category";
+            labelControl3.Text = "Employee";
             // 
             // labelControl2
             // 
-            labelControl2.Location = new System.Drawing.Point(14, 111);
+            labelControl2.Location = new System.Drawing.Point(16, 168);
             labelControl2.Name = "labelControl2";
-            labelControl2.Size = new System.Drawing.Size(45, 13);
+            labelControl2.Size = new System.Drawing.Size(71, 13);
             labelControl2.TabIndex = 7;
-            labelControl2.Text = "Unit Price";
-            // 
-            // teUnitPrice
-            // 
-            teUnitPrice.Location = new System.Drawing.Point(14, 134);
-            teUnitPrice.Name = "teUnitPrice";
-            teUnitPrice.Size = new System.Drawing.Size(125, 28);
-            teUnitPrice.TabIndex = 2;
+            labelControl2.Text = "Date Delivered";
             // 
             // labelControl1
             // 
@@ -218,26 +184,68 @@
             // groupControl1
             // 
             groupControl1.CaptionImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("groupControl1.CaptionImageOptions.SvgImage");
-            groupControl1.Controls.Add(lpeCategory);
+            groupControl1.Controls.Add(labelControl5);
+            groupControl1.Controls.Add(textEdit2);
+            groupControl1.Controls.Add(dateEdit2);
+            groupControl1.Controls.Add(dateEdit1);
+            groupControl1.Controls.Add(textEdit1);
             groupControl1.Controls.Add(teQuantity);
             groupControl1.Controls.Add(btnAddItem);
-            groupControl1.Controls.Add(meDescription);
-            groupControl1.Controls.Add(cbStockStatus);
             groupControl1.Controls.Add(labelControl6);
-            groupControl1.Controls.Add(labelControl5);
             groupControl1.Controls.Add(labelControl4);
             groupControl1.Controls.Add(labelControl3);
             groupControl1.Controls.Add(labelControl2);
-            groupControl1.Controls.Add(teUnitPrice);
             groupControl1.Controls.Add(labelControl1);
             groupControl1.Controls.Add(teStockName);
             groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
             groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             groupControl1.Location = new System.Drawing.Point(0, 0);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new System.Drawing.Size(291, 672);
+            groupControl1.Size = new System.Drawing.Size(291, 668);
             groupControl1.TabIndex = 19;
             groupControl1.Text = "Item Details";
+            // 
+            // labelControl5
+            // 
+            labelControl5.Location = new System.Drawing.Point(147, 168);
+            labelControl5.Name = "labelControl5";
+            labelControl5.Size = new System.Drawing.Size(31, 13);
+            labelControl5.TabIndex = 24;
+            labelControl5.Text = "Status";
+            // 
+            // textEdit2
+            // 
+            textEdit2.Location = new System.Drawing.Point(147, 187);
+            textEdit2.Name = "textEdit2";
+            textEdit2.Size = new System.Drawing.Size(125, 28);
+            textEdit2.TabIndex = 23;
+            // 
+            // dateEdit2
+            // 
+            dateEdit2.EditValue = null;
+            dateEdit2.Location = new System.Drawing.Point(14, 187);
+            dateEdit2.Name = "dateEdit2";
+            dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dateEdit2.Size = new System.Drawing.Size(125, 28);
+            dateEdit2.TabIndex = 22;
+            // 
+            // dateEdit1
+            // 
+            dateEdit1.EditValue = null;
+            dateEdit1.Location = new System.Drawing.Point(147, 134);
+            dateEdit1.Name = "dateEdit1";
+            dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dateEdit1.Size = new System.Drawing.Size(125, 28);
+            dateEdit1.TabIndex = 21;
+            // 
+            // textEdit1
+            // 
+            textEdit1.Location = new System.Drawing.Point(14, 134);
+            textEdit1.Name = "textEdit1";
+            textEdit1.Size = new System.Drawing.Size(125, 28);
+            textEdit1.TabIndex = 20;
             // 
             // teSearch
             // 
@@ -252,7 +260,7 @@
             gridColumn11.ColumnEdit = repositoryItemButtonEdit2;
             gridColumn11.Name = "gridColumn11";
             gridColumn11.Visible = true;
-            gridColumn11.VisibleIndex = 8;
+            gridColumn11.VisibleIndex = 7;
             // 
             // repositoryItemButtonEdit2
             // 
@@ -278,7 +286,7 @@
             gridColumn8.FieldName = "Status";
             gridColumn8.Name = "gridColumn8";
             gridColumn8.Visible = true;
-            gridColumn8.VisibleIndex = 7;
+            gridColumn8.VisibleIndex = 6;
             // 
             // gridColumn7
             // 
@@ -286,7 +294,7 @@
             gridColumn7.FieldName = "DateDelivered";
             gridColumn7.Name = "gridColumn7";
             gridColumn7.Visible = true;
-            gridColumn7.VisibleIndex = 6;
+            gridColumn7.VisibleIndex = 5;
             // 
             // gridColumn5
             // 
@@ -294,7 +302,7 @@
             gridColumn5.FieldName = "EmployeeInCharge";
             gridColumn5.Name = "gridColumn5";
             gridColumn5.Visible = true;
-            gridColumn5.VisibleIndex = 4;
+            gridColumn5.VisibleIndex = 3;
             // 
             // gridColumn4
             // 
@@ -302,7 +310,7 @@
             gridColumn4.FieldName = "QuantityOrder";
             gridColumn4.Name = "gridColumn4";
             gridColumn4.Visible = true;
-            gridColumn4.VisibleIndex = 3;
+            gridColumn4.VisibleIndex = 2;
             // 
             // gridColumn3
             // 
@@ -310,15 +318,7 @@
             gridColumn3.FieldName = "TransactionID";
             gridColumn3.Name = "gridColumn3";
             gridColumn3.Visible = true;
-            gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn2
-            // 
-            gridColumn2.Caption = "Stock Name";
-            gridColumn2.FieldName = "StockName";
-            gridColumn2.Name = "gridColumn2";
-            gridColumn2.Visible = true;
-            gridColumn2.VisibleIndex = 1;
+            gridColumn3.VisibleIndex = 1;
             // 
             // gridColumn1
             // 
@@ -330,7 +330,7 @@
             // 
             // gvInventory
             // 
-            gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
+            gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn3, gridColumn4, gridColumn5, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
             gridFormatRule1.Column = StockStatus;
             gridFormatRule1.Name = "Format0";
             formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
@@ -340,14 +340,6 @@
             gvInventory.GroupPanelText = " ";
             gvInventory.Name = "gvInventory";
             // 
-            // StockStatus
-            // 
-            StockStatus.Caption = "Date Ordered";
-            StockStatus.FieldName = "DateOrdered";
-            StockStatus.Name = "StockStatus";
-            StockStatus.Visible = true;
-            StockStatus.VisibleIndex = 5;
-            // 
             // gcInventory
             // 
             gcInventory.Dock = System.Windows.Forms.DockStyle.Right;
@@ -355,7 +347,7 @@
             gcInventory.MainView = gvInventory;
             gcInventory.Name = "gcInventory";
             gcInventory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemButtonEdit1, repositoryItemButtonEdit2 });
-            gcInventory.Size = new System.Drawing.Size(1067, 672);
+            gcInventory.Size = new System.Drawing.Size(1067, 668);
             gcInventory.TabIndex = 17;
             gcInventory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvInventory });
             // 
@@ -363,23 +355,26 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1364, 672);
+            ClientSize = new System.Drawing.Size(1364, 668);
             Controls.Add(btnSearch);
             Controls.Add(labelControl7);
             Controls.Add(groupControl1);
             Controls.Add(teSearch);
             Controls.Add(gcInventory);
+            IconOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("SalesForm.IconOptions.SvgImage");
             Name = "SalesForm";
             Text = "SalesForm";
-            ((System.ComponentModel.ISupportInitialize)lpeCategory.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)teQuantity.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)meDescription.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cbStockStatus.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)teUnitPrice.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)teStockName.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)teSearch.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).EndInit();
@@ -392,17 +387,12 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnSearch;
-        public DevExpress.XtraEditors.LookUpEdit lpeCategory;
         private DevExpress.XtraEditors.TextEdit teQuantity;
         private DevExpress.XtraEditors.SimpleButton btnAddItem;
-        private DevExpress.XtraEditors.MemoEdit meDescription;
-        private DevExpress.XtraEditors.ComboBoxEdit cbStockStatus;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit teUnitPrice;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit teStockName;
         private DevExpress.XtraEditors.LabelControl labelControl7;
@@ -416,10 +406,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Views.Grid.GridView gvInventory;
         private DevExpress.XtraGrid.Columns.GridColumn StockStatus;
         private DevExpress.XtraGrid.GridControl gcInventory;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
     }
 }
