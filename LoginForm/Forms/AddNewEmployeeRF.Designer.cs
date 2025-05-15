@@ -57,16 +57,14 @@
             lpDepartments = new DevExpress.XtraEditors.LookUpEdit();
             xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            SaveNCancel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             labelControl11 = new DevExpress.XtraEditors.LabelControl();
             labelControl10 = new DevExpress.XtraEditors.LabelControl();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
             PasswordTe = new DevExpress.XtraEditors.TextEdit();
             UsernameTe = new DevExpress.XtraEditors.TextEdit();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             EmployeeIDTe = new DevExpress.XtraEditors.TextEdit();
-            pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            SaveNCancel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
@@ -91,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)PasswordTe.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)UsernameTe.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeIDTe.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).BeginInit();
             SuspendLayout();
             // 
             // ribbon
@@ -227,6 +224,7 @@
             DateOfBirthDe.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             DateOfBirthDe.Size = new System.Drawing.Size(153, 28);
             DateOfBirthDe.TabIndex = 15;
+            DateOfBirthDe.EditValueChanged += DateOfBirthDe_EditValueChanged;
             // 
             // labelControl8
             // 
@@ -271,6 +269,7 @@
             // 
             ContactNoTe.Location = new System.Drawing.Point(200, 35);
             ContactNoTe.Name = "ContactNoTe";
+            ContactNoTe.Properties.KeyPress += ContactNoTe_Properties_KeyPress;
             ContactNoTe.Size = new System.Drawing.Size(182, 28);
             ContactNoTe.TabIndex = 10;
             // 
@@ -318,31 +317,18 @@
             xtraTabControl1.Location = new System.Drawing.Point(13, 55);
             xtraTabControl1.Name = "xtraTabControl1";
             xtraTabControl1.SelectedTabPage = xtraTabPage1;
-            xtraTabControl1.Size = new System.Drawing.Size(878, 474);
+            xtraTabControl1.Size = new System.Drawing.Size(878, 414);
             xtraTabControl1.TabIndex = 25;
             xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] { xtraTabPage1, xtraTabPage2 });
             // 
             // xtraTabPage1
             // 
-            xtraTabPage1.Controls.Add(SaveNCancel);
             xtraTabPage1.Controls.Add(groupControl1);
             xtraTabPage1.Controls.Add(groupControl3);
             xtraTabPage1.Controls.Add(groupControl2);
             xtraTabPage1.Name = "xtraTabPage1";
-            xtraTabPage1.Size = new System.Drawing.Size(876, 443);
+            xtraTabPage1.Size = new System.Drawing.Size(876, 383);
             xtraTabPage1.Text = "Employee Details";
-            // 
-            // SaveNCancel
-            // 
-            windowsuiButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions1.SvgImage");
-            windowsuiButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions2.SvgImage");
-            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
-            SaveNCancel.Location = new System.Drawing.Point(368, 378);
-            SaveNCancel.Name = "SaveNCancel";
-            SaveNCancel.Size = new System.Drawing.Size(135, 62);
-            SaveNCancel.TabIndex = 24;
-            SaveNCancel.Text = "windowsuiButtonPanel2";
-            SaveNCancel.ButtonClick += SaveNCancel_ButtonClick;
             // 
             // xtraTabPage2
             // 
@@ -351,16 +337,14 @@
             xtraTabPage2.Controls.Add(labelControl7);
             xtraTabPage2.Controls.Add(PasswordTe);
             xtraTabPage2.Controls.Add(UsernameTe);
-            xtraTabPage2.Controls.Add(simpleButton1);
             xtraTabPage2.Controls.Add(EmployeeIDTe);
-            xtraTabPage2.Controls.Add(pictureEdit1);
             xtraTabPage2.Name = "xtraTabPage2";
-            xtraTabPage2.Size = new System.Drawing.Size(876, 449);
+            xtraTabPage2.Size = new System.Drawing.Size(876, 383);
             xtraTabPage2.Text = "Employee Account";
             // 
             // labelControl11
             // 
-            labelControl11.Location = new System.Drawing.Point(474, 238);
+            labelControl11.Location = new System.Drawing.Point(336, 221);
             labelControl11.Name = "labelControl11";
             labelControl11.Size = new System.Drawing.Size(88, 13);
             labelControl11.TabIndex = 7;
@@ -368,7 +352,7 @@
             // 
             // labelControl10
             // 
-            labelControl10.Location = new System.Drawing.Point(470, 167);
+            labelControl10.Location = new System.Drawing.Point(332, 150);
             labelControl10.Name = "labelControl10";
             labelControl10.Size = new System.Drawing.Size(90, 13);
             labelControl10.TabIndex = 6;
@@ -376,7 +360,7 @@
             // 
             // labelControl7
             // 
-            labelControl7.Location = new System.Drawing.Point(470, 97);
+            labelControl7.Location = new System.Drawing.Point(332, 80);
             labelControl7.Name = "labelControl7";
             labelControl7.Size = new System.Drawing.Size(60, 13);
             labelControl7.TabIndex = 5;
@@ -384,7 +368,7 @@
             // 
             // PasswordTe
             // 
-            PasswordTe.Location = new System.Drawing.Point(472, 257);
+            PasswordTe.Location = new System.Drawing.Point(334, 240);
             PasswordTe.MenuManager = ribbon;
             PasswordTe.Name = "PasswordTe";
             PasswordTe.Size = new System.Drawing.Size(201, 28);
@@ -392,42 +376,38 @@
             // 
             // UsernameTe
             // 
-            UsernameTe.Location = new System.Drawing.Point(470, 186);
+            UsernameTe.Location = new System.Drawing.Point(332, 169);
             UsernameTe.MenuManager = ribbon;
             UsernameTe.Name = "UsernameTe";
             UsernameTe.Size = new System.Drawing.Size(201, 28);
             UsernameTe.TabIndex = 3;
             // 
-            // simpleButton1
-            // 
-            simpleButton1.Location = new System.Drawing.Point(260, 301);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new System.Drawing.Size(75, 23);
-            simpleButton1.TabIndex = 2;
-            simpleButton1.Text = "Upload";
-            // 
             // EmployeeIDTe
             // 
-            EmployeeIDTe.Location = new System.Drawing.Point(470, 116);
+            EmployeeIDTe.Location = new System.Drawing.Point(332, 99);
             EmployeeIDTe.MenuManager = ribbon;
             EmployeeIDTe.Name = "EmployeeIDTe";
             EmployeeIDTe.Size = new System.Drawing.Size(201, 28);
             EmployeeIDTe.TabIndex = 1;
             // 
-            // pictureEdit1
+            // SaveNCancel
             // 
-            pictureEdit1.Location = new System.Drawing.Point(200, 97);
-            pictureEdit1.MenuManager = ribbon;
-            pictureEdit1.Name = "pictureEdit1";
-            pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            pictureEdit1.Size = new System.Drawing.Size(194, 188);
-            pictureEdit1.TabIndex = 0;
+            windowsuiButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions1.SvgImage");
+            windowsuiButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions2.SvgImage");
+            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
+            SaveNCancel.Location = new System.Drawing.Point(386, 475);
+            SaveNCancel.Name = "SaveNCancel";
+            SaveNCancel.Size = new System.Drawing.Size(135, 62);
+            SaveNCancel.TabIndex = 24;
+            SaveNCancel.Text = "windowsuiButtonPanel2";
+            SaveNCancel.ButtonClick += SaveNCancel_ButtonClick;
             // 
             // AddNewEmployeeRF
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(907, 541);
+            ClientSize = new System.Drawing.Size(907, 542);
+            Controls.Add(SaveNCancel);
             Controls.Add(xtraTabControl1);
             Controls.Add(ribbon);
             IconOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("AddNewEmployeeRF.IconOptions.SvgImage");
@@ -464,7 +444,6 @@
             ((System.ComponentModel.ISupportInitialize)PasswordTe.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)UsernameTe.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeIDTe.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -502,9 +481,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit PasswordTe;
         private DevExpress.XtraEditors.TextEdit UsernameTe;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit EmployeeIDTe;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.TextEdit ContactNoTe;
     }

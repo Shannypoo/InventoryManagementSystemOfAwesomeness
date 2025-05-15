@@ -13,33 +13,58 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoginForm.Models;
+using System.Printing;
+using EmployeeManagementSystem.Repositories;
 
 namespace LoginForm.Forms
 {
     public partial class AddNewEmployeeRF : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private string connectionString = @"DATA Source=LAB1-PC17; Initial Catalog=Warehouse; User ID=sa; Password=123456";
 
+        private static string connectionString = GlobalSettings.GetConnectionString();
         public AddNewEmployeeRF()
         {
             InitializeComponent();
-            EmployeeIDTe.Text = GenerateID();
             LoadPositionsandDepartments();
+
+            lpDepartments.EditValueChanged += LpDepartments_EditValueChanged;
         }
-        private static string GenerateID()
+        private static string GenerateID(int deptID)
         {
-            //Generates random strings for student ID
-            Random rand = new Random();
-            string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-            string id = string.Empty;
-
-            for (int i = 0; i < 10; i++)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                id += letters[rand.Next(letters.Length)];
-            }
-            return id;
-        }
+                string getDeptSql = @"SELECT DepartmentName FROM dbo.Departments WHERE DepartmentID = @DepartmentID";
+                string deptName = connection.QueryFirstOrDefault<string>(getDeptSql, new { DepartmentID = deptID })?.Trim();
 
+                if (string.IsNullOrEmpty(deptName))
+                    return null;
+
+                string year = DateTime.Now.Year.ToString();
+                string prefix = $"ID-{deptName}-{year}-";
+
+                string getMaxIdSql = @"
+        SELECT TOP 1 EmployeeID
+        FROM dbo.Employees
+        WHERE EmployeeID LIKE @Prefix + '%'
+        ORDER BY EmployeeID DESC";
+
+                string lastId = connection.QueryFirstOrDefault<string>(getMaxIdSql, new { Prefix = prefix });
+
+                int nextNumber = 1;
+
+                if (!string.IsNullOrEmpty(lastId))
+                {
+                    string[] parts = lastId.Split('-');
+                    if (parts.Length == 4 && int.TryParse(parts[3], out int lastNumber))
+                    {
+                        nextNumber = lastNumber + 1;
+                    }
+                }
+
+                string formattedNumber = nextNumber.ToString("D4");
+                return $"{prefix}{formattedNumber}";
+            }
+        }
         private void LoadPositionsandDepartments()
         {
             string query = "SELECT PositionName, PositionID FROM dbo.Positions";
@@ -63,9 +88,108 @@ namespace LoginForm.Forms
 
             }
         }
+        private void LpDepartments_EditValueChanged(object sender, EventArgs e)
+        {
+            if (lpDepartments.EditValue != null)
+            {
+                int deptID = Convert.ToInt32(lpDepartments.EditValue);
+                EmployeeIDTe.Text = GenerateID(deptID);
+            }
+        }
+        private int GetDepartmentID()
+        {
+            if (lpDepartments == null || lpDepartments.EditValue == null)
+            {
+                return -1; // or throw an exception, or handle in validation
+            }
+            return Convert.ToInt32(lpDepartments.EditValue);
+        }
+
+        private int GetPositionID()
+        {
+            if (lpPositions == null || lpPositions.EditValue == null)
+            {
+                return -1; // or handle it similarly
+            }
+            return Convert.ToInt32(lpPositions.EditValue);
+        }
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrWhiteSpace(EmployeeIDTe.Text))
+            {
+                MessageBox.Show("Employee ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                EmployeeIDTe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(FirstNameTe.Text))
+            {
+                MessageBox.Show("First Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                FirstNameTe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(LastNameTe.Text))
+            {
+                MessageBox.Show("Last Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LastNameTe.Focus();
+                return false;
+            }
+
+            if (DateOfBirthDe.EditValue == null)
+            {
+                MessageBox.Show("Birthdate is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DateOfBirthDe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(AddressMe.Text))
+            {
+                MessageBox.Show("Address is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                AddressMe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(ContactNoTe.Text))
+            {
+                MessageBox.Show("Contact Number is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ContactNoTe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(UsernameTe.Text))
+            {
+                MessageBox.Show("Account Username is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                UsernameTe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(PasswordTe.Text))
+            {
+                MessageBox.Show("Account Password is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PasswordTe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(lpDepartments.Text))
+            {
+                MessageBox.Show("Please Choose a Department.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PasswordTe.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(lpPositions.Text))
+            {
+                MessageBox.Show("Please Choose a Position.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PasswordTe.Focus();
+                return false;
+            }
+
+            return true;
+        }
 
         private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
         {
+            //Employee Table
             string EmployeeID = EmployeeIDTe.Text.Trim();
             string FirstName = FirstNameTe.Text.Trim();
             string MiddleName = MiddleNameTe.Text.Trim();
@@ -74,19 +198,25 @@ namespace LoginForm.Forms
             DateTime DateOfBirth = Convert.ToDateTime(DateOfBirthDe.EditValue);
             string Address = AddressMe.Text.Trim();
             string ContactNo = ContactNoTe.Text.Trim();
-
+            //Employee Account
             string Username = UsernameTe.Text.Trim();
             string Password = PasswordTe.Text.Trim();
-            
+            //Employee Position
+            int PositionID = GetPositionID();
+            //Employee Department
+            int DepartmentID = GetDepartmentID();
+
             WindowsUIButton btn = e.Button as WindowsUIButton;
             if (btn.Tag != null && btn.Tag.Equals("Save"))
             {
+                if (!ValidateInputs()) return;
+
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     try
                     {
-                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address, ContactNo)
-                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address, @ContactNo)";
+                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address, ContactNo, DepartmentID, PositionID)
+                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address, @ContactNo, @DepartmentID, @PositionID)";
 
                         connection.Execute(InsertEmployees, new
                         {
@@ -97,7 +227,9 @@ namespace LoginForm.Forms
                             NameExtension = NameExtension,
                             DateOfBirth = DateOfBirth,
                             Address = Address,
-                            ContactNo = ContactNo
+                            ContactNo = ContactNo,
+                            DepartmentID = DepartmentID,
+                            PositionID = PositionID,
                         });
 
                         string InsertAccount = @"INSERT INTO EmployeeAccounts (EmployeeID, AccountUsername, AccountPassword)
@@ -109,7 +241,8 @@ namespace LoginForm.Forms
                             AccountUsername = Username,
                             AccountPassword = Password,
                         });
-                        MessageBox.Show("Contact Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MessageBox.Show("Employee Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     catch (Exception ex)
@@ -121,6 +254,39 @@ namespace LoginForm.Forms
             else if (btn.Tag != null && btn.Tag.Equals("Cancel"))
             {
                 this.Close();
+            }
+        }
+
+        private void DateOfBirthDe_EditValueChanged(object sender, EventArgs e)
+        {
+            if (DateOfBirthDe.EditValue != null)
+            {
+                DateTime selectedDate = Convert.ToDateTime(DateOfBirthDe.EditValue);
+                DateTime today = DateTime.Today;
+                int age = today.Year - selectedDate.Year;
+                if (selectedDate > today)
+                {
+                    MessageBox.Show("Date of Birth cannot be in the future.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DateOfBirthDe.EditValue = null;
+                }
+                else if (selectedDate > today.AddYears(-age))
+                {
+                    age--;
+                }
+
+                if (age < 16)
+                {
+                    MessageBox.Show("User must be at least 16 years old.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DateOfBirthDe.EditValue = null;
+                }
+            }
+        }
+
+        private void ContactNoTe_Properties_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

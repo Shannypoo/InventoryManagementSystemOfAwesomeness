@@ -42,9 +42,15 @@
             gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             teSearch = new DevExpress.XtraEditors.TextEdit();
+            EditButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            DeleteButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            ReportButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)gcEmployees).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gvEmployees).BeginInit();
             ((System.ComponentModel.ISupportInitialize)teSearch.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)EditButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DeleteButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ReportButton).BeginInit();
             SuspendLayout();
             // 
             // gcEmployees
@@ -53,6 +59,7 @@
             gcEmployees.Location = new System.Drawing.Point(0, 0);
             gcEmployees.MainView = gvEmployees;
             gcEmployees.Name = "gcEmployees";
+            gcEmployees.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { EditButton, DeleteButton, ReportButton });
             gcEmployees.Size = new System.Drawing.Size(840, 438);
             gcEmployees.TabIndex = 0;
             gcEmployees.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvEmployees });
@@ -163,6 +170,24 @@
             teSearch.TabIndex = 2;
             teSearch.EditValueChanging += teSearch_EditValueChanging;
             // 
+            // EditButton
+            // 
+            EditButton.AutoHeight = false;
+            EditButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton() });
+            EditButton.Name = "EditButton";
+            // 
+            // DeleteButton
+            // 
+            DeleteButton.AutoHeight = false;
+            DeleteButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton() });
+            DeleteButton.Name = "DeleteButton";
+            // 
+            // ReportButton
+            // 
+            ReportButton.AutoHeight = false;
+            ReportButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton() });
+            ReportButton.Name = "ReportButton";
+            // 
             // ListofEmployee
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +202,9 @@
             ((System.ComponentModel.ISupportInitialize)gcEmployees).EndInit();
             ((System.ComponentModel.ISupportInitialize)gvEmployees).EndInit();
             ((System.ComponentModel.ISupportInitialize)teSearch.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)EditButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DeleteButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ReportButton).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -197,5 +225,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit EditButton;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit DeleteButton;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ReportButton;
     }
 }
