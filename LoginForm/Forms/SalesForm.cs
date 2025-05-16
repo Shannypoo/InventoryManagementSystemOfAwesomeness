@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dapper;
 using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
 
@@ -36,62 +37,43 @@ namespace LoginForm.Forms
 
         private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
         {
-            string EmployeeID = EmployeeIDTe.Text.Trim();
-            string FirstName = FirstNameTe.Text.Trim();
-            string MiddleName = MiddleNameTe.Text.Trim();
-            string LastName = LastNameTe.Text.Trim();
-            string NameExtension = NameExtensionTe.Text.Trim();
-            DateTime DateOfBirth = Convert.ToDateTime(DateOfBirthDe.EditValue);
-            string Address = AddressMe.Text.Trim();
-            string ContactNo = ContactNoTe.Text.Trim();
+            
+        }
 
-            string Username = UsernameTe.Text.Trim();
-            string Password = PasswordTe.Text.Trim();
+        
 
-            WindowsUIButton btn = e.Button as WindowsUIButton;
-            if (btn.Tag != null && btn.Tag.Equals("Save"))
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrWhiteSpace(txtQuantity.Text))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    try
-                    {
-                        string InsertEmployees = @"INSERT INTO Employees (EmployeeID, FirstName, MiddleName, LastName, NameExtension, DateOfBirth, Address, ContactNo)
-                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address, @ContactNo)";
-
-                        connection.Execute(InsertEmployees, new
-                        {
-                            EmployeeID = EmployeeID,
-                            FirstName = FirstName,
-                            MiddleName = MiddleName,
-                            LastName = LastName,
-                            NameExtension = NameExtension,
-                            DateOfBirth = DateOfBirth,
-                            Address = Address,
-                            ContactNo = ContactNo
-                        });
-
-                        string InsertAccount = @"INSERT INTO EmployeeAccounts (EmployeeID, AccountUsername, AccountPassword)
-                                                    VALUES (@EmployeeID, @AccountUsername, @AccountPassword)";
-
-                        connection.Execute(InsertAccount, new
-                        {
-                            EmployeeID = EmployeeID,
-                            AccountUsername = Username,
-                            AccountPassword = Password,
-                        });
-                        MessageBox.Show("Contact Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"An error occurred during Adding Employee: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                MessageBox.Show("Quantity amount is Required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQuantity.Focus();
+                return false;
             }
-            else if (btn.Tag != null && btn.Tag.Equals("Cancel"))
+
+            if (string.IsNullOrWhiteSpace(txtEmployee.Text))
             {
-                this.Close();
+                MessageBox.Show("Employee In-Charge is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmployee.Focus();
+                return false;
             }
+
+            if (deDateOrdered.EditValue == null)
+            {
+                MessageBox.Show("Date Ordered is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                deDateOrdered.Focus();
+                return false;
+            }
+
+            if (cbStatus.EditValue == null)
+            {
+                MessageBox.Show("Status is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbStatus.Focus();
+                return false;
+            }
+
+            return true;
+
         }
     }
 }

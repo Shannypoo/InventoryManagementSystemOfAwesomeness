@@ -29,35 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesForm));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             StockStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            teQuantity = new DevExpress.XtraEditors.TextEdit();
+            txtEmployee = new DevExpress.XtraEditors.TextEdit();
             btnAddItem = new DevExpress.XtraEditors.SimpleButton();
-            labelControl6 = new DevExpress.XtraEditors.LabelControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            teStockName = new DevExpress.XtraEditors.TextEdit();
+            txtQuantity = new DevExpress.XtraEditors.TextEdit();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            dateEdit2 = new DevExpress.XtraEditors.DateEdit();
-            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            deDateDelivered = new DevExpress.XtraEditors.DateEdit();
+            deDateOrdered = new DevExpress.XtraEditors.DateEdit();
             teSearch = new DevExpress.XtraEditors.TextEdit();
             gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -70,21 +67,21 @@
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gvInventory = new DevExpress.XtraGrid.Views.Grid.GridView();
             gcInventory = new DevExpress.XtraGrid.GridControl();
-            ((System.ComponentModel.ISupportInitialize)teQuantity.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)teStockName.Properties).BeginInit();
+            cbStatus = new DevExpress.XtraEditors.ComboBoxEdit();
+            ((System.ComponentModel.ISupportInitialize)txtEmployee.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)teSearch.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gcInventory).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cbStatus.Properties).BeginInit();
             SuspendLayout();
             // 
             // StockStatus
@@ -107,12 +104,12 @@
             btnSearch.TabIndex = 21;
             btnSearch.Text = "Search";
             // 
-            // teQuantity
+            // txtEmployee
             // 
-            teQuantity.Location = new System.Drawing.Point(147, 70);
-            teQuantity.Name = "teQuantity";
-            teQuantity.Size = new System.Drawing.Size(125, 28);
-            teQuantity.TabIndex = 19;
+            txtEmployee.Location = new System.Drawing.Point(147, 70);
+            txtEmployee.Name = "txtEmployee";
+            txtEmployee.Size = new System.Drawing.Size(125, 28);
+            txtEmployee.TabIndex = 19;
             // 
             // btnAddItem
             // 
@@ -126,17 +123,9 @@
             btnAddItem.TabIndex = 17;
             btnAddItem.Text = "Add";
             // 
-            // labelControl6
-            // 
-            labelControl6.Location = new System.Drawing.Point(149, 47);
-            labelControl6.Name = "labelControl6";
-            labelControl6.Size = new System.Drawing.Size(42, 13);
-            labelControl6.TabIndex = 11;
-            labelControl6.Text = "Quantity";
-            // 
             // labelControl4
             // 
-            labelControl4.Location = new System.Drawing.Point(147, 111);
+            labelControl4.Location = new System.Drawing.Point(12, 105);
             labelControl4.Name = "labelControl4";
             labelControl4.Size = new System.Drawing.Size(66, 13);
             labelControl4.TabIndex = 9;
@@ -144,7 +133,7 @@
             // 
             // labelControl3
             // 
-            labelControl3.Location = new System.Drawing.Point(16, 111);
+            labelControl3.Location = new System.Drawing.Point(147, 51);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new System.Drawing.Size(46, 13);
             labelControl3.TabIndex = 8;
@@ -152,7 +141,7 @@
             // 
             // labelControl2
             // 
-            labelControl2.Location = new System.Drawing.Point(16, 168);
+            labelControl2.Location = new System.Drawing.Point(149, 105);
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new System.Drawing.Size(71, 13);
             labelControl2.TabIndex = 7;
@@ -162,16 +151,16 @@
             // 
             labelControl1.Location = new System.Drawing.Point(14, 47);
             labelControl1.Name = "labelControl1";
-            labelControl1.Size = new System.Drawing.Size(56, 13);
+            labelControl1.Size = new System.Drawing.Size(42, 13);
             labelControl1.TabIndex = 1;
-            labelControl1.Text = "Stock Name";
+            labelControl1.Text = "Quantity";
             // 
-            // teStockName
+            // txtQuantity
             // 
-            teStockName.Location = new System.Drawing.Point(12, 70);
-            teStockName.Name = "teStockName";
-            teStockName.Size = new System.Drawing.Size(127, 28);
-            teStockName.TabIndex = 0;
+            txtQuantity.Location = new System.Drawing.Point(12, 70);
+            txtQuantity.Name = "txtQuantity";
+            txtQuantity.Size = new System.Drawing.Size(127, 28);
+            txtQuantity.TabIndex = 0;
             // 
             // labelControl7
             // 
@@ -184,19 +173,17 @@
             // groupControl1
             // 
             groupControl1.CaptionImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("groupControl1.CaptionImageOptions.SvgImage");
+            groupControl1.Controls.Add(cbStatus);
             groupControl1.Controls.Add(labelControl5);
-            groupControl1.Controls.Add(textEdit2);
-            groupControl1.Controls.Add(dateEdit2);
-            groupControl1.Controls.Add(dateEdit1);
-            groupControl1.Controls.Add(textEdit1);
-            groupControl1.Controls.Add(teQuantity);
+            groupControl1.Controls.Add(deDateDelivered);
+            groupControl1.Controls.Add(deDateOrdered);
+            groupControl1.Controls.Add(txtEmployee);
             groupControl1.Controls.Add(btnAddItem);
-            groupControl1.Controls.Add(labelControl6);
             groupControl1.Controls.Add(labelControl4);
             groupControl1.Controls.Add(labelControl3);
             groupControl1.Controls.Add(labelControl2);
             groupControl1.Controls.Add(labelControl1);
-            groupControl1.Controls.Add(teStockName);
+            groupControl1.Controls.Add(txtQuantity);
             groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
             groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             groupControl1.Location = new System.Drawing.Point(0, 0);
@@ -207,45 +194,31 @@
             // 
             // labelControl5
             // 
-            labelControl5.Location = new System.Drawing.Point(147, 168);
+            labelControl5.Location = new System.Drawing.Point(12, 156);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new System.Drawing.Size(31, 13);
             labelControl5.TabIndex = 24;
             labelControl5.Text = "Status";
             // 
-            // textEdit2
+            // deDateDelivered
             // 
-            textEdit2.Location = new System.Drawing.Point(147, 187);
-            textEdit2.Name = "textEdit2";
-            textEdit2.Size = new System.Drawing.Size(125, 28);
-            textEdit2.TabIndex = 23;
+            deDateDelivered.EditValue = null;
+            deDateDelivered.Location = new System.Drawing.Point(147, 124);
+            deDateDelivered.Name = "deDateDelivered";
+            deDateDelivered.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            deDateDelivered.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            deDateDelivered.Size = new System.Drawing.Size(125, 28);
+            deDateDelivered.TabIndex = 22;
             // 
-            // dateEdit2
+            // deDateOrdered
             // 
-            dateEdit2.EditValue = null;
-            dateEdit2.Location = new System.Drawing.Point(14, 187);
-            dateEdit2.Name = "dateEdit2";
-            dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit2.Size = new System.Drawing.Size(125, 28);
-            dateEdit2.TabIndex = 22;
-            // 
-            // dateEdit1
-            // 
-            dateEdit1.EditValue = null;
-            dateEdit1.Location = new System.Drawing.Point(147, 134);
-            dateEdit1.Name = "dateEdit1";
-            dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Size = new System.Drawing.Size(125, 28);
-            dateEdit1.TabIndex = 21;
-            // 
-            // textEdit1
-            // 
-            textEdit1.Location = new System.Drawing.Point(14, 134);
-            textEdit1.Name = "textEdit1";
-            textEdit1.Size = new System.Drawing.Size(125, 28);
-            textEdit1.TabIndex = 20;
+            deDateOrdered.EditValue = null;
+            deDateOrdered.Location = new System.Drawing.Point(12, 124);
+            deDateOrdered.Name = "deDateOrdered";
+            deDateOrdered.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            deDateOrdered.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            deDateOrdered.Size = new System.Drawing.Size(125, 28);
+            deDateOrdered.TabIndex = 21;
             // 
             // teSearch
             // 
@@ -265,8 +238,8 @@
             // repositoryItemButtonEdit2
             // 
             repositoryItemButtonEdit2.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
-            repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions3.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions3.SvgImage");
+            repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             repositoryItemButtonEdit2.HideSelection = false;
             repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -274,8 +247,8 @@
             // repositoryItemButtonEdit1
             // 
             repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions2.SvgImage");
-            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions4.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions4.SvgImage");
+            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             repositoryItemButtonEdit1.HideSelection = false;
             repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -331,11 +304,11 @@
             // gvInventory
             // 
             gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn3, gridColumn4, gridColumn5, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
-            gridFormatRule1.Column = StockStatus;
-            gridFormatRule1.Name = "Format0";
-            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
-            gridFormatRule1.Rule = formatConditionRuleValue1;
-            gvInventory.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.Column = StockStatus;
+            gridFormatRule2.Name = "Format0";
+            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
+            gridFormatRule2.Rule = formatConditionRuleValue2;
+            gvInventory.FormatRules.Add(gridFormatRule2);
             gvInventory.GridControl = gcInventory;
             gvInventory.GroupPanelText = " ";
             gvInventory.Name = "gvInventory";
@@ -351,6 +324,15 @@
             gcInventory.TabIndex = 17;
             gcInventory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvInventory });
             // 
+            // cbStatus
+            // 
+            cbStatus.Location = new System.Drawing.Point(12, 175);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cbStatus.Properties.Items.AddRange(new object[] { "Preparing", "Shipped", "Delivering", "Delivered" });
+            cbStatus.Size = new System.Drawing.Size(127, 28);
+            cbStatus.TabIndex = 25;
+            // 
             // SalesForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,22 +346,21 @@
             IconOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("SalesForm.IconOptions.SvgImage");
             Name = "SalesForm";
             Text = "SalesForm";
-            ((System.ComponentModel.ISupportInitialize)teQuantity.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)teStockName.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtEmployee.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)teSearch.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)gcInventory).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cbStatus.Properties).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -387,14 +368,13 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnSearch;
-        private DevExpress.XtraEditors.TextEdit teQuantity;
+        private DevExpress.XtraEditors.TextEdit txtEmployee;
         private DevExpress.XtraEditors.SimpleButton btnAddItem;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit teStockName;
+        private DevExpress.XtraEditors.TextEdit txtQuantity;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit teSearch;
@@ -410,10 +390,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvInventory;
         private DevExpress.XtraGrid.Columns.GridColumn StockStatus;
         private DevExpress.XtraGrid.GridControl gcInventory;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit deDateDelivered;
+        private DevExpress.XtraEditors.DateEdit deDateOrdered;
+        private DevExpress.XtraEditors.ComboBoxEdit cbStatus;
     }
 }

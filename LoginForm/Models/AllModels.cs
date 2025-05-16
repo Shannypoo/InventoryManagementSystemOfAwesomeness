@@ -46,5 +46,7 @@ namespace LoginForm.Models
         public string ContactNo { get; set; }
         public string EmployeeInCharge { get; set; }
 
+        // Sales
+
     }
 }
