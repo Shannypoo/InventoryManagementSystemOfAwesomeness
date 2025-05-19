@@ -64,7 +64,7 @@ namespace LoginForm.ManagerForm
 
 		private void EditButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
-			string employeeID = Convert.ToString(gvEmployees.GetFocusedRowCellValue("Employee ID"));
+			string employeeID = Convert.ToString(gvEmployees.GetFocusedRowCellValue("EmployeeID"));
 			EmployeeEditForm editForm = new EmployeeEditForm(employeeID);
 			editForm.Show();
 		}
