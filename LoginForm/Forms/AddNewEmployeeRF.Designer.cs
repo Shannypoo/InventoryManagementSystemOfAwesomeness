@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewEmployeeRF));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsuiButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -58,6 +58,8 @@
             xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            peEmployeePicture = new DevExpress.XtraEditors.PictureEdit();
             labelControl11 = new DevExpress.XtraEditors.LabelControl();
             labelControl10 = new DevExpress.XtraEditors.LabelControl();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -86,6 +88,7 @@
             xtraTabControl1.SuspendLayout();
             xtraTabPage1.SuspendLayout();
             xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)peEmployeePicture.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PasswordTe.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)UsernameTe.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeIDTe.Properties).BeginInit();
@@ -332,6 +335,8 @@
             // 
             // xtraTabPage2
             // 
+            xtraTabPage2.Controls.Add(simpleButton1);
+            xtraTabPage2.Controls.Add(peEmployeePicture);
             xtraTabPage2.Controls.Add(labelControl11);
             xtraTabPage2.Controls.Add(labelControl10);
             xtraTabPage2.Controls.Add(labelControl7);
@@ -342,9 +347,32 @@
             xtraTabPage2.Size = new System.Drawing.Size(876, 383);
             xtraTabPage2.Text = "Employee Account";
             // 
+            // simpleButton1
+            // 
+            simpleButton1.Appearance.BackColor = System.Drawing.Color.Teal;
+            simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
+            simpleButton1.Appearance.Options.UseBackColor = true;
+            simpleButton1.Appearance.Options.UseForeColor = true;
+            simpleButton1.Location = new System.Drawing.Point(272, 290);
+            simpleButton1.Name = "simpleButton1";
+            simpleButton1.Size = new System.Drawing.Size(75, 23);
+            simpleButton1.TabIndex = 9;
+            simpleButton1.Text = "BROWSE";
+            simpleButton1.Click += simpleButton1_Click;
+            // 
+            // peEmployeePicture
+            // 
+            peEmployeePicture.Location = new System.Drawing.Point(209, 64);
+            peEmployeePicture.MenuManager = ribbon;
+            peEmployeePicture.Name = "peEmployeePicture";
+            peEmployeePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            peEmployeePicture.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            peEmployeePicture.Size = new System.Drawing.Size(200, 200);
+            peEmployeePicture.TabIndex = 8;
+            // 
             // labelControl11
             // 
-            labelControl11.Location = new System.Drawing.Point(336, 221);
+            labelControl11.Location = new System.Drawing.Point(441, 217);
             labelControl11.Name = "labelControl11";
             labelControl11.Size = new System.Drawing.Size(88, 13);
             labelControl11.TabIndex = 7;
@@ -352,7 +380,7 @@
             // 
             // labelControl10
             // 
-            labelControl10.Location = new System.Drawing.Point(332, 150);
+            labelControl10.Location = new System.Drawing.Point(437, 146);
             labelControl10.Name = "labelControl10";
             labelControl10.Size = new System.Drawing.Size(90, 13);
             labelControl10.TabIndex = 6;
@@ -360,7 +388,7 @@
             // 
             // labelControl7
             // 
-            labelControl7.Location = new System.Drawing.Point(332, 80);
+            labelControl7.Location = new System.Drawing.Point(437, 76);
             labelControl7.Name = "labelControl7";
             labelControl7.Size = new System.Drawing.Size(60, 13);
             labelControl7.TabIndex = 5;
@@ -368,7 +396,7 @@
             // 
             // PasswordTe
             // 
-            PasswordTe.Location = new System.Drawing.Point(334, 240);
+            PasswordTe.Location = new System.Drawing.Point(439, 236);
             PasswordTe.MenuManager = ribbon;
             PasswordTe.Name = "PasswordTe";
             PasswordTe.Size = new System.Drawing.Size(201, 28);
@@ -376,7 +404,7 @@
             // 
             // UsernameTe
             // 
-            UsernameTe.Location = new System.Drawing.Point(332, 169);
+            UsernameTe.Location = new System.Drawing.Point(437, 165);
             UsernameTe.MenuManager = ribbon;
             UsernameTe.Name = "UsernameTe";
             UsernameTe.Size = new System.Drawing.Size(201, 28);
@@ -384,7 +412,7 @@
             // 
             // EmployeeIDTe
             // 
-            EmployeeIDTe.Location = new System.Drawing.Point(332, 99);
+            EmployeeIDTe.Location = new System.Drawing.Point(437, 95);
             EmployeeIDTe.MenuManager = ribbon;
             EmployeeIDTe.Name = "EmployeeIDTe";
             EmployeeIDTe.Size = new System.Drawing.Size(201, 28);
@@ -392,9 +420,9 @@
             // 
             // SaveNCancel
             // 
-            windowsuiButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions1.SvgImage");
-            windowsuiButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions2.SvgImage");
-            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
+            windowsuiButtonImageOptions3.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions3.SvgImage");
+            windowsuiButtonImageOptions4.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("windowsuiButtonImageOptions4.SvgImage");
+            SaveNCancel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] { new DevExpress.XtraBars.Docking2010.WindowsUIButton("SAVE", true, windowsuiButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Save", -1, false), new DevExpress.XtraBars.Docking2010.WindowsUIButton("CANCEL", true, windowsuiButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "Cancel", -1, false) });
             SaveNCancel.Location = new System.Drawing.Point(386, 475);
             SaveNCancel.Name = "SaveNCancel";
             SaveNCancel.Size = new System.Drawing.Size(135, 62);
@@ -441,6 +469,7 @@
             xtraTabPage1.ResumeLayout(false);
             xtraTabPage2.ResumeLayout(false);
             xtraTabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)peEmployeePicture.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)PasswordTe.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)UsernameTe.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeIDTe.Properties).EndInit();
@@ -484,5 +513,7 @@
         private DevExpress.XtraEditors.TextEdit EmployeeIDTe;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.TextEdit ContactNoTe;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.PictureEdit peEmployeePicture;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Docking2010;
+using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting.Native;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using System.Windows.Forms;
 using LoginForm.Models;
 using System.Printing;
 using EmployeeManagementSystem.Repositories;
+using System.IO;
 
 namespace LoginForm.Forms
 {
@@ -205,6 +207,7 @@ namespace LoginForm.Forms
             int PositionID = GetPositionID();
             //Employee Department
             int DepartmentID = GetDepartmentID();
+            SaveImage(EmployeeID);
 
             WindowsUIButton btn = e.Button as WindowsUIButton;
             if (btn.Tag != null && btn.Tag.Equals("Save"))
@@ -287,6 +290,64 @@ namespace LoginForm.Forms
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+        private byte[] imageData;
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png;";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        peEmployeePicture.Image = Image.FromFile(openFileDialog.FileName);
+                        peEmployeePicture.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            peEmployeePicture.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // You can use other image formats
+                            imageData = ms.ToArray();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show("Error: " + ex.Message, "Error Loading Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        private void SaveImage(string strEmployeeID)
+        {
+            if (imageData != null)
+            {
+                try
+                {
+                    string query = @"INSERT INTO EmployeePhotos (EmployeeID, EmployeePicture) 
+                             VALUES (@EmployeeID, @EmployeePicture )";
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        var parameters = new
+                        {
+                            EmployeeID = strEmployeeID,
+                            EmployeePicture = imageData
+                        };
+
+                        connection.Execute(query, parameters);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show("Error: " + ex.Message, "Error saving image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Please select an image to save.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

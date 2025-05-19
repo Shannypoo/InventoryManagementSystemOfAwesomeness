@@ -43,7 +43,6 @@
             gvEmployees = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,7 +78,7 @@
             // 
             // gvEmployees
             // 
-            gvEmployees.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, Edit, Delete });
+            gvEmployees.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, Edit, Delete });
             gvEmployees.GridControl = gcEmployees;
             gvEmployees.GroupPanelText = " ";
             gvEmployees.Name = "gvEmployees";
@@ -101,21 +100,13 @@
             gridColumn2.Visible = true;
             gridColumn2.VisibleIndex = 1;
             // 
-            // gridColumn3
-            // 
-            gridColumn3.Caption = "Name Extension";
-            gridColumn3.FieldName = "NameExtension";
-            gridColumn3.Name = "gridColumn3";
-            gridColumn3.Visible = true;
-            gridColumn3.VisibleIndex = 2;
-            // 
             // gridColumn4
             // 
             gridColumn4.Caption = "Date of Birth";
             gridColumn4.FieldName = "DateOfBirth";
             gridColumn4.Name = "gridColumn4";
             gridColumn4.Visible = true;
-            gridColumn4.VisibleIndex = 3;
+            gridColumn4.VisibleIndex = 2;
             // 
             // gridColumn5
             // 
@@ -123,7 +114,7 @@
             gridColumn5.FieldName = "Address";
             gridColumn5.Name = "gridColumn5";
             gridColumn5.Visible = true;
-            gridColumn5.VisibleIndex = 4;
+            gridColumn5.VisibleIndex = 3;
             // 
             // gridColumn6
             // 
@@ -131,7 +122,7 @@
             gridColumn6.FieldName = "ContactNo";
             gridColumn6.Name = "gridColumn6";
             gridColumn6.Visible = true;
-            gridColumn6.VisibleIndex = 5;
+            gridColumn6.VisibleIndex = 4;
             // 
             // gridColumn7
             // 
@@ -139,7 +130,7 @@
             gridColumn7.FieldName = "DepartmentName";
             gridColumn7.Name = "gridColumn7";
             gridColumn7.Visible = true;
-            gridColumn7.VisibleIndex = 6;
+            gridColumn7.VisibleIndex = 5;
             // 
             // gridColumn8
             // 
@@ -147,7 +138,7 @@
             gridColumn8.FieldName = "PositionName";
             gridColumn8.Name = "gridColumn8";
             gridColumn8.Visible = true;
-            gridColumn8.VisibleIndex = 7;
+            gridColumn8.VisibleIndex = 6;
             // 
             // gridColumn9
             // 
@@ -155,7 +146,7 @@
             gridColumn9.FieldName = "AccountUsername";
             gridColumn9.Name = "gridColumn9";
             gridColumn9.Visible = true;
-            gridColumn9.VisibleIndex = 8;
+            gridColumn9.VisibleIndex = 7;
             // 
             // gridColumn10
             // 
@@ -163,7 +154,7 @@
             gridColumn10.FieldName = "AccountPassword";
             gridColumn10.Name = "gridColumn10";
             gridColumn10.Visible = true;
-            gridColumn10.VisibleIndex = 9;
+            gridColumn10.VisibleIndex = 8;
             // 
             // Edit
             // 
@@ -171,7 +162,7 @@
             Edit.ColumnEdit = EditButton;
             Edit.Name = "Edit";
             Edit.Visible = true;
-            Edit.VisibleIndex = 10;
+            Edit.VisibleIndex = 9;
             // 
             // EditButton
             // 
@@ -188,7 +179,7 @@
             Delete.ColumnEdit = DeleteButton;
             Delete.Name = "Delete";
             Delete.Visible = true;
-            Delete.VisibleIndex = 11;
+            Delete.VisibleIndex = 10;
             // 
             // DeleteButton
             // 
@@ -252,7 +243,6 @@
         private DevExpress.XtraEditors.TextEdit teSearch;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;

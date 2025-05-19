@@ -35,7 +35,23 @@ namespace LoginForm.ManagerForm
 			using (var connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				string query = "SELECT e.[EmployeeID]\r\n      ,[FirstName] + ' ' + LEFT([MiddleName],1) + '. ' + [LastName] AS 'FullName'    \r\n      ,[NameExtension]\r\n      ,[DateOfBirth]\r\n      ,[Address]\r\n      ,[ContactNo]\r\n      ,d.DepartmentName\r\n      ,p.PositionName\r\n\t  ,ea.AccountUsername\r\n\t  ,ea.AccountPassword\r\n  FROM [Warehouse].[dbo].[Employees] e\r\n  LEFT JOIN EmployeeAccounts ea\r\n  ON ea.AccountID = e.AccountID\r\n  LEFT JOIN Departments d\r\n  ON d.DepartmentID = e.DepartmentID\r\n  LEFT JOIN Positions p\r\n  ON p.PositionID = e.PositionID\r\n";
+                string query = @"SELECT e.EmployeeID, (FirstName + ' ' +  CASE WHEN MiddleName = '' THEN ' ' 
+                                                                 ELSE LEFT(MiddleName, 1) + '. ' END 
+                                        + ' ' + LastName + ' ' + NameExtension) AS FullName,
+	                                   DateOfBirth,   
+	                                   Address,
+	                                   ContactNo,
+									   dept.DepartmentName,
+									   post.PositionName,
+									   ea.AccountUsername,
+									   ea.AccountPassword
+                                FROM Employees e
+								LEFT JOIN Departments dept
+								ON e.DepartmentID = dept.DepartmentID
+								LEFT JOIN Positions post
+								ON e.PositionID = post.PositionID
+								LEFT JOIN EmployeeAccounts ea
+								ON e.EmployeeID = ea.EmployeeID"; 
 				emps = connection.Query<AllModels>(query, commandType: CommandType.Text);
 			}
 			return emps.ToList();

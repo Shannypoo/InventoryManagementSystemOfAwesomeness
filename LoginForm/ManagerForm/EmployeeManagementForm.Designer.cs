@@ -45,7 +45,6 @@
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             SuspendLayout();
             // 
@@ -152,7 +151,7 @@
             // 
             // ribbonPage2
             // 
-            ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4, ribbonPageGroup6, ribbonPageGroup7 });
+            ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4, ribbonPageGroup6 });
             ribbonPage2.Name = "ribbonPage2";
             ribbonPage2.Text = "Lists";
             // 
@@ -167,11 +166,6 @@
             ribbonPageGroup6.ItemLinks.Add(barButtonItem7);
             ribbonPageGroup6.Name = "ribbonPageGroup6";
             ribbonPageGroup6.Text = "ribbonPageGroup6";
-            // 
-            // ribbonPageGroup7
-            // 
-            ribbonPageGroup7.Name = "ribbonPageGroup7";
-            ribbonPageGroup7.Text = "ribbonPageGroup7";
             // 
             // EmployeeManagementForm
             // 
@@ -206,6 +200,5 @@
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
     }
 }
