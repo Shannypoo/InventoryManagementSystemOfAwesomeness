@@ -10,8 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dapper;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSpreadsheet.Model;
 using EmployeeManagementSystem.Repositories;
+using LoginForm.ManagerForm;
 using LoginForm.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static DevExpress.DataProcessing.InMemoryDataProcessor.AddSurrogateOperationAlgorithm;
 
 namespace EmployeeManagementSystem.Forms
@@ -21,20 +24,64 @@ namespace EmployeeManagementSystem.Forms
 	{
 		public string connectionString = GlobalSettings.GetConnectionString();
 		private string _employeeID;
-		public EmployeeEditForm(string employeeID)
+		private ListofEmployee _parentForm;
+
+		public EmployeeEditForm(string employeeID, ListofEmployee parent)
 		{
-			LoadPositionsandDepartments();
 			InitializeComponent();
+			LoadPositionsandDepartments();
+			
+
 			_employeeID = employeeID;
-			teEmployeeID.Text = _employeeID;
-			teEmployeeID2.Text = _employeeID;	
+			_parentForm = parent;
+			GetEmployeeData(employeeID);
+			LoadEmployeeData(_employeeID);
 		}
-		public DataTable GetSuperHeroDetailsByIDWithAttributes(string employeeID)
+		private void LoadEmployeeData(string employeeID)
+		{
+			DataTable empData = GetEmployeeData(employeeID);
+
+			if (empData.Rows.Count > 0)
+			{
+				var row = empData.Rows[0];
+
+				teEmployeeID.Text = row["EmployeeID"].ToString();
+				teFirstName.Text = row["FirstName"].ToString();
+				teMiddleName.Text = row["MiddleName"].ToString();
+				teLastName.Text = row["LastName"].ToString();
+				teNameExtension.Text = row["NameExtension"].ToString();
+				meAddress.Text = row["Address"].ToString();
+				teContactNumber.Text = row["ContactNo"].ToString();
+
+				// Date
+				if (row["DateOfBirth"] != DBNull.Value)
+					deDateOfBirth.EditValue = Convert.ToDateTime(row["DateOfBirth"]);
+				else
+					deDateOfBirth.EditValue = null;
+
+				// Account info
+				teEmployeeID2.Text = row["EmployeeID"].ToString();
+				teUsername.Text = row["AccountUsername"].ToString();
+				tePassword.Text = row["AccountPassword"].ToString();
+
+				// Department and Position IDs
+				if (row.Table.Columns.Contains("DepartmentID"))
+					lpDepartments.EditValue = Convert.ToInt32(row["DepartmentID"]);
+
+				if (row.Table.Columns.Contains("PositionID"))
+					lpPositions.EditValue = Convert.ToInt32(row["PositionID"]);
+			}
+			else
+			{
+				XtraMessageBox.Show("Employee not found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
+		public DataTable GetEmployeeData(string employeeID)
 		{
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				string query = "SELECT e.[EmployeeID],[FirstName] + ' ' + LEFT([MiddleName],1) + '. ' + [LastName] AS 'FullName',[NameExtension],[DateOfBirth],[Address],[ContactNo],d.DepartmentName,p.PositionName,ea.AccountUsername,ea.AccountPassword FROM [Warehouse].[dbo].[Employees] LEFT JOIN EmployeeAccounts ea\\r\\n  ON ea.AccountID = e.AccountID\\r\\n  LEFT JOIN Departments d\\r\\n  ON d.DepartmentID = e.DepartmentID\\r\\n  LEFT JOIN Positions p\\r\\n  ON p.PositionID = e.PositionID WHERE e.EnployeeID = @EmployeeID;";
+				string query = "SELECT e.[EmployeeID]\r\n      ,[FirstName]\r\n      ,[MiddleName]\r\n      ,[LastName]\r\n      ,[NameExtension]\r\n      ,[DateOfBirth]\r\n      ,[Address]\r\n      ,[ContactNo]\r\n      ,d.DepartmentID\r\n      ,p.PositionID\r\n      ,AccountUsername\r\n\t  ,AccountPassword\r\n  FROM [Warehouse].[dbo].[Employees] e\r\n  LEFT JOIN Departments d\r\n  ON d.DepartmentID = e.DepartmentID\r\n  LEFT JOIN Positions p\r\n  ON p.PositionID = e.PositionID\r\n  LEFT JOIN EmployeeAccounts ea\r\n  ON ea.AccountID = e.AccountID WHERE e.EmployeeID = @EmployeeID";
 
 				using (SqlCommand command = new SqlCommand(query, connection))
 				{
@@ -73,14 +120,14 @@ namespace EmployeeManagementSystem.Forms
 
 			string firstName = teFirstName.Text;
 			string middleName = teMiddleName.Text;
-			string lastName = teLastName.Text;	
+			string lastName = teLastName.Text;
 			string nameExt = teNameExtension.Text;
-			DateTime dateOfBirth = Convert.ToDateTime(deDateOfBirth.EditValue);	
-			int contactNumber = Convert.ToInt32(teContactNumber.Text);
+			DateTime dateOfBirth = Convert.ToDateTime(deDateOfBirth.EditValue);
+			string contactNumber = teContactNumber.Text;
 			string address = meAddress.Text;
 			string username = teUsername.Text;
 			string password = tePassword.Text;
-				
+
 			int departments = GetDepartmentID();
 			int position = GetPositionID();
 
@@ -88,29 +135,41 @@ namespace EmployeeManagementSystem.Forms
 			{
 				try
 				{
-					string editSql = "UPDATE Inventory SET Quantity = @Quantity, CategoryID = @CategoryID ,UnitPrice = @UnitPrice, LastUpdated = @LastUpdated, StockName = @StockName, Description = @Description, StockStatus = @StockStatus WHERE InventoryID = @InventoryID";
+					string editSql = "UPDATE Employees SET FirstName = @FirstName, MiddleName = @MiddleName ,LastName = @LastName, NameExtension = @NameExtension, DateOfBirth = @DateOfBirth, ContactNo = @ContactNumber, Address = @Address, DepartmentID = @DepartmentID, PositionID = @PositionID WHERE EmployeeID = @EmployeeID";
 
 
 					connection.Execute(editSql, new
 					{
-						InventoryID = itemID,
-						Quantity = quantity,
-						CategoryID = category,
-						UnitPrice = unitPrice,
-						LastUpdated = lastUpdated,
-						StockName = stockName,
-						Description = description,
-						StockStatus = stockStatus
+						EmployeeID = employeeId,
+						FirstName = firstName,
+						MiddleName = middleName,
+						LastName = lastName,
+						NameExtension = nameExt,
+						DateOfBirth = dateOfBirth,
+						ContactNumber = contactNumber,
+						Address = address,
+						DepartmentID = departments,
+						PositionID = position
+					});
+
+					string EditAccount = "UPDATE EmployeeAccounts SET AccountUsername = @AccountUsername, AccountPassword = @AccountPassword WHERE EmployeeID = @EmployeeID";
+
+					connection.Execute(EditAccount, new
+					{
+						EmployeeID = employeeId,
+						AccountUsername = username,
+						AccountPassword = password,
 					});
 
 
 					MessageBox.Show("Employee Edited.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				
-		
+
+					_parentForm.LoadEmployees();
+					this.Close();
 				}
 				catch (Exception ex)
 				{
-					MessageBox.Show($"An error occurred during Adding Employee: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show($"An error occurred during editing of the employee: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -136,6 +195,11 @@ namespace EmployeeManagementSystem.Forms
 				lpDepartments.Properties.DataSource = departments;
 
 			}
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

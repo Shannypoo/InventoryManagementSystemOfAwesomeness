@@ -298,6 +298,10 @@
 			lpPositions.Location = new System.Drawing.Point(5, 132);
 			lpPositions.Name = "lpPositions";
 			lpPositions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+			lpPositions.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionID", "PositionID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PositionName", "PositionName") });
+			lpPositions.Properties.DisplayMember = "PositionName";
+			lpPositions.Properties.NullText = "";
+			lpPositions.Properties.ValueMember = "PositionID";
 			lpPositions.Size = new System.Drawing.Size(190, 28);
 			lpPositions.TabIndex = 6;
 			// 
@@ -319,9 +323,14 @@
 			// 
 			// lpDepartments
 			// 
+			lpDepartments.EditValue = "";
 			lpDepartments.Location = new System.Drawing.Point(5, 58);
 			lpDepartments.Name = "lpDepartments";
 			lpDepartments.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+			lpDepartments.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentID", "DepartmentID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepartmentName", "DepartmentName") });
+			lpDepartments.Properties.DisplayMember = "DepartmentName";
+			lpDepartments.Properties.NullText = "";
+			lpDepartments.Properties.ValueMember = "DepartmentID";
 			lpDepartments.Size = new System.Drawing.Size(190, 28);
 			lpDepartments.TabIndex = 0;
 			// 
@@ -391,6 +400,7 @@
 			btnCancel.Size = new System.Drawing.Size(75, 23);
 			btnCancel.TabIndex = 6;
 			btnCancel.Text = "CANCEL";
+			btnCancel.Click += btnCancel_Click;
 			// 
 			// EmployeeEditForm
 			// 

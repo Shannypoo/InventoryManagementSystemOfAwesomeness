@@ -25,7 +25,7 @@ namespace LoginForm.ManagerForm
 			InitializeComponent();
 			LoadEmployees();
 		}
-		private void LoadEmployees()
+		public void LoadEmployees()
 		{
 			gcEmployees.DataSource = GetEmployees();
 		}
@@ -65,13 +65,30 @@ namespace LoginForm.ManagerForm
 		private void EditButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
 			string employeeID = Convert.ToString(gvEmployees.GetFocusedRowCellValue("EmployeeID"));
-			EmployeeEditForm editForm = new EmployeeEditForm(employeeID);
-			editForm.Show();
+			EmployeeEditForm editForm = new EmployeeEditForm(employeeID, this);
+			editForm.ShowDialog();
 		}
 
 		private void DeleteButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
+			string employeeID = Convert.ToString(gvEmployees.GetFocusedRowCellValue("EmployeeID"));
 
+			DialogResult result = XtraMessageBox.Show(
+			"Are you sure you want to delete this Employee?", "Confirm Delete",
+			MessageBoxButtons.YesNo, MessageBoxIcon.Question
+			);
+
+			if (result == DialogResult.Yes)
+			{
+				using (var connection = new SqlConnection(connectionString))
+				{
+					connection.Open();
+					string deleteSql = "DELETE FROM Employees WHERE EmployeeID = @EmployeeID ";
+					int rowsAffected = connection.Execute(deleteSql, new { EmployeeID = employeeID });
+				}
+				LoadEmployees();
+				XtraMessageBox.Show("Employee Successfully Deleted!");
+			}
 		}
 	}
 
