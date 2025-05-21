@@ -50,6 +50,8 @@
 			labelControl9 = new DevExpress.XtraEditors.LabelControl();
 			labelControl10 = new DevExpress.XtraEditors.LabelControl();
 			xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+			btnBrowse = new DevExpress.XtraEditors.SimpleButton();
+			peEmployeePicture = new DevExpress.XtraEditors.PictureEdit();
 			groupControl4 = new DevExpress.XtraEditors.GroupControl();
 			lpPositions = new DevExpress.XtraEditors.LookUpEdit();
 			labelControl13 = new DevExpress.XtraEditors.LabelControl();
@@ -80,6 +82,7 @@
 			((System.ComponentModel.ISupportInitialize)meAddress.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)teContactNumber.Properties).BeginInit();
 			xtraTabPage2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)peEmployeePicture.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)groupControl4).BeginInit();
 			groupControl4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)lpPositions.Properties).BeginInit();
@@ -275,11 +278,34 @@
 			// 
 			// xtraTabPage2
 			// 
+			xtraTabPage2.Controls.Add(btnBrowse);
+			xtraTabPage2.Controls.Add(peEmployeePicture);
 			xtraTabPage2.Controls.Add(groupControl4);
 			xtraTabPage2.Controls.Add(groupControl3);
 			xtraTabPage2.Name = "xtraTabPage2";
 			xtraTabPage2.Size = new System.Drawing.Size(598, 250);
 			xtraTabPage2.Text = "Additional Details";
+			// 
+			// btnBrowse
+			// 
+			btnBrowse.Appearance.BackColor = System.Drawing.Color.Teal;
+			btnBrowse.Appearance.ForeColor = System.Drawing.Color.White;
+			btnBrowse.Appearance.Options.UseBackColor = true;
+			btnBrowse.Appearance.Options.UseForeColor = true;
+			btnBrowse.Location = new System.Drawing.Point(260, 209);
+			btnBrowse.Name = "btnBrowse";
+			btnBrowse.Size = new System.Drawing.Size(75, 23);
+			btnBrowse.TabIndex = 9;
+			btnBrowse.Text = "BROWSE";
+			btnBrowse.Click += btnBrowse_Click;
+			// 
+			// peEmployeePicture
+			// 
+			peEmployeePicture.Location = new System.Drawing.Point(218, 13);
+			peEmployeePicture.Name = "peEmployeePicture";
+			peEmployeePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+			peEmployeePicture.Size = new System.Drawing.Size(163, 190);
+			peEmployeePicture.TabIndex = 8;
 			// 
 			// groupControl4
 			// 
@@ -431,6 +457,7 @@
 			((System.ComponentModel.ISupportInitialize)meAddress.Properties).EndInit();
 			((System.ComponentModel.ISupportInitialize)teContactNumber.Properties).EndInit();
 			xtraTabPage2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)peEmployeePicture.Properties).EndInit();
 			((System.ComponentModel.ISupportInitialize)groupControl4).EndInit();
 			groupControl4.ResumeLayout(false);
 			groupControl4.PerformLayout();
@@ -482,5 +509,7 @@
 		private DevExpress.XtraEditors.LabelControl labelControl13;
 		private DevExpress.XtraEditors.LabelControl labelControl12;
 		private DevExpress.XtraEditors.LookUpEdit lpDepartments;
+		private DevExpress.XtraEditors.SimpleButton btnBrowse;
+		private DevExpress.XtraEditors.PictureEdit peEmployeePicture;
 	}
 }

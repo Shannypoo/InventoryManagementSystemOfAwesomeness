@@ -44,14 +44,17 @@ namespace LoginForm.ManagerForm
 									   dept.DepartmentName,
 									   post.PositionName,
 									   ea.AccountUsername,
-									   ea.AccountPassword
+									   ea.AccountPassword,
+									   ep.EmployeePicture
                                 FROM Employees e
 								LEFT JOIN Departments dept
 								ON e.DepartmentID = dept.DepartmentID
 								LEFT JOIN Positions post
 								ON e.PositionID = post.PositionID
 								LEFT JOIN EmployeeAccounts ea
-								ON e.EmployeeID = ea.EmployeeID"; 
+								ON e.EmployeeID = ea.EmployeeID
+								LEFT JOIN EmployeePhotos ep
+								ON ep.EmployeeID = e.EmployeeID"; 
 				emps = connection.Query<AllModels>(query, commandType: CommandType.Text);
 			}
 			return emps.ToList();
