@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Dapper;
 using DevExpress.XtraEditors;
+using EmployeeManagementSystem.Repositories;
 using LoginForm.EmployeeForm;
 using LoginForm.ManagerForm;
 
@@ -16,9 +17,9 @@ namespace LoginForm
 {
     public partial class LoginForm : DevExpress.XtraEditors.XtraForm
     {
-        string connectionString = "Data Source=LAB1-PC17;Initial Catalog=Warehouse; User ID=sa; Password=123456;";
+		public string connectionString = GlobalSettings.GetConnectionString();
 
-        public LoginForm()
+		public LoginForm()
         {
             InitializeComponent();
 

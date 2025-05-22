@@ -16,7 +16,7 @@ namespace LoginForm {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EmployeeManagementForm());
+            Application.Run(new LoginForm());
         }
     }
 }
