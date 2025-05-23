@@ -27,8 +27,8 @@ namespace LoginForm
 
         private void signinBtn_Click(object sender, EventArgs e)
         {
-            string adminemail = "admin@example.com";
-            string adminpass = "admin123";
+            string adminemail = "admin";
+            string adminpass = "123";
 
             string inputEmail = emailTxt.Text.Trim();
             string inputPassword = passTxt.Text.Trim();

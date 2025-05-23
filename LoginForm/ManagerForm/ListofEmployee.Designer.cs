@@ -236,6 +236,7 @@
 			AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			ClientSize = new System.Drawing.Size(840, 438);
+			ControlBox = false;
 			Controls.Add(teSearch);
 			Controls.Add(labelControl1);
 			Controls.Add(gcEmployees);

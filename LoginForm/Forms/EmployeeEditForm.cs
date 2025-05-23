@@ -37,6 +37,7 @@ namespace EmployeeManagementSystem.Forms
 			_parentForm = parent;
 			GetEmployeeData(employeeID);
 			LoadEmployeeData(_employeeID);
+			RetrieveImage(employeeID);
 		}
 		private void LoadEmployeeData(string employeeID)
 		{
@@ -96,6 +97,36 @@ namespace EmployeeManagementSystem.Forms
 						return dataTable;
 					}
 				}
+			}
+		}
+		private void RetrieveImage(string strEmployeeID)
+		{
+			try
+			{
+				using (SqlConnection connection = new SqlConnection(connectionString))
+				{
+					connection.Open();
+
+					string query = "SELECT EmployeePicture FROM EmployeePhotos WHERE EmployeeID = @EmployeeID";
+
+					byte[] imageData = connection.QueryFirstOrDefault<byte[]>(
+						query,
+						new { EmployeeID = strEmployeeID }
+					);
+
+					if (imageData != null)
+					{
+						using (MemoryStream ms = new MemoryStream(imageData))
+						{
+							peEmployeePicture.Image = Image.FromStream(ms);
+						}
+					}
+					// Optional: else show message or set peEmployeePicture.Image = null
+				}
+			}
+			catch (Exception ex)
+			{
+				XtraMessageBox.Show("Error: " + ex.Message, "Error Loading Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		private int GetDepartmentID()

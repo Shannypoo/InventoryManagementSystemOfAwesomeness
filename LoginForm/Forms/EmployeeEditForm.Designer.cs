@@ -283,7 +283,7 @@
 			xtraTabPage2.Controls.Add(groupControl4);
 			xtraTabPage2.Controls.Add(groupControl3);
 			xtraTabPage2.Name = "xtraTabPage2";
-			xtraTabPage2.Size = new System.Drawing.Size(598, 250);
+			xtraTabPage2.Size = new System.Drawing.Size(598, 256);
 			xtraTabPage2.Text = "Additional Details";
 			// 
 			// btnBrowse
@@ -304,6 +304,7 @@
 			peEmployeePicture.Location = new System.Drawing.Point(218, 13);
 			peEmployeePicture.Name = "peEmployeePicture";
 			peEmployeePicture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+			peEmployeePicture.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
 			peEmployeePicture.Size = new System.Drawing.Size(163, 190);
 			peEmployeePicture.TabIndex = 8;
 			// 
@@ -432,7 +433,8 @@
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			ClientSize = new System.Drawing.Size(599, 337);
+			ClientSize = new System.Drawing.Size(599, 335);
+			ControlBox = false;
 			Controls.Add(btnCancel);
 			Controls.Add(xtraTabControl1);
 			Controls.Add(btnEdit);

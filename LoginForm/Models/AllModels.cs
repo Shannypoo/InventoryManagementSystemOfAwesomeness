@@ -48,6 +48,12 @@ namespace LoginForm.Models
         public string EmployeeInCharge { get; set; }
 
         // Sales
+        public int OrderID { get; set; }
+        public string TransactionID { get; set; }
+        public string Status { get; set; }
+        public DateTime DateOrdered { get; set; }
+        public DateTime DateDelivered { get; set; }
+        public string QuantityOrder { get; set; } 
 
     }
 }
