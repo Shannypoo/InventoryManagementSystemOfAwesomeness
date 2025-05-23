@@ -11,11 +11,14 @@ using System.Windows.Forms;
 using Dapper;
 using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
+using EmployeeManagementSystem.Repositories;
+using LoginForm.Models;
 
 namespace LoginForm.Forms
 {
     public partial class SalesForm : DevExpress.XtraEditors.XtraForm
     {
+        private static string connectionString = GlobalSettings.GetConnectionString();
         public SalesForm()
         {
             InitializeComponent();
@@ -35,12 +38,20 @@ namespace LoginForm.Forms
             return id;
         }
 
-        private void SaveNCancel_ButtonClick(object sender, ButtonEventArgs e)
-        {
-            
-        }
 
-        
+
+        private void LoadPositionsandDepartments()
+        {
+            string query = "SELECT EmployeeID FROM dbo.Employees";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var positions = connection.Query<AllModels>(query).ToList();
+                lueEmployee.Properties.DataSource = positions;
+            }
+        }
 
         private bool ValidateInputs()
         {
@@ -51,10 +62,10 @@ namespace LoginForm.Forms
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtEmployee.Text))
+            if (string.IsNullOrWhiteSpace(lueEmployee.Text))
             {
                 MessageBox.Show("Employee In-Charge is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtEmployee.Focus();
+                lueEmployee.Focus();
                 return false;
             }
 
@@ -74,6 +85,26 @@ namespace LoginForm.Forms
 
             return true;
 
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            string Quantity = txtQuantity.Text.Trim();
+            string Employee = lueEmployee.Text.Trim();
+            DateTime DateOrdered = Convert.ToDateTime(deDateOrdered.EditValue);
+            DateTime DateDelivered = Convert.ToDateTime(deDateDelivered.EditValue);
+            string NameExtension = cbStatus.Text.Trim();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string InsertEmployees = @"INSERT INTO Employees (OrderID, Status, TransactionID, LastName, NameExtension, DateOfBirth, Address, ContactNo, DepartmentID, PositionID)
+                                                    VALUES (@EmployeeID, @FirstName, @MiddleName, @LastName, @NameExtension, @DateOfBirth, @Address, @ContactNo, @DepartmentID, @PositionID)";
+
+                connection.Execute(InsertEmployees, new
+                {
+                
+            });
+            }
         }
     }
 }

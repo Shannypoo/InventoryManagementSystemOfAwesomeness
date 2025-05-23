@@ -29,21 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesForm));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             StockStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            txtEmployee = new DevExpress.XtraEditors.TextEdit();
             btnAddItem = new DevExpress.XtraEditors.SimpleButton();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -52,6 +51,8 @@
             txtQuantity = new DevExpress.XtraEditors.TextEdit();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            lueEmployee = new DevExpress.XtraEditors.LookUpEdit();
+            cbStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
             deDateDelivered = new DevExpress.XtraEditors.DateEdit();
             deDateOrdered = new DevExpress.XtraEditors.DateEdit();
@@ -67,11 +68,11 @@
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gvInventory = new DevExpress.XtraGrid.Views.Grid.GridView();
             gcInventory = new DevExpress.XtraGrid.GridControl();
-            cbStatus = new DevExpress.XtraEditors.ComboBoxEdit();
-            ((System.ComponentModel.ISupportInitialize)txtEmployee.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lueEmployee.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cbStatus.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties).BeginInit();
@@ -81,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gcInventory).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cbStatus.Properties).BeginInit();
             SuspendLayout();
             // 
             // StockStatus
@@ -104,13 +104,6 @@
             btnSearch.TabIndex = 21;
             btnSearch.Text = "Search";
             // 
-            // txtEmployee
-            // 
-            txtEmployee.Location = new System.Drawing.Point(147, 70);
-            txtEmployee.Name = "txtEmployee";
-            txtEmployee.Size = new System.Drawing.Size(125, 28);
-            txtEmployee.TabIndex = 19;
-            // 
             // btnAddItem
             // 
             btnAddItem.Appearance.BackColor = System.Drawing.Color.FromArgb(0, 103, 192);
@@ -122,6 +115,7 @@
             btnAddItem.Size = new System.Drawing.Size(75, 23);
             btnAddItem.TabIndex = 17;
             btnAddItem.Text = "Add";
+            btnAddItem.Click += btnAddItem_Click;
             // 
             // labelControl4
             // 
@@ -133,7 +127,7 @@
             // 
             // labelControl3
             // 
-            labelControl3.Location = new System.Drawing.Point(147, 51);
+            labelControl3.Location = new System.Drawing.Point(14, 171);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new System.Drawing.Size(46, 13);
             labelControl3.TabIndex = 8;
@@ -173,11 +167,11 @@
             // groupControl1
             // 
             groupControl1.CaptionImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("groupControl1.CaptionImageOptions.SvgImage");
+            groupControl1.Controls.Add(lueEmployee);
             groupControl1.Controls.Add(cbStatus);
             groupControl1.Controls.Add(labelControl5);
             groupControl1.Controls.Add(deDateDelivered);
             groupControl1.Controls.Add(deDateOrdered);
-            groupControl1.Controls.Add(txtEmployee);
             groupControl1.Controls.Add(btnAddItem);
             groupControl1.Controls.Add(labelControl4);
             groupControl1.Controls.Add(labelControl3);
@@ -188,13 +182,31 @@
             groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             groupControl1.Location = new System.Drawing.Point(0, 0);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new System.Drawing.Size(291, 668);
+            groupControl1.Size = new System.Drawing.Size(291, 666);
             groupControl1.TabIndex = 19;
             groupControl1.Text = "Item Details";
             // 
+            // lueEmployee
+            // 
+            lueEmployee.Location = new System.Drawing.Point(12, 190);
+            lueEmployee.Name = "lueEmployee";
+            lueEmployee.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lueEmployee.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("EmployeeID", "Name3"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name2", "Name2") });
+            lueEmployee.Size = new System.Drawing.Size(260, 28);
+            lueEmployee.TabIndex = 26;
+            // 
+            // cbStatus
+            // 
+            cbStatus.Location = new System.Drawing.Point(147, 70);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cbStatus.Properties.Items.AddRange(new object[] { "Preparing", "Shipped", "Delivering", "Delivered" });
+            cbStatus.Size = new System.Drawing.Size(127, 28);
+            cbStatus.TabIndex = 25;
+            // 
             // labelControl5
             // 
-            labelControl5.Location = new System.Drawing.Point(12, 156);
+            labelControl5.Location = new System.Drawing.Point(147, 51);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new System.Drawing.Size(31, 13);
             labelControl5.TabIndex = 24;
@@ -238,8 +250,8 @@
             // repositoryItemButtonEdit2
             // 
             repositoryItemButtonEdit2.AutoHeight = false;
-            editorButtonImageOptions3.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions3.SvgImage");
-            repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
+            repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             repositoryItemButtonEdit2.HideSelection = false;
             repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -247,8 +259,8 @@
             // repositoryItemButtonEdit1
             // 
             repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions4.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions4.SvgImage");
-            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions2.SvgImage");
+            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             repositoryItemButtonEdit1.HideSelection = false;
             repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -304,11 +316,11 @@
             // gvInventory
             // 
             gvInventory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn3, gridColumn4, gridColumn5, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
-            gridFormatRule2.Column = StockStatus;
-            gridFormatRule2.Name = "Format0";
-            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
-            gridFormatRule2.Rule = formatConditionRuleValue2;
-            gvInventory.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.Column = StockStatus;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            gvInventory.FormatRules.Add(gridFormatRule1);
             gvInventory.GridControl = gcInventory;
             gvInventory.GroupPanelText = " ";
             gvInventory.Name = "gvInventory";
@@ -320,24 +332,15 @@
             gcInventory.MainView = gvInventory;
             gcInventory.Name = "gcInventory";
             gcInventory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemButtonEdit1, repositoryItemButtonEdit2 });
-            gcInventory.Size = new System.Drawing.Size(1067, 668);
+            gcInventory.Size = new System.Drawing.Size(1067, 666);
             gcInventory.TabIndex = 17;
             gcInventory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvInventory });
-            // 
-            // cbStatus
-            // 
-            cbStatus.Location = new System.Drawing.Point(12, 175);
-            cbStatus.Name = "cbStatus";
-            cbStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cbStatus.Properties.Items.AddRange(new object[] { "Preparing", "Shipped", "Delivering", "Delivered" });
-            cbStatus.Size = new System.Drawing.Size(127, 28);
-            cbStatus.TabIndex = 25;
             // 
             // SalesForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1364, 668);
+            ClientSize = new System.Drawing.Size(1364, 666);
             Controls.Add(btnSearch);
             Controls.Add(labelControl7);
             Controls.Add(groupControl1);
@@ -346,11 +349,12 @@
             IconOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("SalesForm.IconOptions.SvgImage");
             Name = "SalesForm";
             Text = "SalesForm";
-            ((System.ComponentModel.ISupportInitialize)txtEmployee.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)lueEmployee.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cbStatus.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)deDateDelivered.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties.CalendarTimeProperties).EndInit();
@@ -360,7 +364,6 @@
             ((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gvInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)gcInventory).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cbStatus.Properties).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -368,7 +371,6 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnSearch;
-        private DevExpress.XtraEditors.TextEdit txtEmployee;
         private DevExpress.XtraEditors.SimpleButton btnAddItem;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -394,5 +396,6 @@
         private DevExpress.XtraEditors.DateEdit deDateDelivered;
         private DevExpress.XtraEditors.DateEdit deDateOrdered;
         private DevExpress.XtraEditors.ComboBoxEdit cbStatus;
+        private DevExpress.XtraEditors.LookUpEdit lueEmployee;
     }
 }
