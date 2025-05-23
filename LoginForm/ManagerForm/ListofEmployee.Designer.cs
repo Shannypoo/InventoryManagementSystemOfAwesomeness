@@ -28,11 +28,23 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListofEmployee));
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
 			gcEmployees = new DevExpress.XtraGrid.GridControl();
 			gvEmployees = new DevExpress.XtraGrid.Views.Grid.GridView();
 			gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+			Picture = new DevExpress.XtraGrid.Columns.GridColumn();
+			employeePicture = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
 			gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-			gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,15 +52,16 @@
 			gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+			Edit = new DevExpress.XtraGrid.Columns.GridColumn();
 			EditButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+			Delete = new DevExpress.XtraGrid.Columns.GridColumn();
 			DeleteButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
 			ReportButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
 			labelControl1 = new DevExpress.XtraEditors.LabelControl();
 			teSearch = new DevExpress.XtraEditors.TextEdit();
-			Edit = new DevExpress.XtraGrid.Columns.GridColumn();
-			Delete = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)gcEmployees).BeginInit();
 			((System.ComponentModel.ISupportInitialize)gvEmployees).BeginInit();
+			((System.ComponentModel.ISupportInitialize)employeePicture).BeginInit();
 			((System.ComponentModel.ISupportInitialize)EditButton).BeginInit();
 			((System.ComponentModel.ISupportInitialize)DeleteButton).BeginInit();
 			((System.ComponentModel.ISupportInitialize)ReportButton).BeginInit();
@@ -61,14 +74,14 @@
 			gcEmployees.Location = new System.Drawing.Point(0, 0);
 			gcEmployees.MainView = gvEmployees;
 			gcEmployees.Name = "gcEmployees";
-			gcEmployees.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { EditButton, DeleteButton, ReportButton });
+			gcEmployees.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { EditButton, DeleteButton, ReportButton, employeePicture });
 			gcEmployees.Size = new System.Drawing.Size(840, 438);
 			gcEmployees.TabIndex = 0;
 			gcEmployees.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvEmployees });
 			// 
 			// gvEmployees
 			// 
-			gvEmployees.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, Edit, Delete });
+			gvEmployees.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, Picture, gridColumn2, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, Edit, Delete });
 			gvEmployees.GridControl = gcEmployees;
 			gvEmployees.GroupPanelText = " ";
 			gvEmployees.Name = "gvEmployees";
@@ -82,21 +95,27 @@
 			gridColumn1.Visible = true;
 			gridColumn1.VisibleIndex = 0;
 			// 
+			// Picture
+			// 
+			Picture.Caption = "Employee Picture";
+			Picture.ColumnEdit = employeePicture;
+			Picture.FieldName = "EmployeePicture";
+			Picture.Name = "Picture";
+			Picture.Visible = true;
+			Picture.VisibleIndex = 1;
+			// 
+			// employeePicture
+			// 
+			employeePicture.Name = "employeePicture";
+			employeePicture.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+			// 
 			// gridColumn2
 			// 
 			gridColumn2.Caption = "Full Name";
 			gridColumn2.FieldName = "FullName";
 			gridColumn2.Name = "gridColumn2";
 			gridColumn2.Visible = true;
-			gridColumn2.VisibleIndex = 1;
-			// 
-			// gridColumn3
-			// 
-			gridColumn3.Caption = "Name Extension";
-			gridColumn3.FieldName = "NameExtension";
-			gridColumn3.Name = "gridColumn3";
-			gridColumn3.Visible = true;
-			gridColumn3.VisibleIndex = 2;
+			gridColumn2.VisibleIndex = 2;
 			// 
 			// gridColumn4
 			// 
@@ -154,18 +173,38 @@
 			gridColumn10.Visible = true;
 			gridColumn10.VisibleIndex = 9;
 			// 
+			// Edit
+			// 
+			Edit.Caption = "Edit";
+			Edit.ColumnEdit = EditButton;
+			Edit.Name = "Edit";
+			Edit.Visible = true;
+			Edit.VisibleIndex = 10;
+			// 
 			// EditButton
 			// 
 			EditButton.AutoHeight = false;
-			EditButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton() });
+			editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
+			EditButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
 			EditButton.Name = "EditButton";
+			EditButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
 			EditButton.ButtonClick += EditButton_ButtonClick;
+			// 
+			// Delete
+			// 
+			Delete.Caption = "Delete";
+			Delete.ColumnEdit = DeleteButton;
+			Delete.Name = "Delete";
+			Delete.Visible = true;
+			Delete.VisibleIndex = 11;
 			// 
 			// DeleteButton
 			// 
 			DeleteButton.AutoHeight = false;
-			DeleteButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton() });
+			editorButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions2.SvgImage");
+			DeleteButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
 			DeleteButton.Name = "DeleteButton";
+			DeleteButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
 			DeleteButton.ButtonClick += DeleteButton_ButtonClick;
 			// 
 			// ReportButton
@@ -192,22 +231,6 @@
 			teSearch.TabIndex = 2;
 			teSearch.EditValueChanging += teSearch_EditValueChanging;
 			// 
-			// Edit
-			// 
-			Edit.Caption = "Edit";
-			Edit.ColumnEdit = EditButton;
-			Edit.Name = "Edit";
-			Edit.Visible = true;
-			Edit.VisibleIndex = 10;
-			// 
-			// Delete
-			// 
-			Delete.Caption = "Delete";
-			Delete.ColumnEdit = DeleteButton;
-			Delete.Name = "Delete";
-			Delete.Visible = true;
-			Delete.VisibleIndex = 11;
-			// 
 			// ListofEmployee
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +244,7 @@
 			WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			((System.ComponentModel.ISupportInitialize)gcEmployees).EndInit();
 			((System.ComponentModel.ISupportInitialize)gvEmployees).EndInit();
+			((System.ComponentModel.ISupportInitialize)employeePicture).EndInit();
 			((System.ComponentModel.ISupportInitialize)EditButton).EndInit();
 			((System.ComponentModel.ISupportInitialize)DeleteButton).EndInit();
 			((System.ComponentModel.ISupportInitialize)ReportButton).EndInit();
@@ -237,7 +261,6 @@
         private DevExpress.XtraEditors.TextEdit teSearch;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
@@ -250,5 +273,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ReportButton;
 		private DevExpress.XtraGrid.Columns.GridColumn Edit;
 		private DevExpress.XtraGrid.Columns.GridColumn Delete;
+		private DevExpress.XtraGrid.Columns.GridColumn Picture;
+		private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit employeePicture;
 	}
 }

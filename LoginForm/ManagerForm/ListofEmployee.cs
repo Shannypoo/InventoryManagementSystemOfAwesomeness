@@ -25,7 +25,7 @@ namespace LoginForm.ManagerForm
 			InitializeComponent();
 			LoadEmployees();
 		}
-		private void LoadEmployees()
+		public void LoadEmployees()
 		{
 			gcEmployees.DataSource = GetEmployees();
 		}
@@ -35,7 +35,26 @@ namespace LoginForm.ManagerForm
 			using (var connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				string query = "SELECT e.[EmployeeID]\r\n      ,[FirstName] + ' ' + LEFT([MiddleName],1) + '. ' + [LastName] AS 'FullName'    \r\n      ,[NameExtension]\r\n      ,[DateOfBirth]\r\n      ,[Address]\r\n      ,[ContactNo]\r\n      ,d.DepartmentName\r\n      ,p.PositionName\r\n\t  ,ea.AccountUsername\r\n\t  ,ea.AccountPassword\r\n  FROM [Warehouse].[dbo].[Employees] e\r\n  LEFT JOIN EmployeeAccounts ea\r\n  ON ea.AccountID = e.AccountID\r\n  LEFT JOIN Departments d\r\n  ON d.DepartmentID = e.DepartmentID\r\n  LEFT JOIN Positions p\r\n  ON p.PositionID = e.PositionID\r\n";
+                string query = @"SELECT e.EmployeeID, (FirstName + ' ' +  CASE WHEN MiddleName = '' THEN ' ' 
+                                                                 ELSE LEFT(MiddleName, 1) + '. ' END 
+                                        + ' ' + LastName + ' ' + NameExtension) AS FullName,
+	                                   DateOfBirth,   
+	                                   Address,
+	                                   ContactNo,
+									   dept.DepartmentName,
+									   post.PositionName,
+									   ea.AccountUsername,
+									   ea.AccountPassword,
+									   ep.EmployeePicture
+                                FROM Employees e
+								LEFT JOIN Departments dept
+								ON e.DepartmentID = dept.DepartmentID
+								LEFT JOIN Positions post
+								ON e.PositionID = post.PositionID
+								LEFT JOIN EmployeeAccounts ea
+								ON e.EmployeeID = ea.EmployeeID
+								LEFT JOIN EmployeePhotos ep
+								ON ep.EmployeeID = e.EmployeeID"; 
 				emps = connection.Query<AllModels>(query, commandType: CommandType.Text);
 			}
 			return emps.ToList();
@@ -48,14 +67,31 @@ namespace LoginForm.ManagerForm
 
 		private void EditButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
-			string employeeID = Convert.ToString(gvEmployees.GetFocusedRowCellValue("Employee ID"));
-			EmployeeEditForm editForm = new EmployeeEditForm(employeeID);
-			editForm.Show();
+			string employeeID = Convert.ToString(gvEmployees.GetFocusedRowCellValue("EmployeeID"));
+			EmployeeEditForm editForm = new EmployeeEditForm(employeeID, this);
+			editForm.ShowDialog();
 		}
 
 		private void DeleteButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
+			string employeeID = Convert.ToString(gvEmployees.GetFocusedRowCellValue("EmployeeID"));
 
+			DialogResult result = XtraMessageBox.Show(
+			"Are you sure you want to delete this Employee?", "Confirm Delete",
+			MessageBoxButtons.YesNo, MessageBoxIcon.Question
+			);
+
+			if (result == DialogResult.Yes)
+			{
+				using (var connection = new SqlConnection(connectionString))
+				{
+					connection.Open();
+					string deleteSql = "DELETE FROM Employees WHERE EmployeeID = @EmployeeID ";
+					int rowsAffected = connection.Execute(deleteSql, new { EmployeeID = employeeID });
+				}
+				LoadEmployees();
+				XtraMessageBox.Show("Employee Successfully Deleted!");
+			}
 		}
 	}
 

@@ -8,7 +8,8 @@ namespace LoginForm.Models
 {
     public class AllModels
     {
-        //pp
+        //el baso con pp
+        public byte[] EmployeePicture { get; set; }
         //Accounts
         public string AccountUsername { get; set; }
         public string AccountPassword { get; set; }
