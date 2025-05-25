@@ -5,14 +5,20 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dapper;
+using DevExpress.CodeParser;
+using DevExpress.Pdf.Native.BouncyCastle.Utilities.Collections;
+using DevExpress.PivotGrid.OLAP;
 using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
 using EmployeeManagementSystem.Repositories;
 using LoginForm.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LoginForm.Forms
@@ -61,7 +67,7 @@ namespace LoginForm.Forms
 			using (var connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				string query = @"SELECT
+				string query = @"SELECT 
 o.OrderID,
 t.TransactionID,
 e.EmployeeID,
@@ -70,13 +76,13 @@ o.QuantityOrder,
 t.DateDelivered,
 t.DateOrdered,
 o.Status,
-StockName,
-StockStatus
-FROM Employees e
+i.StockName,
+i.StockStatus
+FROM Orders o
 LEFT JOIN Transactions t
-ON e.EmployeeID = t.EmployeeID
-LEFT JOIN Orders o
 ON o.TransactionID = t.TransactionID
+LEFT JOIN Employees e
+ON t.EmployeeID = e.EmployeeID
 LEFT JOIN Inventory i
 ON o.InventoryID = i.InventoryID";
 				emps = connection.Query<AllModels>(query, commandType: CommandType.Text);
@@ -184,9 +190,111 @@ ON o.InventoryID = i.InventoryID";
 			}
 		}
 
-		private void SalesForm_Load(object sender, EventArgs e)
+		private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
+			// Get the focused row handle
+			int rowHandle = gvSales.FocusedRowHandle;
 
+			if (rowHandle >= 0)
+			{
+				// Get data from the selected row
+				int orderID = Convert.ToInt32(gvSales.GetRowCellValue(rowHandle, "OrderID"));
+				var transactionID = gvSales.GetRowCellValue(rowHandle, "TransactionID");
+				var quantityOrder = gvSales.GetRowCellValue(rowHandle, "QuantityOrder");
+				var employeeInCharge = gvSales.GetRowCellValue(rowHandle, "FullName");
+				string employeeID = gvSales.GetRowCellValue(rowHandle, "EmployeeID").ToString();
+				var stockName = gvSales.GetRowCellValue(rowHandle, "StockName");
+				var dateOrdered = gvSales.GetRowCellValue(rowHandle, "DateOrdered");
+				var dateDelivered = gvSales.GetRowCellValue(rowHandle, "DateDelivered");
+				var stockStatus = gvSales.GetRowCellValue(rowHandle, "StockStatus");
+				var status = gvSales.GetRowCellValue(rowHandle, "Status");
+				var unitPrice = gvSales.GetRowCellValue(rowHandle, "UnitPrice");
+
+
+				// Insert into archive table
+				InsertToDeletedSalesTable(employeeID,orderID, transactionID, quantityOrder, employeeInCharge, stockName, dateOrdered, dateDelivered, stockStatus, status, unitPrice);
+
+				// Then remove from original datasource (and database if necessary)
+				DeleteFromSalesTable(orderID, transactionID);
+
+				// Refresh the grid datasource
+				LoadSalesFromDatabase(); // Or however you re-bind the data
+			}
 		}
+		private void InsertToDeletedSalesTable(string employeeID, int orderID, object transactionID, object quantityOrder, object employeeInCharge, object stockName, object dateOrdered, object dateDelivered, object stockStatus, object status, object unitPrice)
+		{
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				string query = @"INSERT INTO [dbo].[TransactionHistory]
+   ([TransactionID]
+   , [OrderID]
+   , [EmployeeID]
+   , [FullName]
+   , [QuantityOrder]
+   , [UnitPrice]
+   , [StockName]
+   , [StockStatus]
+   , [DateDelivered]
+   , [DateOrdered]
+   , [Status])
+VALUES
+   (@TransactionID
+   , @OrderID
+   , @EmployeeID
+   , @FullName
+   , @QuantityOrder
+   , @UnitPrice
+   , @StockName
+   , @StockStatus
+   , @DateDelivered
+   , @DateOrdered
+   , @Status)";
+				
+
+				using (SqlCommand cmd = new SqlCommand(query, con))
+				{
+					cmd.Parameters.AddWithValue("@OrderID", orderID);
+					cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+					cmd.Parameters.AddWithValue("@QuantityOrder", quantityOrder);
+					cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+					cmd.Parameters.AddWithValue("@FullName", employeeInCharge);
+					cmd.Parameters.AddWithValue("@StockName", stockName);
+					cmd.Parameters.AddWithValue("@DateOrdered", dateOrdered);
+					cmd.Parameters.AddWithValue("@DateDelivered", dateDelivered);
+					cmd.Parameters.AddWithValue("@StockStatus", stockStatus);
+					cmd.Parameters.AddWithValue("@Status", status);
+					cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
+
+					con.Open();
+					cmd.ExecuteNonQuery();
+				}
+			}
+		}
+		private void DeleteFromSalesTable(int orderID, object transactionID)
+		{
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				string deleteOrder = "DELETE FROM Orders WHERE OrderID = @OrderID";
+
+				using (SqlCommand cmd = new SqlCommand(deleteOrder, con))
+				{
+					cmd.Parameters.AddWithValue("@OrderID", orderID);
+
+					con.Open();
+					cmd.ExecuteNonQuery();
+				}
+				string deleteTransaction = "DELETE FROM Transactions WHERE TransactionID = @TransactionID";
+
+				using (SqlCommand cmd = new SqlCommand(deleteTransaction, con))
+				{
+					cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+
+					
+					cmd.ExecuteNonQuery();
+				}
+			}
+		}
+
+
 	}
 }

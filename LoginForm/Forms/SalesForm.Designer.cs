@@ -62,7 +62,7 @@
 			deDateOrdered = new DevExpress.XtraEditors.DateEdit();
 			teSearch = new DevExpress.XtraEditors.TextEdit();
 			gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-			repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+			btnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
 			repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
 			gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,7 +72,10 @@
 			gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gvSales = new DevExpress.XtraGrid.Views.Grid.GridView();
 			gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+			gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+			gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gcSales = new DevExpress.XtraGrid.GridControl();
+			gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
 			groupControl1.SuspendLayout();
@@ -85,7 +88,7 @@
 			((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties.CalendarTimeProperties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)teSearch.Properties).BeginInit();
-			((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).BeginInit();
+			((System.ComponentModel.ISupportInitialize)btnDelete).BeginInit();
 			((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)gvSales).BeginInit();
 			((System.ComponentModel.ISupportInitialize)gcSales).BeginInit();
@@ -97,7 +100,7 @@
 			StockStatus.FieldName = "DateOrdered";
 			StockStatus.Name = "StockStatus";
 			StockStatus.Visible = true;
-			StockStatus.VisibleIndex = 5;
+			StockStatus.VisibleIndex = 8;
 			// 
 			// btnSearch
 			// 
@@ -291,19 +294,20 @@
 			// gridColumn11
 			// 
 			gridColumn11.Caption = "Delete";
-			gridColumn11.ColumnEdit = repositoryItemButtonEdit2;
+			gridColumn11.ColumnEdit = btnDelete;
 			gridColumn11.Name = "gridColumn11";
 			gridColumn11.Visible = true;
-			gridColumn11.VisibleIndex = 8;
+			gridColumn11.VisibleIndex = 11;
 			// 
-			// repositoryItemButtonEdit2
+			// btnDelete
 			// 
-			repositoryItemButtonEdit2.AutoHeight = false;
+			btnDelete.AutoHeight = false;
 			editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
-			repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-			repositoryItemButtonEdit2.HideSelection = false;
-			repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
-			repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+			btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+			btnDelete.HideSelection = false;
+			btnDelete.Name = "btnDelete";
+			btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+			btnDelete.ButtonClick += btnDelete_ButtonClick;
 			// 
 			// repositoryItemButtonEdit1
 			// 
@@ -320,7 +324,7 @@
 			gridColumn8.FieldName = "Status";
 			gridColumn8.Name = "gridColumn8";
 			gridColumn8.Visible = true;
-			gridColumn8.VisibleIndex = 7;
+			gridColumn8.VisibleIndex = 10;
 			// 
 			// gridColumn7
 			// 
@@ -328,7 +332,7 @@
 			gridColumn7.FieldName = "DateDelivered";
 			gridColumn7.Name = "gridColumn7";
 			gridColumn7.Visible = true;
-			gridColumn7.VisibleIndex = 6;
+			gridColumn7.VisibleIndex = 9;
 			// 
 			// gridColumn5
 			// 
@@ -336,7 +340,7 @@
 			gridColumn5.FieldName = "FullName";
 			gridColumn5.Name = "gridColumn5";
 			gridColumn5.Visible = true;
-			gridColumn5.VisibleIndex = 3;
+			gridColumn5.VisibleIndex = 4;
 			// 
 			// gridColumn4
 			// 
@@ -364,7 +368,7 @@
 			// 
 			// gvSales
 			// 
-			gvSales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn3, gridColumn4, gridColumn5, gridColumn2, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
+			gvSales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn3, gridColumn4, gridColumn10, gridColumn5, gridColumn2, gridColumn6, gridColumn9, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
 			gridFormatRule1.Column = StockStatus;
 			gridFormatRule1.Name = "Format0";
 			formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
@@ -380,7 +384,23 @@
 			gridColumn2.FieldName = "StockName";
 			gridColumn2.Name = "gridColumn2";
 			gridColumn2.Visible = true;
-			gridColumn2.VisibleIndex = 4;
+			gridColumn2.VisibleIndex = 5;
+			// 
+			// gridColumn6
+			// 
+			gridColumn6.Caption = "Unit Price";
+			gridColumn6.FieldName = "UnitPrice";
+			gridColumn6.Name = "gridColumn6";
+			gridColumn6.Visible = true;
+			gridColumn6.VisibleIndex = 6;
+			// 
+			// gridColumn9
+			// 
+			gridColumn9.Caption = "Stock Status";
+			gridColumn9.FieldName = "StockStatus";
+			gridColumn9.Name = "gridColumn9";
+			gridColumn9.Visible = true;
+			gridColumn9.VisibleIndex = 7;
 			// 
 			// gcSales
 			// 
@@ -388,10 +408,18 @@
 			gcSales.Location = new System.Drawing.Point(297, 0);
 			gcSales.MainView = gvSales;
 			gcSales.Name = "gcSales";
-			gcSales.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemButtonEdit1, repositoryItemButtonEdit2 });
+			gcSales.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemButtonEdit1, btnDelete });
 			gcSales.Size = new System.Drawing.Size(1067, 664);
 			gcSales.TabIndex = 17;
 			gcSales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvSales });
+			// 
+			// gridColumn10
+			// 
+			gridColumn10.Caption = "Employee ID";
+			gridColumn10.FieldName = "EmployeeID";
+			gridColumn10.Name = "gridColumn10";
+			gridColumn10.Visible = true;
+			gridColumn10.VisibleIndex = 3;
 			// 
 			// SalesForm
 			// 
@@ -408,7 +436,6 @@
 			Name = "SalesForm";
 			Text = "SalesForm";
 			WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			Load += SalesForm_Load;
 			((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).EndInit();
 			((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
 			groupControl1.ResumeLayout(false);
@@ -422,7 +449,7 @@
 			((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties.CalendarTimeProperties).EndInit();
 			((System.ComponentModel.ISupportInitialize)deDateOrdered.Properties).EndInit();
 			((System.ComponentModel.ISupportInitialize)teSearch.Properties).EndInit();
-			((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit2).EndInit();
+			((System.ComponentModel.ISupportInitialize)btnDelete).EndInit();
 			((System.ComponentModel.ISupportInitialize)repositoryItemButtonEdit1).EndInit();
 			((System.ComponentModel.ISupportInitialize)gvSales).EndInit();
 			((System.ComponentModel.ISupportInitialize)gcSales).EndInit();
@@ -443,7 +470,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit teSearch;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
@@ -464,5 +491,8 @@
 		private DevExpress.XtraEditors.LabelControl labelControl8;
 		private DevExpress.XtraEditors.LookUpEdit lueInventoryID;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+		private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+		private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+		private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
 	}
 }

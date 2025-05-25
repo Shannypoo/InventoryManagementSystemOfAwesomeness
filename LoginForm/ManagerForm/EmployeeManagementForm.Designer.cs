@@ -118,6 +118,7 @@
 			barButtonItem7.Id = 7;
 			barButtonItem7.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem7.ImageOptions.SvgImage");
 			barButtonItem7.Name = "barButtonItem7";
+			barButtonItem7.ItemClick += barButtonItem7_ItemClick;
 			// 
 			// ribbonPage1
 			// 

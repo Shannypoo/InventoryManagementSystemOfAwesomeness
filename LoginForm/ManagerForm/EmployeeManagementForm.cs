@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraSplashScreen;
+using EmployeeManagementSystem.Forms;
 using LoginForm.Forms;
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,21 @@ namespace LoginForm.ManagerForm
 			this.IsMdiContainer = true;
 			salesForm.MdiParent = this;
 			salesForm.Show();
+		}
+
+		private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			SplashScreenManager.ShowForm(typeof(WaitForm1));
+			SplashScreenManager.Default.SetWaitFormCaption("Please Wait...");
+			SplashScreenManager.Default.SetWaitFormDescription("Loading Transaction History..");
+			Thread.Sleep(1000);
+			SplashScreenManager.CloseForm();
+			CloseAllChildForm();
+
+			TransactionsForm transactionsForm = new TransactionsForm();
+			this.IsMdiContainer = true;
+			transactionsForm.MdiParent = this;
+			transactionsForm.Show();
 		}
 	}
 }
