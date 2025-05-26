@@ -33,14 +33,14 @@
 			InventoryBtn = new DevExpress.XtraBars.BarButtonItem();
 			barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
 			barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+			barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+			barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
 			ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-			barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
 			ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-			barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-			barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+			barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
 			((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
 			SuspendLayout();
 			// 
@@ -69,6 +69,7 @@
 			barButtonItem1.Id = 2;
 			barButtonItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
 			barButtonItem1.Name = "barButtonItem1";
+			barButtonItem1.ItemClick += barButtonItem1_ItemClick;
 			// 
 			// barButtonItem2
 			// 
@@ -76,6 +77,22 @@
 			barButtonItem2.Id = 3;
 			barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
 			barButtonItem2.Name = "barButtonItem2";
+			// 
+			// barButtonItem4
+			// 
+			barButtonItem4.Caption = "Log Out";
+			barButtonItem4.Id = 4;
+			barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
+			barButtonItem4.Name = "barButtonItem4";
+			barButtonItem4.ItemClick += barButtonItem4_ItemClick;
+			// 
+			// barButtonItem5
+			// 
+			barButtonItem5.Caption = "Transaction History";
+			barButtonItem5.Id = 5;
+			barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
+			barButtonItem5.Name = "barButtonItem5";
+			barButtonItem5.ItemClick += barButtonItem5_ItemClick;
 			// 
 			// ribbonPage1
 			// 
@@ -101,33 +118,18 @@
 			ribbonPageGroup3.Name = "ribbonPageGroup3";
 			ribbonPageGroup3.Text = "ribbonPageGroup3";
 			// 
-			// barButtonItem3
-			// 
-			barButtonItem3.Caption = "Inventory";
-			barButtonItem3.Id = 2;
-			barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
-			barButtonItem3.Name = "barButtonItem3";
-			// 
 			// ribbonPageGroup4
 			// 
 			ribbonPageGroup4.ItemLinks.Add(barButtonItem4);
 			ribbonPageGroup4.Name = "ribbonPageGroup4";
 			ribbonPageGroup4.Text = "ribbonPageGroup4";
 			// 
-			// barButtonItem4
+			// barButtonItem3
 			// 
-			barButtonItem4.Caption = "Log Out";
-			barButtonItem4.Id = 4;
-			barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
-			barButtonItem4.Name = "barButtonItem4";
-			barButtonItem4.ItemClick += barButtonItem4_ItemClick;
-			// 
-			// barButtonItem5
-			// 
-			barButtonItem5.Caption = "Transaction History";
-			barButtonItem5.Id = 5;
-			barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
-			barButtonItem5.Name = "barButtonItem5";
+			barButtonItem3.Caption = "Inventory";
+			barButtonItem3.Id = 2;
+			barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
+			barButtonItem3.Name = "barButtonItem3";
 			// 
 			// EmployeeSideForm
 			// 

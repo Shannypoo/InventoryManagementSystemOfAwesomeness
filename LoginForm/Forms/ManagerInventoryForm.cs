@@ -18,6 +18,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static DevExpress.DataProcessing.InMemoryDataProcessor.AddSurrogateOperationAlgorithm;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -33,7 +34,7 @@ namespace LoginForm.Forms
 			LoadCategories();
 			LoadInventory();
 		}
-		private void ClearTextEdits() 
+		private void ClearTextEdits()
 		{
 			teStockName.Clear();
 			teQuantity.Clear();
@@ -41,7 +42,7 @@ namespace LoginForm.Forms
 			cbStockStatus.Clear();
 			teUnitPrice.Clear();
 			meDescription.Clear();
-
+			lpeCategory.Clear();
 		}
 		private void LoadCategories()
 		{
@@ -83,7 +84,7 @@ namespace LoginForm.Forms
 
 		private void InsertIntoInventory(AllModels inventory)
 		{
-			
+
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
 				try
@@ -134,7 +135,7 @@ namespace LoginForm.Forms
 			LoadInventory();
 			ClearTextEdits();
 		}
-		
+
 		private void teSearch_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
 		{
 			gvInventory.ApplyFindFilter(e.NewValue as string);
@@ -199,7 +200,7 @@ namespace LoginForm.Forms
 			string stockStatus = cbStockStatus.Text;
 			string description = meDescription.Text;
 			DateTime lastUpdated = DateTime.Now;
-			
+
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
@@ -221,13 +222,13 @@ namespace LoginForm.Forms
 					});
 
 
-					MessageBox.Show("Employee Edited.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("Item Edited.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					LoadInventory();
 					ClearTextEdits();
 				}
 				catch (Exception ex)
 				{
-					MessageBox.Show($"An error occurred during Adding Employee: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show($"An error occurred during Adding Item: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -235,13 +236,13 @@ namespace LoginForm.Forms
 		private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
 			int itemID = Convert.ToInt32(gvInventory.GetFocusedRowCellValue("InventoryID"));
-			
+
 			DialogResult result = XtraMessageBox.Show(
-			"Are you sure you want to delete this item?","Confirm Delete",
+			"Are you sure you want to delete this item?", "Confirm Delete",
 			MessageBoxButtons.YesNo, MessageBoxIcon.Question
 			);
 
-			if (result == DialogResult.Yes) 
+			if (result == DialogResult.Yes)
 			{
 				using (var connection = new SqlConnection(connectionString))
 				{
@@ -251,9 +252,31 @@ namespace LoginForm.Forms
 				}
 				LoadInventory();
 				XtraMessageBox.Show("Product Successfully Deleted!");
-			} 
-		
-				
+			}
+
+
+		}
+
+		private void gcInventory_DoubleClick(object sender, EventArgs e)
+		{
+			if (gvInventory.FocusedRowHandle >= 0)
+			{
+				var stock = gvInventory.GetRow(gvInventory.FocusedRowHandle) as AllModels;
+				if (stock != null)
+				{
+					teStockName.Text = stock.StockName;
+					lpeCategory.Text = stock.CategoryName;
+					teUnitPrice.Text = stock.UnitPrice.ToString();
+					cbStockStatus.Text = stock.StockStatus;
+					teQuantity.Text = stock.Quantity.ToString();
+					meDescription.Text = stock.Description;
+				}
+			}
+		}
+
+		private void btnClear_Click(object sender, EventArgs e)
+		{
+			ClearTextEdits();
 		}
 	}
 }

@@ -51,6 +51,8 @@
 			txtQuantity = new DevExpress.XtraEditors.TextEdit();
 			labelControl7 = new DevExpress.XtraEditors.LabelControl();
 			groupControl1 = new DevExpress.XtraEditors.GroupControl();
+			labelControl9 = new DevExpress.XtraEditors.LabelControl();
+			lueUnitPrice = new DevExpress.XtraEditors.LookUpEdit();
 			labelControl8 = new DevExpress.XtraEditors.LabelControl();
 			lueInventoryID = new DevExpress.XtraEditors.LookUpEdit();
 			labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -71,14 +73,16 @@
 			gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gvSales = new DevExpress.XtraGrid.Views.Grid.GridView();
+			gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gcSales = new DevExpress.XtraGrid.GridControl();
-			gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+			gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
 			groupControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)lueUnitPrice.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)lueInventoryID.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)teTransactionID.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)lueEmployee.Properties).BeginInit();
@@ -100,7 +104,7 @@
 			StockStatus.FieldName = "DateOrdered";
 			StockStatus.Name = "StockStatus";
 			StockStatus.Visible = true;
-			StockStatus.VisibleIndex = 8;
+			StockStatus.VisibleIndex = 9;
 			// 
 			// btnSearch
 			// 
@@ -177,6 +181,8 @@
 			// groupControl1
 			// 
 			groupControl1.CaptionImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("groupControl1.CaptionImageOptions.SvgImage");
+			groupControl1.Controls.Add(labelControl9);
+			groupControl1.Controls.Add(lueUnitPrice);
 			groupControl1.Controls.Add(labelControl8);
 			groupControl1.Controls.Add(lueInventoryID);
 			groupControl1.Controls.Add(labelControl6);
@@ -199,6 +205,26 @@
 			groupControl1.Size = new System.Drawing.Size(291, 664);
 			groupControl1.TabIndex = 19;
 			groupControl1.Text = "Item Details";
+			// 
+			// labelControl9
+			// 
+			labelControl9.Location = new System.Drawing.Point(150, 158);
+			labelControl9.Name = "labelControl9";
+			labelControl9.Size = new System.Drawing.Size(45, 13);
+			labelControl9.TabIndex = 32;
+			labelControl9.Text = "Unit Price";
+			// 
+			// lueUnitPrice
+			// 
+			lueUnitPrice.Location = new System.Drawing.Point(149, 177);
+			lueUnitPrice.Name = "lueUnitPrice";
+			lueUnitPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+			lueUnitPrice.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("InventoryID", "InventoryID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("StockName", "Item Name"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UnitPrice", "Unit Price") });
+			lueUnitPrice.Properties.DisplayMember = "StockName";
+			lueUnitPrice.Properties.NullText = "";
+			lueUnitPrice.Properties.ValueMember = "UnitPrice";
+			lueUnitPrice.Size = new System.Drawing.Size(123, 28);
+			lueUnitPrice.TabIndex = 31;
 			// 
 			// labelControl8
 			// 
@@ -232,7 +258,7 @@
 			// 
 			teTransactionID.Location = new System.Drawing.Point(12, 177);
 			teTransactionID.Name = "teTransactionID";
-			teTransactionID.Size = new System.Drawing.Size(260, 28);
+			teTransactionID.Size = new System.Drawing.Size(127, 28);
 			teTransactionID.TabIndex = 27;
 			// 
 			// lueEmployee
@@ -297,7 +323,7 @@
 			gridColumn11.ColumnEdit = btnDelete;
 			gridColumn11.Name = "gridColumn11";
 			gridColumn11.Visible = true;
-			gridColumn11.VisibleIndex = 11;
+			gridColumn11.VisibleIndex = 12;
 			// 
 			// btnDelete
 			// 
@@ -324,7 +350,7 @@
 			gridColumn8.FieldName = "Status";
 			gridColumn8.Name = "gridColumn8";
 			gridColumn8.Visible = true;
-			gridColumn8.VisibleIndex = 10;
+			gridColumn8.VisibleIndex = 11;
 			// 
 			// gridColumn7
 			// 
@@ -332,7 +358,7 @@
 			gridColumn7.FieldName = "DateDelivered";
 			gridColumn7.Name = "gridColumn7";
 			gridColumn7.Visible = true;
-			gridColumn7.VisibleIndex = 9;
+			gridColumn7.VisibleIndex = 10;
 			// 
 			// gridColumn5
 			// 
@@ -368,7 +394,7 @@
 			// 
 			// gvSales
 			// 
-			gvSales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn3, gridColumn4, gridColumn10, gridColumn5, gridColumn2, gridColumn6, gridColumn9, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
+			gvSales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn3, gridColumn4, gridColumn10, gridColumn5, gridColumn2, gridColumn6, gridColumn12, gridColumn9, StockStatus, gridColumn7, gridColumn8, gridColumn11 });
 			gridFormatRule1.Column = StockStatus;
 			gridFormatRule1.Name = "Format0";
 			formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
@@ -377,6 +403,14 @@
 			gvSales.GridControl = gcSales;
 			gvSales.GroupPanelText = " ";
 			gvSales.Name = "gvSales";
+			// 
+			// gridColumn10
+			// 
+			gridColumn10.Caption = "Employee ID";
+			gridColumn10.FieldName = "EmployeeID";
+			gridColumn10.Name = "gridColumn10";
+			gridColumn10.Visible = true;
+			gridColumn10.VisibleIndex = 3;
 			// 
 			// gridColumn2
 			// 
@@ -400,7 +434,7 @@
 			gridColumn9.FieldName = "StockStatus";
 			gridColumn9.Name = "gridColumn9";
 			gridColumn9.Visible = true;
-			gridColumn9.VisibleIndex = 7;
+			gridColumn9.VisibleIndex = 8;
 			// 
 			// gcSales
 			// 
@@ -413,13 +447,13 @@
 			gcSales.TabIndex = 17;
 			gcSales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvSales });
 			// 
-			// gridColumn10
+			// gridColumn12
 			// 
-			gridColumn10.Caption = "Employee ID";
-			gridColumn10.FieldName = "EmployeeID";
-			gridColumn10.Name = "gridColumn10";
-			gridColumn10.Visible = true;
-			gridColumn10.VisibleIndex = 3;
+			gridColumn12.Caption = "Total Price";
+			gridColumn12.FieldName = "TotalPrice";
+			gridColumn12.Name = "gridColumn12";
+			gridColumn12.Visible = true;
+			gridColumn12.VisibleIndex = 7;
 			// 
 			// SalesForm
 			// 
@@ -440,6 +474,7 @@
 			((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
 			groupControl1.ResumeLayout(false);
 			groupControl1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)lueUnitPrice.Properties).EndInit();
 			((System.ComponentModel.ISupportInitialize)lueInventoryID.Properties).EndInit();
 			((System.ComponentModel.ISupportInitialize)teTransactionID.Properties).EndInit();
 			((System.ComponentModel.ISupportInitialize)lueEmployee.Properties).EndInit();
@@ -494,5 +529,8 @@
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+		private DevExpress.XtraEditors.LabelControl labelControl9;
+		private DevExpress.XtraEditors.LookUpEdit lueUnitPrice;
+		private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
 	}
 }

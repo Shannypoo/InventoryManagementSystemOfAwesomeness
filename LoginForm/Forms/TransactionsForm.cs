@@ -48,7 +48,9 @@ namespace EmployeeManagementSystem.Forms
       ,[DateOrdered]
       ,[Status]
       ,[OrderID]
-  FROM [Warehouse].[dbo].[TransactionHistory]";
+	  ,TotalPrice
+  FROM [Warehouse].[dbo].[TransactionHistory]
+ORDER BY DateDelivered DESC";
 				emps = connection.Query<AllModels>(query, commandType: CommandType.Text);
 			}
 			return emps.ToList();

@@ -48,6 +48,7 @@ namespace LoginForm.Models
         public string EmployeeInCharge { get; set; }
 
         // Sales
+        public double TotalPrice { get; set; } 
         public int OrderID { get; set; }
         public string TransactionID { get; set; }
         public string Status { get; set; }

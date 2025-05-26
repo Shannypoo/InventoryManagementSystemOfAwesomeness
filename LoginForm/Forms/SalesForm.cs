@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Printing;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,7 @@ namespace LoginForm.Forms
 			LoadEmployees();
 			teTransactionID.Text = GenerateID();
 			LoadInventory();
+			LoadPrices();
 		}
 		private void ClearText()
 		{
@@ -77,7 +79,10 @@ t.DateDelivered,
 t.DateOrdered,
 o.Status,
 i.StockName,
-i.StockStatus
+i.StockStatus,
+i.UnitPrice,
+i.UnitPrice * o.QuantityOrder AS TotalPrice
+
 FROM Orders o
 LEFT JOIN Transactions t
 ON o.TransactionID = t.TransactionID
@@ -112,6 +117,18 @@ ON o.InventoryID = i.InventoryID";
 
 				var inv = connection.Query<AllModels>(query).ToList();
 				lueInventoryID.Properties.DataSource = inv;
+			}
+		}
+		private void LoadPrices()
+		{
+			string query = "SELECT\r\ni.InventoryID,\r\ni.StockName\r\n, i.UnitPrice FROM Inventory i";
+
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				connection.Open();
+
+				var inv = connection.Query<AllModels>(query).ToList();
+				lueUnitPrice.Properties.DataSource = inv;
 			}
 		}
 
@@ -149,6 +166,7 @@ ON o.InventoryID = i.InventoryID";
 
 		}
 
+
 		private void btnAddItem_Click(object sender, EventArgs e)
 		{
 			string Quantity = txtQuantity.Text.Trim();
@@ -158,6 +176,7 @@ ON o.InventoryID = i.InventoryID";
 			string EmployeeInCharge = lueEmployee.EditValue.ToString();
 			string Status = cbStatus.EditValue.ToString();
 			string InventoryID = lueInventoryID.EditValue.ToString();
+			int UnitPrice = Convert.ToInt32(lueUnitPrice.EditValue);
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
@@ -173,15 +192,16 @@ ON o.InventoryID = i.InventoryID";
 
 				});
 
-				string InsertOrder = @"INSERT INTO Orders (Status, InventoryID, TransactionID, QuantityOrder)
-                                                    VALUES (@Status, @InventoryID, @TransactionID, @QuantityOrder)";
+				string InsertOrder = @"INSERT INTO Orders (Status, InventoryID, TransactionID, QuantityOrder, UnitPrice)
+                                                    VALUES (@Status, @InventoryID, @TransactionID, @QuantityOrder, @UnitPrice)";
 
 				connection.Execute(InsertOrder, new
 				{
 					Status = Status,
 					InventoryID = InventoryID,
 					TransactionID = TransactionID,
-					QuantityOrder = Quantity
+					QuantityOrder = Quantity,
+					UnitPrice = UnitPrice,
 				});
 				LoadSalesFromDatabase();
 				MessageBox.Show("Order Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -209,10 +229,10 @@ ON o.InventoryID = i.InventoryID";
 				var stockStatus = gvSales.GetRowCellValue(rowHandle, "StockStatus");
 				var status = gvSales.GetRowCellValue(rowHandle, "Status");
 				var unitPrice = gvSales.GetRowCellValue(rowHandle, "UnitPrice");
-
+				var totalPrice = gvSales.GetRowCellValue(rowHandle, "TotalPrice");
 
 				// Insert into archive table
-				InsertToDeletedSalesTable(employeeID,orderID, transactionID, quantityOrder, employeeInCharge, stockName, dateOrdered, dateDelivered, stockStatus, status, unitPrice);
+				InsertToDeletedSalesTable(totalPrice, employeeID, orderID, transactionID, quantityOrder, employeeInCharge, stockName, dateOrdered, dateDelivered, stockStatus, status, unitPrice);
 
 				// Then remove from original datasource (and database if necessary)
 				DeleteFromSalesTable(orderID, transactionID);
@@ -221,7 +241,7 @@ ON o.InventoryID = i.InventoryID";
 				LoadSalesFromDatabase(); // Or however you re-bind the data
 			}
 		}
-		private void InsertToDeletedSalesTable(string employeeID, int orderID, object transactionID, object quantityOrder, object employeeInCharge, object stockName, object dateOrdered, object dateDelivered, object stockStatus, object status, object unitPrice)
+		private void InsertToDeletedSalesTable(object totalPrice, string employeeID, int orderID, object transactionID, object quantityOrder, object employeeInCharge, object stockName, object dateOrdered, object dateDelivered, object stockStatus, object status, object unitPrice)
 		{
 			using (SqlConnection con = new SqlConnection(connectionString))
 			{
@@ -236,7 +256,8 @@ ON o.InventoryID = i.InventoryID";
    , [StockStatus]
    , [DateDelivered]
    , [DateOrdered]
-   , [Status])
+   , [Status]
+,TotalPrice) 
 VALUES
    (@TransactionID
    , @OrderID
@@ -248,7 +269,8 @@ VALUES
    , @StockStatus
    , @DateDelivered
    , @DateOrdered
-   , @Status)";
+   , @Status
+,@TotalPrice)";
 				
 
 				using (SqlCommand cmd = new SqlCommand(query, con))
@@ -264,6 +286,7 @@ VALUES
 					cmd.Parameters.AddWithValue("@StockStatus", stockStatus);
 					cmd.Parameters.AddWithValue("@Status", status);
 					cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
+					cmd.Parameters.AddWithValue("@TotalPrice", totalPrice);
 
 					con.Open();
 					cmd.ExecuteNonQuery();

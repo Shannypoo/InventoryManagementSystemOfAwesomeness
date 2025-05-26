@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraSplashScreen;
+using EmployeeManagementSystem.Forms;
 using LoginForm.Forms;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,36 @@ namespace LoginForm.EmployeeForm
 			LoginForm loginForm = new LoginForm();
 			this.Close();
 			loginForm.Show();
+		}
+
+		private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			SplashScreenManager.ShowForm(typeof(WaitForm1));
+			SplashScreenManager.Default.SetWaitFormCaption("Please Wait...");
+			SplashScreenManager.Default.SetWaitFormDescription("Loading Inventory...");
+			Thread.Sleep(1000);
+			SplashScreenManager.CloseForm();
+			CloseAllChildForm();
+
+			SalesForm salesForm = new SalesForm();
+			this.IsMdiContainer = true;
+			salesForm.MdiParent = this;
+			salesForm.Show();
+		}
+
+		private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			SplashScreenManager.ShowForm(typeof(WaitForm1));
+			SplashScreenManager.Default.SetWaitFormCaption("Please Wait...");
+			SplashScreenManager.Default.SetWaitFormDescription("Loading Inventory...");
+			Thread.Sleep(1000);
+			SplashScreenManager.CloseForm();
+			CloseAllChildForm();
+
+			TransactionsForm transForm = new TransactionsForm();
+			this.IsMdiContainer = true;
+			transForm.MdiParent = this;
+			transForm.Show();
 		}
 	}
 }

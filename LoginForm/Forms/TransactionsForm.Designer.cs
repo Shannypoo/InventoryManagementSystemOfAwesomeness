@@ -43,6 +43,7 @@
 			gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
 			labelControl1 = new DevExpress.XtraEditors.LabelControl();
 			teSearch = new DevExpress.XtraEditors.TextEdit();
+			gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)gcTransaction).BeginInit();
 			((System.ComponentModel.ISupportInitialize)gvTransaction).BeginInit();
 			((System.ComponentModel.ISupportInitialize)teSearch.Properties).BeginInit();
@@ -54,13 +55,13 @@
 			gcTransaction.Location = new System.Drawing.Point(0, 0);
 			gcTransaction.MainView = gvTransaction;
 			gcTransaction.Name = "gcTransaction";
-			gcTransaction.Size = new System.Drawing.Size(832, 416);
+			gcTransaction.Size = new System.Drawing.Size(832, 414);
 			gcTransaction.TabIndex = 0;
 			gcTransaction.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvTransaction });
 			// 
 			// gvTransaction
 			// 
-			gvTransaction.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11, gridColumn12 });
+			gvTransaction.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn1, gridColumn8, gridColumn9, gridColumn10, gridColumn11, gridColumn12 });
 			gvTransaction.GridControl = gcTransaction;
 			gvTransaction.GroupPanelText = " ";
 			gvTransaction.Name = "gvTransaction";
@@ -119,7 +120,7 @@
 			gridColumn8.FieldName = "StockName";
 			gridColumn8.Name = "gridColumn8";
 			gridColumn8.Visible = true;
-			gridColumn8.VisibleIndex = 6;
+			gridColumn8.VisibleIndex = 7;
 			// 
 			// gridColumn9
 			// 
@@ -127,7 +128,7 @@
 			gridColumn9.FieldName = "StockStatus";
 			gridColumn9.Name = "gridColumn9";
 			gridColumn9.Visible = true;
-			gridColumn9.VisibleIndex = 7;
+			gridColumn9.VisibleIndex = 8;
 			// 
 			// gridColumn10
 			// 
@@ -135,7 +136,7 @@
 			gridColumn10.FieldName = "DateDelivered";
 			gridColumn10.Name = "gridColumn10";
 			gridColumn10.Visible = true;
-			gridColumn10.VisibleIndex = 8;
+			gridColumn10.VisibleIndex = 9;
 			// 
 			// gridColumn11
 			// 
@@ -143,7 +144,7 @@
 			gridColumn11.FieldName = "DateOrdered";
 			gridColumn11.Name = "gridColumn11";
 			gridColumn11.Visible = true;
-			gridColumn11.VisibleIndex = 9;
+			gridColumn11.VisibleIndex = 10;
 			// 
 			// gridColumn12
 			// 
@@ -151,7 +152,7 @@
 			gridColumn12.FieldName = "Status";
 			gridColumn12.Name = "gridColumn12";
 			gridColumn12.Visible = true;
-			gridColumn12.VisibleIndex = 10;
+			gridColumn12.VisibleIndex = 11;
 			// 
 			// labelControl1
 			// 
@@ -171,11 +172,19 @@
 			teSearch.TabIndex = 2;
 			teSearch.EditValueChanging += teSearch_EditValueChanging;
 			// 
+			// gridColumn1
+			// 
+			gridColumn1.Caption = "Total Price";
+			gridColumn1.FieldName = "TotalPrice";
+			gridColumn1.Name = "gridColumn1";
+			gridColumn1.Visible = true;
+			gridColumn1.VisibleIndex = 6;
+			// 
 			// TransactionsForm
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			ClientSize = new System.Drawing.Size(832, 416);
+			ClientSize = new System.Drawing.Size(832, 414);
 			ControlBox = false;
 			Controls.Add(teSearch);
 			Controls.Add(labelControl1);
@@ -207,5 +216,6 @@
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+		private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 	}
 }
