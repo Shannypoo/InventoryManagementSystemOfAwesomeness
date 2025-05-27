@@ -185,6 +185,11 @@ namespace LoginForm.Forms
                 PasswordTe.Focus();
                 return false;
             }
+            if (imageData == null)
+            {
+                MessageBox.Show("Please select an employee picture.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
             return true;
         }
@@ -344,10 +349,6 @@ namespace LoginForm.Forms
                 {
                     XtraMessageBox.Show("Error: " + ex.Message, "Error saving image", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                XtraMessageBox.Show("Please select an image to save.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
