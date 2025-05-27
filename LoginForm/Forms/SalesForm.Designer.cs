@@ -76,9 +76,9 @@
 			gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+			gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
 			gcSales = new DevExpress.XtraGrid.GridControl();
-			gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)txtQuantity.Properties).BeginInit();
 			((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
 			groupControl1.SuspendLayout();
@@ -220,7 +220,7 @@
 			lueUnitPrice.Name = "lueUnitPrice";
 			lueUnitPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
 			lueUnitPrice.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("InventoryID", "InventoryID"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("StockName", "Item Name"), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UnitPrice", "Unit Price") });
-			lueUnitPrice.Properties.DisplayMember = "StockName";
+			lueUnitPrice.Properties.DisplayMember = "UnitPrice";
 			lueUnitPrice.Properties.NullText = "";
 			lueUnitPrice.Properties.ValueMember = "UnitPrice";
 			lueUnitPrice.Size = new System.Drawing.Size(123, 28);
@@ -428,6 +428,14 @@
 			gridColumn6.Visible = true;
 			gridColumn6.VisibleIndex = 6;
 			// 
+			// gridColumn12
+			// 
+			gridColumn12.Caption = "Total Price";
+			gridColumn12.FieldName = "TotalPrice";
+			gridColumn12.Name = "gridColumn12";
+			gridColumn12.Visible = true;
+			gridColumn12.VisibleIndex = 7;
+			// 
 			// gridColumn9
 			// 
 			gridColumn9.Caption = "Stock Status";
@@ -446,14 +454,6 @@
 			gcSales.Size = new System.Drawing.Size(1067, 664);
 			gcSales.TabIndex = 17;
 			gcSales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gvSales });
-			// 
-			// gridColumn12
-			// 
-			gridColumn12.Caption = "Total Price";
-			gridColumn12.FieldName = "TotalPrice";
-			gridColumn12.Name = "gridColumn12";
-			gridColumn12.Visible = true;
-			gridColumn12.VisibleIndex = 7;
 			// 
 			// SalesForm
 			// 

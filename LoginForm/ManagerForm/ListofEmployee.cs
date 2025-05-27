@@ -88,7 +88,7 @@ namespace LoginForm.ManagerForm
 					connection.Open();
 					string deleteSql = "DELETE FROM Employees WHERE EmployeeID = @EmployeeID ";
 					string deleteAccount = "DELETE FROM EmployeeAccounts WHERE EmployeeID = @EmployeeID";
-					string deletePhoto = "DELETE FROM EmployeePhotos WHEREE EmployeeID = @EmployeeID";
+					string deletePhoto = "DELETE FROM EmployeePhotos WHERE EmployeeID = @EmployeeID";
 					int rowsAffected = connection.Execute(deleteSql, new { EmployeeID = employeeID });
 					int rowsAffected2 = connection.Execute(deleteAccount, new { EmployeeID = employeeID });
 					int rowsAffected3 = connection.Execute(deletePhoto, new { EmployeeID = employeeID });
